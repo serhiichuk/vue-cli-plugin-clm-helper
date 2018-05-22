@@ -1,23 +1,39 @@
-module.exports = (api, options) => {
 
-  // register `vue-cli-service`
-  api.registerCommand('generate', {
-    usage: 'vue-cli-service generate',
+const commands = {
+  generate: {
+    description: 'Generate each slide component',
+    usage: 'yarn/npm generate'
+  },
+
+  data: {
+    description: 'Util for data',
+    usage: 'yarn/npm data <optios>',
     options: {
-      '--add': `open browser on server start`,
-      '--mode': `specify env mode (default: development)`
+      '--ru': ``
     }
-  }, function generate(args) {
-    require('./bin/gererate')(args)
-  });
+  },
 
-  // register `vue-cli-service`
-  api.registerCommand('build', args => {
-    require('./bin/build')(args);
-  });
+  build: {
+    description: 'Build CLM for production',
+    usage: 'yarn/npm build <clm-name> [options]',
+    options: {
+      '--veeva': `-V`,
+      '--no-screens': ``,
+      '--no-clear-assets': ``
+    }
+  }
+};
 
-  // register `vue-cli-service`
-  api.registerCommand('data', args => {
-    require('./bin/data')(args);
-  })
+/**
+ * Register each command for `vue-cli-service <command>`
+ *
+ * @param api
+ * @param projectOptions
+ */
+module.exports = (api, projectOptions) => {
+  for (let command in commands) {
+    api.registerCommand(command, commands[command], args => {
+      require(`./commands/${command}`)(api, projectOptions, args)
+    });
+  }
 };
