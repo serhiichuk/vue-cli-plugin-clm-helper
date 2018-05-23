@@ -6,7 +6,12 @@ module.exports = (api, options, rootOptions) => {
   api.extendPackage({
     scripts: {
       generate: 'vue-cli-service generate',
-      data: 'vue-cli-service data'
+      data: 'vue-cli-service data',
+      dev: 'vue-cli-service serve'
+    },
+    vue: {
+      baseUrl: './',
+      productionSourceMap: false
     }
   });
 

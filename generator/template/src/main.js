@@ -1,19 +1,16 @@
 import Vue from 'vue'
 import App from '@/App'
 import store from '@/app/store'
+import {dev, prod} from '@/app/router'
 
 const isDev = process.env.NODE_ENV === 'development';
 
-const routerPath = isDev
-  ? 'app/router/dev'
-  : 'app/router/prod';
+// Disable dev-tools extension in production
+Vue.config.productionTip = !isDev;
 
-import('@/' + routerPath).then(module => {
-  new Vue({
+new Vue({
     el: '#app',
     store,
-    router: module.default || module,
-    components: {App},
-    template: '<App/>'
-  });
+    router: isDev ? dev : prod,
+    render: h => h(App)
 });
