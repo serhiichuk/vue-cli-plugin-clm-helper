@@ -3,5 +3,8 @@
   "version": "0.0.2",
   "author": "serhiichuk",
   "license": "MIT",
-  "main": "index.js"
+  "main": "index.js",
+  "dependencies": {
+    "webpack": "^4.8.3"
+  }
 }

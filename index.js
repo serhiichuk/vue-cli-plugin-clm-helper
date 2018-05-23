@@ -17,7 +17,7 @@ const commands = {
     description: 'Build CLM for production',
     usage: 'yarn/npm build <clm-name> [options]',
     options: {
-      '--veeva': `-V`,
+      '--veeva': ``,
       '--no-screens': ``,
       '--no-clear-assets': ``
     }
@@ -36,4 +36,9 @@ module.exports = (api, projectOptions) => {
       require(`./commands/${command}`)(api, projectOptions, args)
     });
   }
+};
+
+// make sure to specify the default mode for correct env variables
+module.exports.defaultModes = {
+  'build': 'production'
 };

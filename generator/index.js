@@ -11,5 +11,5 @@ module.exports = (api, options, rootOptions) => {
   });
 
   // copy and render all files in ./template with ejs
-  // api.render('./template');
+  api.render('./template');
 };
