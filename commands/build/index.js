@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const fs = require('fs-extra');
 const path = require('path');
 const {paths} = require('../../lib/config');
 const {clm, structure} = require(paths.clm.config);

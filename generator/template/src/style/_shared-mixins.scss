@@ -1,0 +1,18 @@
+@mixin flexCentered() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin transformCentered() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin textCenter() {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
