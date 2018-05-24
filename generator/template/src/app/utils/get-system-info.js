@@ -1,4 +1,3 @@
-
 /**
  * Determine the local IP from your computer.
  * This async function returns local IP in following format: 'XXX.XXX.XX.XXX'

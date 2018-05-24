@@ -8,18 +8,6 @@ module.exports = (api, options, rootOptions) => {
       generate: 'vue-cli-service generate',
       data: 'vue-cli-service data',
       dev: 'vue-cli-service serve'
-    },
-    vue: {
-      baseUrl: './',
-      css: {
-        loaderOptions: {
-          sass: {
-            // Share global sass-file to all sass styles
-            data: fs.readFileSync('./src/style/shared-globals.scss', 'utf-8')
-          }
-        }
-      },
-      productionSourceMap: false
     }
   });
 

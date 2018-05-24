@@ -1,10 +1,11 @@
 <template>
-  <p>Slide Main</p>
+  <div>
+    <p>Slide Main</p>
+  </div>
 </template>
 
 <script>
   export default {
-    id: "slide-main"
   }
 </script>
 

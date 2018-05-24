@@ -1,18 +1,16 @@
 <template>
   <div>
     <p>Slide 1</p>
+    <router-link to="/slide-main">slide-main</router-link>
+    <devp/>
   </div>
 </template>
 
 <script>
+  import devp from '../components/development-page'
 
   export default {
-    id: "slide-1_1",
-    components: {
-    },
-    created() {
-      console.log(this.$options.id);
-    }
+    components: {devp}
   }
 </script>
 
