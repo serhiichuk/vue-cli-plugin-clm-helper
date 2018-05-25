@@ -9,7 +9,7 @@ module.exports = async (api, projectOptions, args) => {
    * Parse and validate args
    */
 
-    // Valid commands and options
+  // Valid commands and options
   const commands = {
       clm: {
         'PT': 'pharma-touch',
@@ -32,10 +32,13 @@ module.exports = async (api, projectOptions, args) => {
   const _args = {clm: {}, options: {}};
   for (const command in commands) for (const optionShort in  commands[command]) {
     const optionLong = commands[command][optionShort];
-    const commandOptions = args[command].split(',');
 
-    if (commandOptions.includes(optionShort) || commandOptions.includes(optionLong)) {
-      _args[command][optionLong] = true
+    if (args[command]) {
+      const commandOptions = args[command].split(',');
+
+      if (commandOptions.includes(optionShort) || commandOptions.includes(optionLong)) {
+        _args[command][optionLong] = true
+      }
     }
   }
 
