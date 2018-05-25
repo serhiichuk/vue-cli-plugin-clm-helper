@@ -10,4 +10,3 @@ module.exports = fs.readdirSync(__dirname).map(file => {
     ? fs.readFileSync(`${__dirname}\\${file}`, 'utf8')
     : '';
 }).join('\n');
-

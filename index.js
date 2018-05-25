@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 
 const commands = {
   generate: {
@@ -15,11 +16,10 @@ const commands = {
 
   build: {
     description: 'Build CLM for production',
-    usage: 'yarn/npm build <clm-name> [options]',
+    usage: 'yarn/npm build <clm> [clm-name] <options> [option]',
     options: {
-      '--veeva': ``,
-      '--no-screens': ``,
-      '--no-clear-assets': ``
+      '--clm': ``,
+      '--options': ``
     }
   }
 };

@@ -23,6 +23,7 @@ export default {
     },
     computed: {
       data() {
+        console.log(this.slide);
         return allData[this.slide.path.replace(/^slides/, this.$store.state.lang)]
       },
       t() {
@@ -38,8 +39,8 @@ export default {
        * Each 'slide-component' must be named under rule: 'slide-[flow-num|name]_[slide-num].vue'
        */
 
-      const componentPath = this.$options.__file;
-      const isSlide = /(?=.*\\slide-)(?=.*\.vue)/gi.test(componentPath); // match '\slide-' and '.vue'
+      const componentPath = this.$options.__file || process.env.VUE_APP_SL_PATH;
+      const isSlide = /(?=.*slides(\\|\/))(?=.*slide-)/gi.test(componentPath); // match 'slides\' and 'slide-'
 
       if (isSlide) {
         this.slide.id = isDev
@@ -48,7 +49,7 @@ export default {
 
         this.slide.path = isDev
           ? componentPath.replace(/(?:^src\\)|(?:\.vue)/gi, '').replace(/\\/, '/')
-          : process.env.VUE_APP_SL_PATH;
+          : componentPath
 
       } else { // This code will run when this mixin was included in 'non-slide-component;
         if (isDev) {

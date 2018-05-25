@@ -17,7 +17,6 @@ export default new Vuex.Store({
         state.lang = lang;
         sessionStorage.setItem('lang', lang)
       }
-    },
-  },
-  actions: {}
+    }
+  }
 })
