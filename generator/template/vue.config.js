@@ -5,8 +5,8 @@ module.exports = {
   css: {
     loaderOptions: {
     	sass: {
-        // Share global sass-file to all sass styles
-        data: require('fs').readFileSync('./src/style/shared-globals.scss', 'utf-8')
+        // Enable all sass-files in dir 'shared' to all sass styles
+        data: require('./src/style/shared')
       }
     }
   }

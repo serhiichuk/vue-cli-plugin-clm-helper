@@ -1,15 +1,38 @@
 <template>
   <div id="app">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam beatae laboriosam laborum neque numquam obcaecati repudiandae. Atque excepturi harum illum incidunt iste odit, praesentium ullam. Ab aliquam magnam quis ut?</p>
     <router-view/>
   </div>
 </template>
 
 <script>
   export default {
+    beforeUpdate() {
+      const clm = ['veeva', 'pharma-touch', 'mi-touch'];
+      const appEl = document.getElementById('app');
+
+      clm.forEach(key => {
+        if (sessionStorage.getItem(`clm-elements-${key}`) === 'true') {
+          appEl.setAttribute(`clm-elements-${key}`, 'true')
+        } else {
+          appEl.removeAttribute(`clm-elements-${key}`);
+        }
+      });
+    }
   }
 </script>
 
-<style>
+<style lang="scss">
+  #app {
+    &[clm-elements-veeva=true] {
+      &:before {
+        content: 'asd';
+        position: fixed;
+        top: 0;
+        z-index: 99999;
+
+        font-size: 2em;
+      }
+    }
+  }
 
 </style>

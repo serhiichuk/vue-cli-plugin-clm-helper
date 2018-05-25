@@ -26,7 +26,8 @@
 
     created() {
       if (this.bem && !this.inheritClassName) {
-        console.warn('[JsonToDom] Conflict props: For using BEM in prop "inheritClassName" value must be "true", you pass: ' + this.inheritClassName);
+        console.warn('[Warm]: JsonToDo, conflict props: For using BEM in prop "inheritClassName" ' +
+          'value must be "true", you pass: ' + this.inheritClassName);
       }
     },
 
@@ -122,6 +123,5 @@
           parentClassName: root.class
         })));
     }
-
   };
 </script>
