@@ -55,11 +55,14 @@ module.exports = async (api, projectOptions, args) => {
     stopSpinner
   } = require('@vue/cli-shared-utils');
 
+  let buildInfo = `Building for [${Object.keys(_args.clm).join(', ')}]`;
+  if (_args.options) buildInfo += `with options: [${Object.keys(_args.options).join(', ')}]...`;
+
   log();
-  logWithSpinner(`Building for [${Object.keys(_args.clm).join(', ')}] with options: [${Object.keys(_args.options).join(', ')}] ...`);
+  logWithSpinner(buildInfo);
 
   /** Create screens **/
-  if (!_args['no-screens']) await require('../../lib/screens-maker')(api, projectOptions);
+  if (!_args['no-screens']) await require('../../lib/screens-maker')();
 
   /** Webpack build for necessary CLM-systems **/
   // const {clm, structure} = require(paths.clm.config);
@@ -76,4 +79,6 @@ module.exports = async (api, projectOptions, args) => {
   //
   //   await webpackSlideBuild(api, projectOptions, startConfig)
   // }
+  done('Build complete');
+  process.exit(0)
 };
