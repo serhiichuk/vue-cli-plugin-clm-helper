@@ -27,7 +27,7 @@ function parseArgs(args) {
     options: {
       'ns': 'no-screens',
       'nca': 'no-clear-assets'
-    }
+    },
   };
 
   // arg 'clm' is required
@@ -76,8 +76,8 @@ async function runBuild({clm, options = {}}) {
     buildInfo += `, with options: ${chalk.cyan(Object.keys(options).join(', '))}`;
   }
 
-  log();
-  logWithSpinner(buildInfo);
+  info(buildInfo);
+  // logWithSpinner(buildInfo);
 
   /** Create screens **/
   if (!options['no-screens']) await require('../../lib/screens-maker')();
@@ -100,5 +100,14 @@ async function runBuild({clm, options = {}}) {
 
   log();
   done('Build complete');
-  process.exit(0)
+  killAllNodeProcesses();
+}
+
+function killAllNodeProcesses() {
+  const {exec} = require('child_process');
+  const os = require('os');
+
+  if (os.platform() ==='win32') {
+    exec(`taskkill -F -IM node.exe`)
+  }
 }
