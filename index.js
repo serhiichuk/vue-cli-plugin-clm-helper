@@ -14,7 +14,7 @@ const commands = {
     }
   },
 
-  build: {
+  'build-clm': {
     description: 'Build CLM for production',
     usage: 'yarn/npm build <clm> [clm-name] <options> [option]',
     options: {

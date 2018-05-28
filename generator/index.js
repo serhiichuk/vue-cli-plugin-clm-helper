@@ -5,9 +5,11 @@ module.exports = (api, options, rootOptions) => {
   // modify package.json fields
   api.extendPackage({
     scripts: {
-      generate: 'vue-cli-service generate',
+      build: 'vue-cli-service build-clm',
+      'build-standard': 'vue-cli-service build',
       data: 'vue-cli-service data',
-      dev: 'vue-cli-service serve'
+      dev: 'vue-cli-service serve',
+      generate: 'vue-cli-service generate'
     }
   });
 
