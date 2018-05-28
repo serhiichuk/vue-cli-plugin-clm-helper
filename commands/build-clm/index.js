@@ -2,13 +2,19 @@
 const path = require('path');
 const chalk = require('chalk');
 const {paths} = require('../../lib/config');
-
+let {structure} = require(paths.clm.config);
 
 module.exports = async (api, projectOptions, args) => {
-  const commands = parseArgs(args);
+  args = parseArgs(args);
 
+  structure = structure.filter(sl => {
+    console.log(args.filter.test(sl.id), sl.id, args.filter);
+    return args.filter.test(sl.id);
+  });
+
+  console.log(structure);
   /** Run Build **/
-  await runBuild(commands);
+  // await runBuild(api, projectOptions, args);
 };
 
 /**
@@ -28,6 +34,7 @@ function parseArgs(args) {
       'ns': 'no-screens',
       'nca': 'no-clear-assets'
     },
+    filter: ''
   };
 
   // arg 'clm' is required
@@ -37,12 +44,18 @@ function parseArgs(args) {
     process.exit(0);
   }
 
-  // Set validated commands to 'args.commands'
   const result = {};
 
   for (let command in commands) {
     // Command can be long '--clm' or short '-c'
     args[command] = args[command] || args[command[0]];
+    // Set validated commands to necessary key in 'result'
+    result[command] = {};
+
+    // filter can be any string value
+    if (command === 'filter') {
+      result[command] = new RegExp(args[command])
+    }
 
     for (const key in  commands[command]) {
       const optionShort = key;
@@ -52,7 +65,6 @@ function parseArgs(args) {
         const commandOptions = args[command].split(',');
 
         if (commandOptions.includes(optionShort) || commandOptions.includes(optionLong)) {
-          result[command] = {};
           result[command][optionLong] = true
         }
       }
@@ -62,7 +74,7 @@ function parseArgs(args) {
   return result;
 }
 
-async function runBuild({clm, options = {}}) {
+async function runBuild(api, projectOptions, args) {
   const {
     log,
     done,
@@ -71,9 +83,10 @@ async function runBuild({clm, options = {}}) {
     stopSpinner
   } = require('@vue/cli-shared-utils');
 
-  let buildInfo = `Building for ${chalk.yellow(Object.keys(clm).join(', '))}`;
-  if (Object.keys(options).length) {
-    buildInfo += `, with options: ${chalk.cyan(Object.keys(options).join(', '))}`;
+  let buildInfo = `Building for ${chalk.yellow(Object.keys(args.clm).join(', '))}`;
+
+  if (Object.keys(args.options).length) {
+    buildInfo += `, with options: ${chalk.cyan(Object.keys(args.options).join(', '))}`;
   }
 
   info(buildInfo);
