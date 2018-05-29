@@ -9,10 +9,8 @@ module.exports = async (api, projectOptions, args) => {
   args = parseArgs(args);
   const slidesToBuild = getFilteredSlidesToBuild(args.filter);
 
-  console.log(slidesToBuild);
-
   /** Run Build **/
-  await runBuild(api, projectOptions, args, structure);
+  await runBuild(api, projectOptions, args, slidesToBuild);
 
 
   /** Finish Build **/
@@ -20,20 +18,22 @@ module.exports = async (api, projectOptions, args) => {
   killAllNodeProcesses();
 };
 
-async function runBuild(api, projectOptions, args, structure) {
+async function runBuild(api, projectOptions, args, slidesToBuild) {
   info(`Building for ${chalk.yellow(Object.keys(args.clm).join(', '))}.`);
   if (Object.keys(args.options).length) info(`Options: ${chalk.green(Object.keys(args.options).join(', '))}`);
   if (args.filter) info(`Filter: ${chalk.green(args.filter)}`);
 
   /** Create screens **/
-  if (!args.options['no-screens']) await require('../../lib/screens-maker')(structure);
+  if (!args.options['no-screens']) await require('../../lib/screens-maker')(slidesToBuild);
 
   /** Webpack build for necessary CLM-systems **/
   process.env.NODE_ENV = 'production';
 
   for (let clm of Object.keys(args.clm)) {
-    await require(`./build-${clm}`)(api, projectOptions, structure)
+    await require(`./build-${clm}`)(api, projectOptions, args, slidesToBuild, clm)
   }
+
+  return new Promise(resolve => resolve())
 }
 
 /**
@@ -118,6 +118,7 @@ function killAllNodeProcesses() {
   const os = require('os');
 
   if (os.platform() === 'win32') {
-    exec(`taskkill -F -IM node.exe`)
+    exec(`taskkill -F -IM node.exe`);
+    process.exit(0);
   }
 }
