@@ -2,25 +2,17 @@
 const path = require('path');
 const chalk = require('chalk');
 const {paths} = require('../../lib/config');
-const {
-  log,
-  done,
-  info,
-  logWithSpinner,
-  stopSpinner
-} = require('@vue/cli-shared-utils');
-let {structure} = require(paths.clm.config);
-
+const {log, done, info, logWithSpinner, stopSpinner} = require('@vue/cli-shared-utils');
+let {structure, languages} = require(paths.clm.config);
 
 module.exports = async (api, projectOptions, args) => {
   args = parseArgs(args);
+  const slidesToBuild = getFilteredSlidesToBuild(args.filter);
 
-  structure = structure.filter(sl => {
-    return args.filter.test(sl.id);
-  });
-  console.log(structure);
+  console.log(slidesToBuild);
+
   /** Run Build **/
-  // await runBuild(api, projectOptions, args, structure);
+  await runBuild(api, projectOptions, args, structure);
 
 
   /** Finish Build **/
@@ -28,6 +20,21 @@ module.exports = async (api, projectOptions, args) => {
   killAllNodeProcesses();
 };
 
+async function runBuild(api, projectOptions, args, structure) {
+  info(`Building for ${chalk.yellow(Object.keys(args.clm).join(', '))}.`);
+  if (Object.keys(args.options).length) info(`Options: ${chalk.green(Object.keys(args.options).join(', '))}`);
+  if (args.filter) info(`Filter: ${chalk.green(args.filter)}`);
+
+  /** Create screens **/
+  if (!args.options['no-screens']) await require('../../lib/screens-maker')(structure);
+
+  /** Webpack build for necessary CLM-systems **/
+  process.env.NODE_ENV = 'production';
+
+  for (let clm of Object.keys(args.clm)) {
+    await require(`./build-${clm}`)(api, projectOptions, structure)
+  }
+}
 
 /**
  * Parse and validate args
@@ -66,7 +73,7 @@ function parseArgs(args) {
 
     // filter can be any string value
     if (command === 'filter') {
-      result[command] = new RegExp(args[command])
+      result[command] = new RegExp(args[command], 'i')
     }
 
     for (const key in  commands[command]) {
@@ -86,36 +93,31 @@ function parseArgs(args) {
   return result;
 }
 
-async function runBuild(api, projectOptions, args, structure) {
-  let buildInfo = `Building for ${chalk.yellow(Object.keys(args.clm).join(', '))}`;
-  if (Object.keys(args.options).length) {
-    buildInfo += `, with options: ${chalk.cyan(Object.keys(args.options).join(', '))}`;
-  }
-  info(buildInfo);
+function getFilteredSlidesToBuild(filter) {
+  const slidesToBuild = [];
+  console.log(filter);
 
-  /** Create screens **/
-  if (!args.options['no-screens']) await require('../../lib/screens-maker')(structure);
+  languages.forEach(lang => {
+    structure.forEach(sl => {
+      if (filter.test(sl.id) && filter.test(lang)) {
+        slidesToBuild.push({
+          id: sl.id,
+          path: sl.path,
+          name: typeof sl.name === 'string' ? sl.name : sl.name[lang],
+          lang
+        })
+      }
+    })
+  });
 
-  /** Webpack build for necessary CLM-systems **/
-  const startConfig = api.resolveWebpackConfig();
-
-  for (let sl of structure) {
-
-    await webpackSlideBuild(api, projectOptions, startConfig)
-  }
-
-  if (args.clm['veeva']) require('./build-veeva')(api, projectOptions, startConfig);
-
-
-  log();
-
+  return slidesToBuild;
 }
 
 function killAllNodeProcesses() {
   const {exec} = require('child_process');
   const os = require('os');
 
-  if (os.platform() ==='win32') {
+  if (os.platform() === 'win32') {
     exec(`taskkill -F -IM node.exe`)
   }
 }

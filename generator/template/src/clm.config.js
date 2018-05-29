@@ -2,10 +2,10 @@ module.exports = {
   // CLM platform options
   clm: {
     name: 'veeva', // valid values: 'veeva' | 'mi-touch' | 'pharma-touch'
-    productID: 'TEST_C2_18' // => [PROJECT-NAME]_[CYCLE]_[YEAR]
+    productId: 'TEST_C2_18' // => [PROJECT-NAME]_[CYCLE]_[YEAR]
   },
 
-  languages: ['ua', 'ru'], // valid values: 'ua', 'ru', 'en'
+  languages: ['ua', 'ru'], // valid values: 'ua', 'ru'
 
   device: {
     name: 'ipad', // valid values: 'ipad' | 'android' | 'windows'
