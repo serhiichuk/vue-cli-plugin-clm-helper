@@ -2,20 +2,32 @@
 const path = require('path');
 const chalk = require('chalk');
 const {paths} = require('../../lib/config');
+const {
+  log,
+  done,
+  info,
+  logWithSpinner,
+  stopSpinner
+} = require('@vue/cli-shared-utils');
 let {structure} = require(paths.clm.config);
+
 
 module.exports = async (api, projectOptions, args) => {
   args = parseArgs(args);
 
   structure = structure.filter(sl => {
-    console.log(args.filter.test(sl.id), sl.id, args.filter);
     return args.filter.test(sl.id);
   });
-
   console.log(structure);
   /** Run Build **/
-  // await runBuild(api, projectOptions, args);
+  // await runBuild(api, projectOptions, args, structure);
+
+
+  /** Finish Build **/
+  done('Build complete');
+  killAllNodeProcesses();
 };
+
 
 /**
  * Parse and validate args
@@ -74,46 +86,29 @@ function parseArgs(args) {
   return result;
 }
 
-async function runBuild(api, projectOptions, args) {
-  const {
-    log,
-    done,
-    info,
-    logWithSpinner,
-    stopSpinner
-  } = require('@vue/cli-shared-utils');
-
+async function runBuild(api, projectOptions, args, structure) {
   let buildInfo = `Building for ${chalk.yellow(Object.keys(args.clm).join(', '))}`;
-
   if (Object.keys(args.options).length) {
     buildInfo += `, with options: ${chalk.cyan(Object.keys(args.options).join(', '))}`;
   }
-
   info(buildInfo);
-  // logWithSpinner(buildInfo);
 
   /** Create screens **/
-  if (!options['no-screens']) await require('../../lib/screens-maker')();
+  if (!args.options['no-screens']) await require('../../lib/screens-maker')(structure);
 
   /** Webpack build for necessary CLM-systems **/
-  // const {clm, structure} = require(paths.clm.config);
-  // const webpackSlideBuild = require('../../lib/webpack-slide-builder');
+  const startConfig = api.resolveWebpackConfig();
 
-  // const startConfig = api.resolveWebpackConfig();
-  //
-  // for (let sl of structure) {
-  //   console.log('build', sl.path);
-  //   process.env.VUE_APP_SL_ID = sl.id;
-  //   process.env.VUE_APP_SL_PATH = sl.path;
-  //   process.env.VUE_APP_OUT_DIR_NAME = sl.id;
-  //   process.env.VUE_APP_OUT_HTML_NAME = `${clm.productID}_${sl.id}`;
-  //
-  //   await webpackSlideBuild(api, projectOptions, startConfig)
-  // }
+  for (let sl of structure) {
+
+    await webpackSlideBuild(api, projectOptions, startConfig)
+  }
+
+  if (args.clm['veeva']) require('./build-veeva')(api, projectOptions, startConfig);
+
 
   log();
-  done('Build complete');
-  killAllNodeProcesses();
+
 }
 
 function killAllNodeProcesses() {
