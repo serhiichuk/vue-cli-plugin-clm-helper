@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a92edda9-b309-4bfa-9f7f-76081a78d43f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Taras_Serhiytschuk.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/archive-maker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/build-clm/build-pharma-touch.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/build-clm/build-pharma-touch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/build-clm/build-veeva.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/build-clm/build-veeva.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/build-clm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/build-clm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/config/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/assets-cleaner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Taras_Serhiytschuk.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Taras_Serhiytschuk.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens-maker.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens-maker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/thumb-maker.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/thumb-maker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/util/sl-id-perser.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/util/sl-id-perser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/webpack-slide-builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/webpack-slide-builder.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,44 +24,17 @@
           <file leaf-file-name="screens-maker.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/lib/screens-maker.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="689">
-                  <caret line="166" column="69" selection-start-line="166" selection-start-column="59" selection-end-line="166" selection-end-column="69" />
+                <state relative-caret-position="119">
+                  <caret line="7" selection-start-line="7" selection-end-line="8" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="build-veeva.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/commands/build-clm/build-veeva.js">
+          <file leaf-file-name="assets-cleaner.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/lib/assets-cleaner.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="459">
-                  <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="build-pharma-touch.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/commands/build-clm/build-pharma-touch.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="434">
-                  <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="sl-id-perser.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/lib/util/sl-id-perser.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="697">
-                  <caret line="40" column="26" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="archive-maker.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/lib/archive-maker.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="238">
-                  <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+                <state relative-caret-position="85">
+                  <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
                 </state>
               </provider>
             </entry>
@@ -79,11 +43,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="archive-maker.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/lib/archive-maker.js">
+          <file leaf-file-name="build-veeva.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/commands/build-clm/build-veeva.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="119">
-                  <caret line="7" column="41" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="41" />
+                <state relative-caret-position="527">
+                  <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
                 </state>
               </provider>
             </entry>
@@ -136,7 +100,6 @@
         <option value="$PROJECT_DIR$/commands/build-clm/build-mi-touch.js" />
         <option value="$PROJECT_DIR$/generator/template/src/clm.config.js" />
         <option value="$PROJECT_DIR$/lib/thumbMaker.js" />
-        <option value="$PROJECT_DIR$/lib/screens-maker.js" />
         <option value="$PROJECT_DIR$/lib/webpack-slide-builder.js" />
         <option value="$PROJECT_DIR$/lib/config/index.js" />
         <option value="$PROJECT_DIR$/commands/build-clm/index.js" />
@@ -145,6 +108,8 @@
         <option value="$PROJECT_DIR$/lib/archive-maker.js" />
         <option value="$PROJECT_DIR$/lib/util/sl-id-perser.js" />
         <option value="$PROJECT_DIR$/commands/build-clm/build-pharma-touch.js" />
+        <option value="$PROJECT_DIR$/lib/screens-maker.js" />
+        <option value="$PROJECT_DIR$/lib/assets-cleaner.js" />
       </list>
     </option>
   </component>
@@ -218,12 +183,6 @@
               <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
               <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -364,13 +323,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/generator/template/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/generator/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -582,20 +534,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commands/build-clm/build-veeva.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/screens-maker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="689">
-          <caret line="166" column="69" selection-start-line="166" selection-start-column="59" selection-end-line="166" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/thumb-maker.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -603,10 +541,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/archive-maker.js">
+    <entry file="file://$PROJECT_DIR$/commands/build-clm/build-pharma-touch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+        <state relative-caret-position="451">
+          <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -617,10 +555,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commands/build-clm/build-pharma-touch.js">
+    <entry file="file://$PROJECT_DIR$/lib/archive-maker.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
+        <state relative-caret-position="119">
+          <caret line="7" column="41" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/screens-maker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/assets-cleaner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commands/build-clm/build-veeva.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
