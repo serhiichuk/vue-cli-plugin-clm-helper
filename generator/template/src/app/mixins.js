@@ -1,13 +1,10 @@
-import allData from '@/data'
-
 const isDev = process.env.NODE_ENV === 'development';
 
 export default {
   /**
    * This object will added all vue instance
    */
-  global: {
-  },
+  global: {},
 
 
   /**
@@ -18,14 +15,17 @@ export default {
   slide: {
     data() {
       return {
-        slide: {},
+        slide: {
+          id: '',
+          path: ''
+        },
+        data: {
+          content: {},
+          popup: {}
+        }
       }
     },
     computed: {
-      data() {
-        console.log(this.slide);
-        return allData[this.slide.path.replace(/^slides/, this.$store.state.lang)]
-      },
       t() {
         return this.data.content
       }
@@ -39,26 +39,34 @@ export default {
        * Each 'slide-component' must be named under rule: 'slide-[flow-num|name]_[slide-num].vue'
        */
 
-      const componentPath = this.$options.__file || process.env.VUE_APP_SL_PATH;
-      const isSlide = /(?=.*slides(\\|\/))(?=.*slide-)/gi.test(componentPath); // match 'slides\' and 'slide-'
+      if (isDev) {
+        const componentPath = this.$options.__file;
+        const isSlide = /(?=.*slides(\\|\/))(?=.*slide-)/gi.test(componentPath); // match 'slides\' and 'slide-';
 
-      if (isSlide) {
-        this.slide.id = isDev
-          ? componentPath.split('\\').pop().replace(/\.vue$/gi, '')
-          : process.env.VUE_APP_SL_ID;
+        if (isSlide) {
+          this.slide.id = componentPath.split('\\').pop().replace(/\.vue$/gi, '');
+          this.slide.path = componentPath.replace(/(?:^src\\)|(?:\.vue)/gi, '').replace(/\\/, '/');
 
-        this.slide.path = isDev
-          ? componentPath.replace(/(?:^src\\)|(?:\.vue)/gi, '').replace(/\\/, '/')
-          : componentPath
-
-      } else { // This code will run when this mixin was included in 'non-slide-component;
-        if (isDev) {
-          console.warn(
-  `[Info]: Options "slide.id" and "slide.path" was't set. 
-  Component "${componentPath}" is't "slide-component."
-  Read info in "src\\mixins.js"`);
+        } else {
+          // This code will run when this mixin was included in 'non-slide-component;
+          console.warn('[Info]: Options "slide.id" and "slide.path" was\'t set. ' +
+            '\nComponent "${componentPath}" is\'t "slide-component." ' +
+            '\nRead info in "src/mixins.js"');
         }
+
+      } else {
+        this.slide.id = process.env.VUE_APP_SL_ID;
+        this.slide.path = process.env.VUE_APP_SL_PATH
       }
+
+
+      /**
+       * Import text data for current slide
+       * Slides data must contain in 'src/data/[lang]/[slide.id].js'
+       **/
+
+      const dataPath = this.slide.path.replace(/^slides/, this.$store.state.lang);
+      import('@/data/' + dataPath).then(m => this.data = m.default)
     }
   }
 }

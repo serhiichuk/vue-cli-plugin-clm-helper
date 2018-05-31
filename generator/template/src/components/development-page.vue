@@ -84,7 +84,7 @@
   import qrcode from 'qrcode-generator'
   import {languages, structure} from '@/clm.config'
   import {getLocalIP} from '@/app/utils/get-system-info'
-  import {mapState, mapMutations} from 'vuex'
+  import {mapMutations, mapState} from 'vuex'
 
   export default {
     data() {
@@ -214,11 +214,11 @@
     background-repeat: no-repeat;
     box-shadow: inset 0 0 5em -2em $color-dev-accent-2;
 
-    &.active, &:hover {
+    &.active {
       box-shadow: inset 0 0 6em -1em $color-dev-accent-1;
     }
 
-    &:active {
+    &:active, &:hover {
       opacity: .8;
     }
   }
@@ -515,6 +515,8 @@
 
         height: 1.8em;
         width: 1.8em;
+
+        border-radius: 0 .4em .4em 0;
 
         .tooltiptext {
           position: absolute;

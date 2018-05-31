@@ -5,7 +5,7 @@ module.exports = {
     productId: 'TEST_C2_18' // => [PROJECT-NAME]_[CYCLE]_[YEAR]
   },
 
-  languages: ['ua', 'ru'], // valid values: 'ua', 'ru'
+  languages: ['ua', 'ru'], // valid values: 'ua', 'ru', en
 
   device: {
     name: 'ipad', // valid values: 'ipad' | 'android' | 'windows'

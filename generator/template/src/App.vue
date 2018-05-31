@@ -1,11 +1,22 @@
 <template>
   <div id="app">
+    <DevElements v-if="isDev"/>
     <router-view/>
   </div>
 </template>
 
 <script>
+  const isDev = process.env.NODE_ENV === 'development';
+
   export default {
+    data() {
+      return {
+        isDev
+      }
+    },
+    components: {
+      DevElements: isDev ? () => import('@/components/development-elements') : false
+    },
     beforeUpdate() {
       const clm = ['veeva', 'pharma-touch', 'mi-touch'];
       const appEl = document.getElementById('app');
@@ -34,5 +45,6 @@
       }
     }
   }
+
 
 </style>
