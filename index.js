@@ -1,25 +1,25 @@
 #!/usr/bin/env node
-
+const {hasYarn} = require('@vue/cli-shared-utils');
+const pkgManager = hasYarn ? 'yarn' : 'npm';
 const commands = {
   generate: {
     description: 'Generate each slide component',
-    usage: 'yarn/npm generate'
+    usage: `${pkgManager} generate`
   },
 
   data: {
     description: 'Util for data',
-    usage: 'yarn/npm data <optios>',
-    options: {
-      '--ru': ``
-    }
+    usage: `${pkgManager} data <optios>`
   },
 
   'build-clm': {
     description: 'Build CLM for production',
-    usage: 'yarn/npm build <clm> [clm-name] <options> [option]',
+    usage: `${pkgManager} build <clm> [options] [filter] [lang]`,
     options: {
-      '--clm': ``,
-      '--options': ``
+      '--clm': `veeva, pharma-touch, mi-touch`,
+      '--options': `no-screens, no-clear-assets`,
+      '--filter': `regex filter under slide ID. Ex: "slide-1_1|slide-3_3"`,
+      '--lang': `build only necessary lang. Ex: "ua|ru"`
     }
   }
 };
