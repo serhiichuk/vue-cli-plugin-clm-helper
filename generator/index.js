@@ -1,4 +1,9 @@
 #!/usr/bin/env node
+const fsExtra = require('fs-extra');
+const path = require('path');
+const chalk = require('chalk');
+const {hasYarn} = require('@vue/cli-shared-utils');
+
 
 module.exports = (api, options, rootOptions) => {
 
@@ -21,4 +26,20 @@ module.exports = (api, options, rootOptions) => {
 
   // copy and render all files in ./template with ejs
   api.render('./template');
+
+
+  // clear src and copy clm-template
+  api.onCreateComplete(() => {
+    const src = api.resolve('src');
+
+    fsExtra.emptydirSync(src);
+    fsExtra.copySync(path.resolve(__dirname, 'template/src'), src);
+  });
+
+  // show info after complete
+  const command = (command) => hasYarn()
+    ? chalk.green(`yarn ${command}`)
+    : chalk.green(`npm ${command}`);
+
+  api.exitLog(`To Development: ${command('dev')}. To build: ${command('build --help')}`);
 };

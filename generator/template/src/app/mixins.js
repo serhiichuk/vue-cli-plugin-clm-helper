@@ -1,4 +1,4 @@
-// import clm from '@/app/clm'
+import clm from '@/app/clm'
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -6,7 +6,7 @@ const isDev = process.env.NODE_ENV === 'development';
   * This object will added all vue instance
   */
 export const global = {
-  // ...clm
+  ...clm
 };
 
 /**

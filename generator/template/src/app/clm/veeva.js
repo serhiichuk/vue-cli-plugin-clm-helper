@@ -1,5 +1,5 @@
 import com from 'veevalibrary'
-// import {idPattern} from '@/clm.config'
+import {getFullId} from '@/app/utils/sl-id-parser'
 
 export default {
   created() {
@@ -10,14 +10,13 @@ export default {
   },
   methods: {
     navigateTo(id) {
-      // id = `${idPattern}--${id}`;
+      id = getFullId(id);
 
-      // try {
-      //   // !!!!!!!!! TEMP SOLUTION !!!!!!!!!!!!!!!!
-      //   com.veeva.clm.gotoSlide(id + '.zip', '');
-      // } catch(err) {
-      //   desktopNavigationBeyondRootDir(id);
-      // }
+      try {
+        com.veeva.clm.gotoSlide(id + '.zip', '');
+      } catch(err) {
+        desktopNavigationBeyondRootDir(id);
+      }
     }
   }
 }

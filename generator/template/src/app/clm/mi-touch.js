@@ -1,16 +1,17 @@
-// import {getFullId} from 'vue-cli-plugin-clm-helper/lib/util/sl-id-perser'
+import {getFullId} from '@/app/utils/sl-id-parser'
 
 
 export default {
     created() {
     // Disable system vertical fucking swipe
-    document.addEventListener('touchmove', function (e) {
-      e.preventDefault();
-    }, true);
+    // document.addEventListener('touchmove', function (e) {
+    //   e.preventDefault();
+    // }, true);
   },
   methods: {
     navigateTo(id) {
-      // id = getFullId(id, 'ua');
+      id = getFullId(id);
+      console.log(id);
 
       // try {
       //   // !!!!!!!!! TEMP SOLUTION !!!!!!!!!!!!!!!!
