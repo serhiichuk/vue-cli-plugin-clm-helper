@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a92edda9-b309-4bfa-9f7f-76081a78d43f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generator/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generator/template/src/app/clm/dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/app/clm/dev.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generator/template/src/app/clm/mi-touch.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/app/clm/mi-touch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generator/template/src/app/clm/pharma-touch.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/app/clm/pharma-touch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generator/template/src/app/clm/veeva.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/app/clm/veeva.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generator/template/src/app/mixins.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/app/mixins.js" afterDir="false" />
-    </list>
+    <list default="true" id="a92edda9-b309-4bfa-9f7f-76081a78d43f" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -26,8 +17,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/generator/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
+            <state relative-caret-position="510">
+              <caret line="30" column="36" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -272,13 +263,13 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13164063" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13164063" />
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32943678" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Terminal" order="3" visible="true" weight="0.41835937" />
+      <window_info active="true" anchor="right" id="Terminal" order="3" visible="true" weight="0.41835937" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -577,8 +568,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/generator/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
+        <state relative-caret-position="510">
+          <caret line="30" column="36" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="36" />
         </state>
       </provider>
     </entry>

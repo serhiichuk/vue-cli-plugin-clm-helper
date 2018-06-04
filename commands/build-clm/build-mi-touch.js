@@ -1,7 +1,7 @@
 const fs = require('fs');
 const fsExtra = require('fs-extra');
 const path = require('path');
-const {getFullId, parseSlId} = require('../../lib/util/sl-id-perser');
+const {getFullId, parseSlId} = require('../../lib/util/sl-id-parser');
 const thumbMaker = require('../../lib/thumb-maker');
 const archiveMaker = require('../../lib/archive-maker');
 const webpackSlideBuild = require('../../lib/webpack-slide-builder');
