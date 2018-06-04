@@ -18,10 +18,12 @@ module.exports = (api, options, rootOptions) => {
     },
     dependencies: {
       'qrcode-generator': "^1.4.0",
-      'veevalibrary': "^4.0.8",
+      'veevalibrary': "^4.0.8"
+    },
+    devDependencies: {
       "node-sass": "^4.9.0",
       "sass-loader": "^7.0.1"
-    },
+    }
   });
 
   // copy and render all files in ./template with ejs
