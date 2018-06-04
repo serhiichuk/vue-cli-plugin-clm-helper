@@ -1,10 +1,12 @@
 {
   "name": "vue-cli-plugin-clm-helper",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "serhiichuk",
   "license": "MIT",
   "main": "index.js",
   "dependencies": {
+    "@vue/cli-service": "^3.0.0-beta.15",
+    "@vue/cli-shared-utils": "^3.0.0-beta.15",
     "archiver": "^2.1.1",
     "chalk": "^2.4.1",
     "cyrillic-to-translit-js": "^2.1.0",
@@ -14,9 +16,5 @@
     "rimraf": "^2.6.2",
     "sharp": "^0.20.3",
     "webpack": "^4.8.3"
-  },
-  "peerDependencies": {
-    "@vue/cli-service": "3.0.0-beta.11",
-    "@vue/cli-shared-utils": "3.0.0-beta.11"
   }
 }
