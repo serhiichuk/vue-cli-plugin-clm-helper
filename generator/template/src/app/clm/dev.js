@@ -1,11 +1,12 @@
-import router from '../router'
-
-const navigation = {
-  navigateTo(id) {
-    router.push(`/${id}`)
-  }
-};
+import Router from '@/app/router'
 
 export default {
-  navigation
+  created() {
+    console.log('LOL')
+  },
+  methods: {
+    navigateTo(id) {
+      Router.push(`/${id}`)
+    }
+  }
 }

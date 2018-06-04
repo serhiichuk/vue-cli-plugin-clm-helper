@@ -1,18 +1,18 @@
 import Vue from 'vue'
 import App from '@/App'
 import store from '@/app/store'
-import mixins from '@/app/mixins'
-import {dev, prod} from '@/app/router'
+import {global} from '@/app/mixins'
+import router from '@/app/router'
 
 const isDev = process.env.NODE_ENV === 'development';
-console.log(process.env)
+
 // Disable dev-tools extension in production
 Vue.config.productionTip = !isDev;
-Vue.mixin(mixins.global);
+Vue.mixin(global);
 
-const app = new Vue({
+new Vue({
   el: '#app',
   store,
-  router: isDev ? dev : prod,
+  router,
   render: h => h(App)
 });

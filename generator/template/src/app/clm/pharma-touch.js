@@ -1,7 +1,8 @@
 import {getOperatingSystem} from '@/app/utils/get-system-info'
 
-const navigation = {
-  navigateTo(id) {
+export default {
+  methods: {
+    navigateTo(id) {
     const slide = `${id}.html`;
 
     switch (getOperatingSystem()) {
@@ -18,11 +19,7 @@ const navigation = {
         } catch (err) {
           window.location.href = slide;
         }
+      }
     }
   }
-};
-
-export default {
-  navigation
 }
-

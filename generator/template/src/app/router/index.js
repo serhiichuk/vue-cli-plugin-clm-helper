@@ -4,14 +4,16 @@
  */
 
 const files = require.context('.', false, /\.js$/);
-let clm;
+const routerFile = process.env.NODE_ENV === 'development' ? 'dev' : 'prod';
+let router;
+
 
 files.keys().forEach(path => {
   const key = path.replace(/(\.\/|\.js)/g, '');
 
-  if (key !== 'index.js' && key === (process.env.VUE_APP_CLM || 'dev')) {
-    clm = files(path).default
+  if (key !== 'index.js' && key === routerFile) {
+    router = files(path).default
   }
 });
 
-export default clm
+export default router

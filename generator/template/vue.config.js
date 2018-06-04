@@ -1,5 +1,5 @@
 module.exports = {
-  baseUrl: './',
+  baseUrl: process.env.NODE_ENV === 'productions' ? './' : '/',
   productionSourceMap: false,
 
   css: {

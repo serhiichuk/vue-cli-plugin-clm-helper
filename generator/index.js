@@ -14,6 +14,8 @@ module.exports = (api, options, rootOptions) => {
     dependencies: {
       'qrcode-generator': "^1.4.0",
       'veevalibrary': "^4.0.8",
+      "node-sass": "^4.9.0",
+      "sass-loader": "^7.0.1"
     },
   });
 

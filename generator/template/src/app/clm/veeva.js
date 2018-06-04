@@ -1,18 +1,26 @@
 import com from 'veevalibrary'
-import {idPattern} from '@/clm.config'
+// import {idPattern} from '@/clm.config'
 
-const navigation = {
-  navigateTo(id) {
-    id = `${idPattern}--${id}`;
+export default {
+  created() {
+    // Disable system vertical fucking swipe
+    document.addEventListener('touchmove', function (e) {
+      e.preventDefault();
+    }, true);
+  },
+  methods: {
+    navigateTo(id) {
+      // id = `${idPattern}--${id}`;
 
-    try {
-      // !!!!!!!!! TEMP SOLUTION !!!!!!!!!!!!!!!!
-      com.veeva.clm.gotoSlide(id + '.zip', '');
-    } catch(err) {
-      desktopNavigationBeyondRootDir(id);
+      // try {
+      //   // !!!!!!!!! TEMP SOLUTION !!!!!!!!!!!!!!!!
+      //   com.veeva.clm.gotoSlide(id + '.zip', '');
+      // } catch(err) {
+      //   desktopNavigationBeyondRootDir(id);
+      // }
     }
   }
-};
+}
 
 /**
  * Navigation when slide opened in desktop browser
@@ -27,8 +35,4 @@ function desktopNavigationBeyondRootDir(slide) {
   href.push(slide + '.html');
 
   window.location.assign(href.join('/'))
-}
-
-export default {
-  navigation
 }
