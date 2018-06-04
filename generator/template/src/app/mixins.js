@@ -6,7 +6,7 @@ const isDev = process.env.NODE_ENV === 'development';
   * This object will added all vue instance
   */
 export const global = {
-  ...clm
+  // ...clm
 };
 
 /**
@@ -58,7 +58,7 @@ export const slide = {
 
     } else {
       this.slide.id = process.env.VUE_APP_SL_ID;
-      this.slide.path = process.env.VUE_APP_SL_PATH
+      this.slide.path = process.env.VUE_APP_SL_PATH;
     }
 
 

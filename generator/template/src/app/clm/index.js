@@ -1,17 +1,10 @@
 /**
- * The file enables `@/app/clm` to import all CLM modules
+ * The file enables `@/app/clm` to import necessary vue-instance with special clm methods
  * in a one-shot manner. There should not be any reason to edit this file.
  */
 
-const files = require.context('.', false, /\.js$/);
-let clm;
+const clmFile = process.env.NODE_ENV === 'development' 
+	? 'dev' 
+	: process.env.VUE_APP_CLM;
 
-files.keys().forEach(path => {
-  const key = path.replace(/(\.\/|\.js)/g, '');
-
-  if (key !== 'index.js' && key === (process.env.VUE_APP_CLM || 'dev')) {
-    clm = files(path).default
-  }
-});
-
-export default clm
+export default require(/* webpackChunkName: "[request]" */ './' + clmFile).default;

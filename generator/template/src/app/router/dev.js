@@ -9,7 +9,7 @@ const routes = [{ path: '/', component: () => import('@/components/development-p
 structure.forEach(sl => {
   routes.push({
     path: `/${sl.id}`,
-    component: () => import(`@/${sl.path}`)
+    component: () => import( /* webpackChunkName: "[request]" */ `@/${sl.path}`)
   })
 });
 

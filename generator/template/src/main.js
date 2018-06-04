@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from '@/App'
 import store from '@/app/store'
-import {global} from '@/app/mixins'
 import router from '@/app/router'
+import {global} from '@/app/mixins'
 
 const isDev = process.env.NODE_ENV === 'development';
 
