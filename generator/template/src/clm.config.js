@@ -4,16 +4,16 @@ module.exports = {
     productId: 'TEST_C2_18' // => [PROJECT-NAME]_[CYCLE]_[YEAR]
   },
 
-  languages: ['ua', 'ru'], // valid values: ua, ru, en
+  // valid values: ua, ru, en
+  languages: ['ua', 'ru'],
 
   device: {
     resolution: {
-      width: 1024,
-      height: 768
+      width: 2048,
+      height: 1536
     }
   },
 
-  // List of all slides array of objects
   // Each object must have following keys: 'id', 'path', 'name'
   structure: [
     {

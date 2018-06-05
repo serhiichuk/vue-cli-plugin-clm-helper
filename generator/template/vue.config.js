@@ -4,14 +4,16 @@ module.exports = {
 
   css: {
     loaderOptions: {
-    	sass: {
-        // Enable all sass-files in dir 'shared' to all sass styles
+      sass: {
+        // Enable all sass-files in directory 'shared' to all sass styles
+        // Do not include any files here which will have actual css output,
+        // otherwise our bundle file size will grow rapidly as the output will be in every file.
         data: require('./src/style/shared')
       }
     }
   },
 
-  // Configure webpack
+  // Delete prefetch plugin because, slide don't use all chunks which webpack created
   chainWebpack: config => {
     config.plugins.delete('prefetch')
   }
