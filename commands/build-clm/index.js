@@ -5,9 +5,36 @@ const chalk = require('chalk');
 const {paths} = require('../../lib/config');
 const {log, done, info, logWithSpinner, stopSpinner, error} = require('@vue/cli-shared-utils');
 let {structure, languages} = require(paths.clm.config);
+const parseArgs = require('../../lib/util/parse-args');
 
 module.exports = async (api, projectOptions, args) => {
-  args = parseArgs(args);
+  // Valid commands and options
+  args = parseArgs(args, {
+    clm: {
+      'pt': 'pharma-touch',
+      'mt': 'mi-touch',
+      'v': 'veeva'
+    },
+    options: {
+      'ns': 'no-screens',
+      'nca': 'no-clear-assets'
+    },
+    filter: '',
+    lang: ''
+  });
+
+  // arg 'clm' is required
+  if (!Object.keys(args.clm).length) {
+    error('Missing required command "--clm=[options]" or "-c=[options]"');
+    process.exit(0);
+  }
+
+  // check on screens exist
+  if (!fs.existsSync(paths.screens) && (args.options['no-screens'])) {
+    error('You can\'t use option "no-screens" when "screens" folder is\'t exist.');
+    process.exit(0);
+  }
+
   const slidesToBuild = getFilteredSlidesToBuild(args);
 
   /** Run Build **/
@@ -17,6 +44,7 @@ module.exports = async (api, projectOptions, args) => {
   showConclusion(args, slidesToBuild);
   killAllNodeProcesses();
 };
+
 
 async function runBuild(api, projectOptions, args, slidesToBuild) {
   info(`Building for ${chalk.yellow(Object.keys(args.clm).join(', '))}.`);
@@ -58,65 +86,6 @@ function showConclusion({filter, lang}, slidesToBuild) {
   }
 
   info(`You can find archives in ${chalk.green(paths.zip)}`);
-}
-
-function parseArgs(args) {
-  // Valid commands and options
-  const commands = {
-    clm: {
-      'pt': 'pharma-touch',
-      'mt': 'mi-touch',
-      'v': 'veeva'
-    },
-    options: {
-      'ns': 'no-screens',
-      'nca': 'no-clear-assets'
-    },
-    filter: '',
-    lang: ''
-  };
-
-  const result = {};
-
-  for (let command in commands) {
-    // Command can be long '--clm' or short '-c'
-    args[command] = args[command] || args[command[0]];
-    // Set validated commands to necessary key in 'result'
-    result[command] = {};
-
-
-    // filter can be any string value
-    if (command === 'filter' || command === 'lang') {
-      result[command] = new RegExp(args[command], 'i')
-    }
-
-    for (const key in  commands[command]) {
-      const optionShort = key;
-      const optionLong = commands[command][optionShort];
-
-      if (typeof args[command] === "string") {
-        const commandOptions = args[command].split(',');
-
-        if (commandOptions.includes(optionShort) || commandOptions.includes(optionLong)) {
-          result[command][optionLong] = true
-        }
-      }
-    }
-  }
-
-  // arg 'clm' is required
-  if (!Object.keys(result.clm).length) {
-    error('Missing required command "--clm=[options]" or "-c=[options]"');
-    process.exit(0);
-  }
-
-  // check on screens exist
-  if (!fs.existsSync(paths.screens) && (result.options['no-screens'])) {
-    error('You can\'t use option "no-screens" when "screens" folder is\'t exist.');
-    process.exit(0);
-  }
-
-  return result;
 }
 
 function getFilteredSlidesToBuild({filter, lang}) {
