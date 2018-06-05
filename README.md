@@ -2,7 +2,7 @@
 
 [![vue-cli3](https://img.shields.io/badge/vue--cli-3.x-brightgreen.svg)](https://github.com/vuejs/vue-cli)
 
-**:rocket: Easy work with CLM presentations!**
+**:pray: Easy work with CLM presentations!**
 
 This is a vue-cli 3.x plugin to help work with MI-Touch, Pharma Touch and Veeva systems.
 
@@ -78,26 +78,25 @@ yarn dev
   
   Plugin generator inject `generate`, `build` and `dev` commands to `package.json`. 
 
-  *:information_source: Plugin cli commands can run with fully-named `--clm veeva,mi-touch` or short-named `-c v,mt` syntax.*
+  Plugin cli commands can run with fully-named `--clm veeva,mi-touch` or short-named `-c v,mt` syntax.
 
-  *:information_source: For using standard vue build just run `npm run/yarn` `build-standard`.*
+  For using standard vue build just run `npm run/yarn` `build-standard`.
   
 #### Generate
 
-- **`vue-cli-service generate [lang]`**
-
   Generate slide-components to `./src/slides`, assets slide dirs to `./src/assets`, all text data files to `./src/data`.
   
+- **`vue-cli-service generate [lang]`**
   - `lang` - optional parameter, regular expression, must match one or more of `languages` key in `./src/cli.config.js`
 
 *:information_source: For correct passing regular expressions from terminal, please wrap it in double brackets.*
 
 ```
-npm run generate -l ua
+npm run generate -l "ua"
 yarn generate --lang "ua|ru"
 ```
 
-#### Dev
+### Dev
 
 Duplicates command `npm run/yarn serve` to adjective command `npm run/yarn dev` 
 
@@ -106,23 +105,22 @@ npm run dev
 yarn dev
 ```
 
-#### Build
-
-- **`vue-cli-service build-clm <clm> [options] [filter] [lang]`**
+### Build
 
   Build slides to necessary CLM's.
-  
+
+- **`vue-cli-service build-clm <clm> [options] [filter] [lang]`**  
   - `clm` - required parameter, can be: `veeva`, `mi-touch` and `pharma-touch`
   - `options` - optional, can be: `no-screens` and `no-clear-assets`
   - `filter` - optional, regular expression for filtering around slide ID
   - `lang` - optional, regular expression for filtering around slide language
 
-*:information_source: You can use `filter` and `lang` options together.`*
-
 ```
 npm run generate [lang]
 yarn generate [lang]
 ```
+
+*:information_source: You can use `filter` and `lang` options together.*
 
 
 ## Configuration
