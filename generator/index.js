@@ -12,7 +12,7 @@ module.exports = (api, options, rootOptions) => {
     scripts: {
       build: 'vue-cli-service build-clm',
       'build-standard': 'vue-cli-service build',
-      data: 'vue-cli-service data',
+      // data: 'vue-cli-service data',
       dev: 'vue-cli-service serve',
       generate: 'vue-cli-service generate'
     },
@@ -21,8 +21,8 @@ module.exports = (api, options, rootOptions) => {
       'veevalibrary': "^4.0.8"
     },
     devDependencies: {
-      "node-sass": "^4.9.0",
-      "sass-loader": "^7.0.1"
+      // "node-sass": "^4.9.0",
+      // "sass-loader": "^7.0.1"
     }
   });
 
