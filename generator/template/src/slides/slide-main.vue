@@ -1,18 +1,18 @@
 <template>
   <div>
     <h1>{{$store.state.lang}}</h1>
-    <!--<JsonToDom :json="t"/>-->
+    <JsonToDom :json="t"/>
   </div>
 </template>
 
 <script>
-  import {slide} from '@/app/mixins'
-  // import JsonToDom from '../components/json-to-dom';
+  import mixins from '@/app/mixins'
+  import JsonToDom from '../components/json-to-dom';
 
   export default {
-    mixins: [slide],
+    mixins: [mixins.slide],
     components: {
-      // JsonToDom
+      JsonToDom
     }
   }
 </script>

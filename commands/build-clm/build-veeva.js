@@ -1,8 +1,9 @@
-const webpackSlideBuild = require('../../lib/webpack-slide-builder');
 const path = require('path');
-const {getFullId, parseSlId} = require('../../lib/util/sl-id-parser');
+const fse = require('fs-extra');
 const thumbMaker = require('../../lib/thumb-maker');
 const archiveMaker = require('../../lib/archive-maker');
+const webpackSlideBuild = require('../../lib/webpack-slide-builder');
+const {getFullId, parseSlId} = require('../../lib/util/sl-id-parser');
 
 module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
   const startConfig = api.resolveWebpackConfig();
@@ -16,6 +17,9 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
     process.env.VUE_APP_SL_LANG = sl.lang;
     process.env.VUE_APP_OUT_DIR_PATH = api.resolve(path.join('dist', clmName, sl.lang, outSlName));
     process.env.VUE_APP_OUT_HTML_NAME = outSlName;
+
+    /** Clear slide dir **/
+    fse.emptyDirSync(process.env.VUE_APP_OUT_DIR_PATH);
 
     /** Webpack Build **/
     await webpackSlideBuild(api, projectOptions, startConfig);

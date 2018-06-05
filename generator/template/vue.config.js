@@ -1,5 +1,5 @@
 module.exports = {
-  baseUrl: process.env.NODE_ENV === 'productions' ? './' : '/',
+  baseUrl: process.env.NODE_ENV === 'development' ? '/' : './',
   productionSourceMap: false,
 
   css: {
@@ -9,5 +9,10 @@ module.exports = {
         data: require('./src/style/shared')
       }
     }
+  },
+
+  // Configure webpack
+  chainWebpack: (config) => {
+    config.plugins.delete('prefetch')
   }
 };
