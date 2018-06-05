@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-clm-helper",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "author": "serhiichuk",
   "license": "MIT",
   "main": "index.js",
