@@ -1,14 +1,12 @@
 module.exports = {
   // CLM platform options
   clm: {
-    name: 'veeva', // valid values: 'veeva' | 'mi-touch' | 'pharma-touch'
     productId: 'TEST_C2_18' // => [PROJECT-NAME]_[CYCLE]_[YEAR]
   },
 
-  languages: ['ua', 'ru'], // valid values: 'ua', 'ru', en
+  languages: ['ua', 'ru'], // valid values: ua, ru, en
 
   device: {
-    name: 'ipad', // valid values: 'ipad' | 'android' | 'windows'
     resolution: {
       width: 1024,
       height: 768
@@ -21,11 +19,6 @@ module.exports = {
     {
       id: 'slide-main',
       path: 'slides/slide-main',
-      name: {ua: 'Назва', ru: 'Название'}
-    },
-    {
-      id: 'slide-1_1',
-      path: 'slides/slide-1_1',
       name: {ua: 'Назва', ru: 'Название'}
     }
   ]

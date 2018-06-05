@@ -2,16 +2,17 @@
 const {hasYarn} = require('@vue/cli-shared-utils');
 const pkgManager = hasYarn ? 'yarn' : 'npm';
 const commands = {
-  data: {
-    description: 'Util for data',
-    usage: `${pkgManager} data <optios>`
-  },
+  // data: {
+  //   description: 'Util for data',
+  //   usage: `${pkgManager} data <optios>`
+  // },
 
   generate: {
     description: 'Generate each slide component',
     usage: `${pkgManager} generate [options]`,
     options: {
-      '--lang, -l': `generate only necessary lang. \tEx: "ua|ru"`
+      'Full:': '  Description: \t\t\tExample:',
+      '--lang': `\tgenerate only necessary lang. \t-l "ua|ru"`
     }
   },
 
@@ -19,10 +20,11 @@ const commands = {
     description: 'Build CLM for production',
     usage: `${pkgManager} build <clm> [options] [filter] [lang]`,
     options: {
-      '--clm, -c': `veeva, pharma-touch, mi-touch. \tEx: -c v,mt,pt`,
-      '--options, -o': `no-screens, no-clear-assets. \t\tEx: -o ns`,
-      '--filter, -f': `regex filter under slide ID. \t\tEx: slide-1_1|slide-3_3`,
-      '--lang, -l': `build only necessary lang. \t\tEx: ua|ru`
+      'Full:': '  Description: \t\t\tExample:',
+      '--clm': `\tveeva, pharma-touch, mi-touch. \t-c v,mt,pt`,
+      '--options': `\tno-screens, no-clear-assets. \t-o ns`,
+      '--filter': `\tregex filter under slide ID. \t-f "slide-1_1|slide-3_3"`,
+      '--lang': `\tbuild only necessary lang. \t-l "ua|ru"`
     }
   }
 };
