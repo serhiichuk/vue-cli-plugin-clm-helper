@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a92edda9-b309-4bfa-9f7f-76081a78d43f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generator/template/src/app/mixins.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/app/mixins.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generator/template/src/clm.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/clm.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generator/template/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/vue.config.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,22 +20,17 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="101">
-                <caret line="209" column="16" selection-start-line="209" selection-start-column="16" selection-end-line="209" selection-end-column="16" />
+              <first_editor relative-caret-position="257">
+                <caret line="106" column="52" selection-start-line="106" selection-start-column="52" selection-end-line="106" selection-end-column="52" />
                 <folding>
-                  <element signature="e#1487#1509#0" />
-                  <element signature="e#1773#1786#0" />
                   <element signature="e#2185#2246#0" />
-                  <element signature="e#2248#2255#0" />
                   <element signature="e#2339#2367#0" />
                   <element signature="e#2369#2378#0" />
                   <element signature="e#2416#2783#0" />
                   <element signature="e#2486#2783#0" />
                   <element signature="e#2785#2898#0" />
                   <element signature="e#3053#3067#0" />
-                  <element signature="e#4045#4319#0" />
                   <element signature="e#4445#4482#0" />
-                  <element signature="e#4526#4742#0" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -50,8 +41,8 @@
       <file leaf-file-name="mixins.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generator/template/src/app/mixins.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="36" selection-end-column="73" />
+            <state relative-caret-position="306">
+              <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -290,7 +281,7 @@
       <workItem from="1527314552060" duration="4565000" />
       <workItem from="1528128753109" duration="649000" />
       <workItem from="1528225442930" duration="368000" />
-      <workItem from="1528225884973" duration="7971000" />
+      <workItem from="1528225884973" duration="8899000" />
     </task>
     <task id="LOCAL-00001" summary="work constructor for testing server">
       <created>1527268621556</created>
@@ -317,7 +308,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42115000" />
+    <option name="totallyTimeSpent" value="43043000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-1" width="1616" height="879" extended-state="6" />
@@ -583,30 +574,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/generator/template/src/app/mixins.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="36" selection-end-column="73" />
+        <state relative-caret-position="306">
+          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="101">
-            <caret line="209" column="16" selection-start-line="209" selection-start-column="16" selection-end-line="209" selection-end-column="16" />
+          <first_editor relative-caret-position="257">
+            <caret line="106" column="52" selection-start-line="106" selection-start-column="52" selection-end-line="106" selection-end-column="52" />
             <folding>
-              <element signature="e#1487#1509#0" />
-              <element signature="e#1773#1786#0" />
               <element signature="e#2185#2246#0" />
-              <element signature="e#2248#2255#0" />
               <element signature="e#2339#2367#0" />
               <element signature="e#2369#2378#0" />
               <element signature="e#2416#2783#0" />
               <element signature="e#2486#2783#0" />
               <element signature="e#2785#2898#0" />
               <element signature="e#3053#3067#0" />
-              <element signature="e#4045#4319#0" />
               <element signature="e#4445#4482#0" />
-              <element signature="e#4526#4742#0" />
             </folding>
           </first_editor>
           <second_editor />

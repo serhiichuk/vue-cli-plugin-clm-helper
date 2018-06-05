@@ -95,7 +95,7 @@ Generate slide-components to `./src/slides`, assets slide dirs to `./src/assets`
 - **`vue-cli-service generate [lang]`**
   - `lang` - optional parameter, regular expression, must match one or more of `languages` key in `./src/cli.config.js`
 
-*:information_source: For correct passing regular expressions from terminal, please wrap it in double brackets.*
+*:information_source: For correct passing regular expressions from terminal, please wrap it in **double quotes**.*
 
 ```
 npm run generate -l "ua"
@@ -104,7 +104,7 @@ yarn generate --lang "ua|ru"
 
 ### Dev
 
-Duplicates command `npm run/yarn serve` to adjective command `npm run/yarn dev` 
+Duplicates command `npm run/yarn serve` to customary command `npm run/yarn dev` 
 
 ```
 npm run dev
@@ -122,8 +122,8 @@ Build slides to necessary CLM's - each slide will build, have necessary CLM file
   - `lang` - optional, regular expression for filtering around slide language
 
 ```
-npm run build -c v,mt -o ns -f "slide-2_1|slide-main"
-yarn build --clm veeva --filter slide-1_1 --lang ua
+npm run build --clm mi-touch --filter slide-1_1 --lang ua
+yarn build -c v,mt,pt -o ns -f "slide-2_1|slide-main -l ru"
 ```
 
 *:information_source: You can use `filter` and `lang` options together.*
@@ -145,7 +145,8 @@ module.exports = {
     loaderOptions: {
     	sass: {
         // Enable all sass-files in directory 'shared' to all sass styles
-        // Do not include any files here which will have actual css output, otherwise our bundle file size will grow rapidly as the output will be in every file.
+        // Do not include any files here which will have actual css output, 
+        // otherwise our bundle file size will grow rapidly as the output will be in every file.
         data: require('./src/style/shared')
       }
     }
@@ -172,11 +173,11 @@ CLM platform options:
 
     In config `productId` must be named under rule: `[PROJECT-NAME]_[CYCLE]_[YEAR]`
 
-    During build `productId` will add `language` and `slide id` parts.
+    During build to `productId` will added lang and slide id parts.
 
     ```
     clm: {
-      productId: 'TEST_C2_18' // => [PROJECT-NAME]_[CYCLE]_[YEAR]
+      productId: 'SOME_PRODUCT_C2_18'
     }
     ```
 
@@ -214,7 +215,7 @@ CLM platform options:
   --- | --- | ---
   id | `String` | Unique slide identifier, must be named under rule: `slide-[flow-num/name]_[slide-num]` 
   path | `String` | Path to slide. All `slide-components` must contain in `./src/slides`, and you can create difference folders structure here.
-  name | `String/Object` | Slide name. Required for [creating 'slides.json' in Pharma Touch build](./blob/master/commands/build-clm/build-pharma-touch.js), usualy using in `navigation-components`. **If `object` - keys names must be equal to [languages](#languages)**  
+  name | `String/Object` | Slide name. Required for [creating 'slides.json' in Pharma Touch build](./commands/build-clm/build-pharma-touch.js), usualy using in `navigation-components`. **If `object` - keys names must be equal to [languages](#languages)**  
   ```
   structure: [
     {
