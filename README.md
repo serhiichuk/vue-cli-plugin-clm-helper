@@ -4,7 +4,7 @@
 
 **:pray: Easy work with CLM presentations!**
 
-This is a vue-cli 3.x plugin to help work with MI Touch, Pharma Touch and Veeva CRM systems.
+This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and Veeva CRM systems.
 
 **:star: Features:**
 
@@ -19,7 +19,7 @@ This is a vue-cli 3.x plugin to help work with MI Touch, Pharma Touch and Veeva 
 - Development
   - QR-code for opening external link
   - Opportunity for display CRM system elements
-  - Included basic CLM-methods
+  - Included basic functionality
 - Project config
 
 ## Table of contents
@@ -38,7 +38,12 @@ This is a vue-cli 3.x plugin to help work with MI Touch, Pharma Touch and Veeva 
     - [device](#device)
       - [resolution](#resolution)
     - [structure](#structure)
-
+- [Additional Info](#additional-info)
+  - [Slide Component](#slide-component)
+  - [Basic Functionality](#basic-functionality)
+    - [Mixins](#mixins)
+      - [Mixin Global](#mixin-global)
+      - [Mixin Slide](#mixin-slide)
 
 
 ## Getting started
@@ -62,7 +67,7 @@ cd my-new-clm-project
 vue add clm-helper
 ```
 
-Generate slide-components:
+Generate [slide-components](#slide-component):
 
 ```
 npm run generate
@@ -90,9 +95,10 @@ For using standard vue build just run `npm run/yarn` `build-standard`.
   
 #### Generate
 
-Generate slide-components to `./src/slides`, assets slide dirs to `./src/assets`, all text data files to `./src/data`.
+Generate [slide-components](#slide-component) to `./src/slides`, assets slide dirs to `./src/assets`, all text data files to `./src/data`.
   
 - **`vue-cli-service generate [lang]`**
+
   - `lang` - optional parameter, regular expression, must match one or more of `languages` key in `./src/cli.config.js`
 
 *:information_source: For correct passing regular expressions from terminal, please wrap it in **double quotes**.*
@@ -116,6 +122,7 @@ yarn dev
 Build slides to necessary CLM's - each slide will build, have necessary CLM files and archived.
 
 - **`vue-cli-service build-clm <clm> [options] [filter] [lang]`**  
+
   - `clm` - required parameter, can be: `veeva`, `mi-touch` and `pharma-touch`
   - `options` - optional, can be: `no-screens` and `no-clear-assets`
   - `filter` - optional, regular expression for filtering around slide ID
@@ -167,8 +174,6 @@ CLM platform options:
 
 - #### clm
 
-  Necessary CLM info.
-
   - ##### productId
 
     In config `productId` must be named under rule: `[PROJECT-NAME]_[CYCLE]_[YEAR]`
@@ -192,17 +197,17 @@ CLM platform options:
   ```
 
 - #### device
-  Necessary Device info.
 
   - ##### resolution
 
     Device resolution will import in [shared styles](#vue-config).
+    
     Also resolution using for [creating slide screenshots](./lib/screens-maker.js).
     
     ```
       device: {
         resolution: {
-          width: 2048,
+          width: 2048, // pixels
           height: 1536
         }
       },
@@ -214,8 +219,8 @@ CLM platform options:
   Option | Type | Description
   --- | --- | ---
   id | `String` | Unique slide identifier, must be named under rule: `slide-[flow-num/name]_[slide-num]` 
-  path | `String` | Path to slide. All `slide-components` must contain in `./src/slides`, and you can create difference folders structure here.
-  name | `String/Object` | Slide name. Required for [creating 'slides.json' in Pharma Touch build](./commands/build-clm/build-pharma-touch.js), usualy using in `navigation-components`. **If `object` - keys names must be equal to [languages](#languages)**  
+  path | `String` | Path to slide. All [`slide-components`](#slide-component) must contain in `./src/slides`, and you can create difference folders structure here.
+  name | `String/Object` | Slide name. Required for [creating 'slides.json' in Pharma Touch build](./commands/build-clm/build-pharma-touch.js), usualy using in `navigation-components`. **If `object` - keys names must match with [languages](#languages) items**  
   ```
   structure: [
     {
@@ -232,4 +237,87 @@ CLM platform options:
   ]
   ```
 
+## Additional Info
 
+### Slide Component
+
+ Each `slide-component` must be named under rule: 
+ 
+ `slide-[flow-num|name]_[slide-num].vue`
+
+ All `slide-components` must contain in `./src/slides`, and you can create difference folders structure here, just describe that in `clm.structure.js`
+
+### Basic Functionality
+
+#### Mixins
+
+For using [Vue Mixins](https://vuejs.org/v2/guide/mixins.html) I **strongly** recommended use file `./src/app/mixins.js`.
+
+There is [global](#mixin-global) and [slide](#mixin-slide) mixins.
+
+```
+// src/app/mixins.js
+export default {
+  /**
+   * This object will added each vue instance
+   * and, this keys will overwrite clm-instance keys in @/app/clm
+   */
+   global: {
+      ...
+   },
+  
+   /**
+     * This object will added to each 'slide-component' instance
+     * for adding this options to other components
+     * just import mixin and include it => mixins: [mixins.slide]
+     */
+   slide: {
+      ...
+   }
+}
+```
+
+##### Mixin Global
+
+Each vue-component initially include `global` mixin which was created from merge `./src/app/clm` and `./src/app/mixins`
+
+```
+// main.js
+...
+import clm from '@/app/clm'
+import mixins from '@/app/mixins'
+...
+Vue.mixin({...clm, ...mixins.global});
+```
+
+`import clm from '@/app/clm'` return basic functionalities for necessary CLM *(set during build)*, or if `NODE_ENV === 'development''` return the same basic functionalities for development.
+
+Basic functionalities:
+
+- `navigateTo(id)` 
+  
+  Method for navigation around slides.
+  
+  Parameter `id`: id from one of slide in [structure](#structure). See also [productId](#productId)
+
+
+##### Mixin Slide
+
+Each [`slide-component`](#slide-component) initially include `slide` mixin from `./src/app/mixins`
+
+```
+// each slide-component
+import mixins from '@/app/mixins'
+
+export default {
+  mixins: [mixins.slide],
+  ...  
+}
+```
+
+`mixins.slide` 
+- determinate and set to vue instance current `slide.id`, `slide.path` 
+- import necessary text data and set to vue instance current `data`
+- has a computed property `t` for easy access to `data.content`
+
+*:warning: `mixins.slide` does the above described things only in the [slide-component](#slide-component).*

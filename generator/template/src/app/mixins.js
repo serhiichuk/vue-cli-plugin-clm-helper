@@ -2,7 +2,7 @@ const isDev = process.env.NODE_ENV === 'development';
 
 export default {
   /**
-   * This object will added all vue instance
+   * This object will added each vue instance
    * and, this keys will overwrite clm-instance keys in @/app/clm
    */
   global: {},
@@ -32,14 +32,14 @@ export default {
       }
     },
     created() {
+
       /**
-       * All 'slide-components' contains in 'src/slides'
+       * All 'slide-components' must contains in 'src/slides'
        * you can create difference folder structure in 'slides' directory,
        * just describe that in 'clm.structure.js'
        *
        * Each 'slide-component' must be named under rule: 'slide-[flow-num|name]_[slide-num].vue'
        */
-
       if (isDev) {
         const componentPath = this.$options.__file;
         const isSlide = /(?=.*slides(\\|\/))(?=.*slide-)/gi.test(componentPath); // match 'slides\' and 'slide-';
