@@ -8,7 +8,7 @@ const commands = {
   // },
 
   generate: {
-    description: 'Generate each slide component',
+    description: 'Generate each slide-component',
     usage: `${pkgManager} generate [options]`,
     options: {
       'Full:': '  Description: \t\t\tExample:',
@@ -17,7 +17,7 @@ const commands = {
   },
 
   'build-clm': {
-    description: 'Build CLM for production',
+    description: 'Build slides to necessary CLM\'s',
     usage: `${pkgManager} build <clm> [options] [filter] [lang]`,
     options: {
       'Full:': '  Description: \t\t\tExample:',
