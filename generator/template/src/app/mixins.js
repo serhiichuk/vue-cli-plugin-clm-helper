@@ -3,10 +3,10 @@ const isDev = process.env.NODE_ENV === 'development';
 export default {
   /**
    * This object will added all vue instance
+   * and, this keys will overwrite clm-instance keys in @/app/clm
    */
-  global: {
+  global: {},
 
-  },
 
   /**
    * This object will added to each 'slide-component' instance
