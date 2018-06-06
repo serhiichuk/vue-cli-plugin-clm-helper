@@ -36,18 +36,26 @@
 
       <section class="sidebar-languages">
         <div class="description">Project languages</div>
-        <div class="btn" v-for="_lang in languages" :key="_lang"
-             :class="{active: _lang === lang}"
-             @click="SET_LANG(_lang)"
-        >{{_lang}}
+        <div class="btn" v-for="lang in languages" :key="lang"
+             :class="{active: lang === currentLang}"
+             @click="SET_LANG(lang)"
+        >{{lang}}
         </div>
       </section>
 
-      <section class="sidebar-system-el">
-        <div class="description">System Elements</div>
-        <div class="btn" v-for="(value, key) in clmSysElements" :key="key"
+      <section class="sidebar-dev-help-el">
+        <div class="description">CLM System Elements</div>
+        <div class="btn" :class="{active: isActiveDevHelpElements}"
+             @click="TOGGLE_DEV_HELP_ELEMENTS"
+        >{{isActiveDevHelpElements ? 'on' : 'off'}}
+        </div>
+      </section>
+
+      <section class="sidebar-clm-system-el">
+        <div class="description">CLM System Elements</div>
+        <div class="btn" v-for="(value, key) in clmSystemElements" :key="key"
              :class="{active: value}"
-             @click="toggleClmSysElements(key)"
+             @click="SET_CLM_SYSTEM_ELEMENTS({[key]: !value})"
         >{{key}}
         </div>
       </section>
@@ -90,11 +98,6 @@
     data() {
       return {
         languages,
-        clmSysElements: {
-          'veeva': false,
-          'pharma-touch': false,
-          'mi-touch': false
-        },
         activeModal: '',
         externalData: {
           qr: '',
@@ -104,13 +107,13 @@
     },
 
     computed: {
-      ...mapState(['lang']),
+      ...mapState(['currentLang', 'isActiveDevHelpElements', 'clmSystemElements']),
 
       slides() {
         return structure.map(sl => {
           return {
             ...sl,
-            name: sl.name[this.lang] || sl.name
+            name: sl.name[this.currentLang] || sl.name
           }
         })
       },
@@ -121,7 +124,7 @@
     },
 
     methods: {
-      ...mapMutations(['SET_LANG']),
+      ...mapMutations(['SET_LANG', 'TOGGLE_DEV_HELP_ELEMENTS', 'SET_CLM_SYSTEM_ELEMENTS']),
 
       copyTextToClipboard() {
         const copyText = document.getElementById('external-link');
@@ -144,11 +147,6 @@
       openModal(name) {
         this.activeModal = name
       },
-
-      toggleClmSysElements(clm) {
-        this.clmSysElements[clm] = !this.clmSysElements[clm];
-        sessionStorage.setItem(`clm-elements-${clm}`, this.clmSysElements[clm]);
-      }
     },
 
     created() {
@@ -163,10 +161,6 @@
         qr.make();
         this.externalData.qr = qr.createSvgTag(20);
         this.externalData.link = externalHref;
-      });
-
-      Object.keys(this.clmSysElements).forEach(key => {
-        this.clmSysElements[key] = sessionStorage.getItem(`clm-elements-${key}`) === 'true'
       });
     }
   }
@@ -183,6 +177,10 @@
   $color-dev-accent-2: #2c3e50;
   $color-dev-accent-3: #fafafa;
   $color-dev-red: #ff4242;
+
+  * {
+    box-sizing: border-box;
+  }
 
   #development-page {
     position: absolute;
@@ -213,6 +211,11 @@
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: inset 0 0 5em -2em $color-dev-accent-2;
+
+    font-variant: small-caps;
+    text-align: center;
+
+    @include flexCentered;
 
     &.active {
       box-shadow: inset 0 0 6em -1em $color-dev-accent-1;
@@ -413,12 +416,21 @@
 
     &-languages {
       .btn {
-        @include flexCentered;
-        text-transform: uppercase;
       }
     }
 
-    &-system-el {
+    &-dev-help-el {
+      .btn {
+        /*flex-basis: 30%;*/
+
+        /*font-size: .7em;*/
+        /*line-height: 1em;*/
+        /*font-variant: small-caps;*/
+        /*text-align: center;*/
+      }
+    }
+
+    &-clm-system-el {
       flex-wrap: wrap;
 
       .description {
@@ -427,13 +439,10 @@
       }
 
       .btn {
-        @include flexCentered;
         flex-basis: 30%;
 
         font-size: .7em;
         line-height: 1em;
-        font-variant: small-caps;
-        text-align: center;
       }
     }
   }
