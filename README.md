@@ -33,7 +33,7 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
   - [Vue Config](#vue-config)
   - [CLM Config](#clm-config)
     - [clm](#clm)
-      - [productId](#productId)
+      - [productId](#productid)
     - [languages](#languages)
     - [device](#device)
       - [resolution](#resolution)
@@ -279,7 +279,7 @@ export default {
 
 ##### Mixin Global
 
-Each vue-component initially include `global` mixin which was created from merge `./src/app/clm` and `./src/app/mixins`
+Each vue-component initially include `global` mixin which was created from merge `./src/app/clm` and `./src/app/mixins`.
 
 ```
 // main.js
@@ -290,7 +290,7 @@ import mixins from '@/app/mixins'
 Vue.mixin({...clm, ...mixins.global});
 ```
 
-`import clm from '@/app/clm'` return basic functionalities for necessary CLM *(set during build)*, or if `NODE_ENV === 'development''` return the same basic functionalities for development.
+`import clm from '@/app/clm'` return basic functionalities for necessary CLM *(set during build)*, or if `NODE_ENV === 'development'` return the same basic functionalities for development.
 
 Basic functionalities:
 
@@ -298,7 +298,7 @@ Basic functionalities:
   
   Method for navigation around slides.
   
-  Parameter `id`: id from one of slide in [structure](#structure). See also [productId](#productId)
+  Parameter `id`: id from one of slide in [structure](#structure). See also [productId](#productid)
 
 
 ##### Mixin Slide
