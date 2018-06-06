@@ -55,7 +55,9 @@ vue --version
 ```
 
 If you don't have a project created with vue-cli 3.x yet:
+**(not working)**
 
+Please use `vue add` command.
 ```
 vue create my-new-clm-project -p serhiichuk/vue-preset-clm
 ```

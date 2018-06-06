@@ -2,11 +2,6 @@
 const {hasYarn} = require('@vue/cli-shared-utils');
 const pkgManager = hasYarn ? 'yarn' : 'npm';
 const commands = {
-  // data: {
-  //   description: 'Util for data',
-  //   usage: `${pkgManager} data <optios>`
-  // },
-
   generate: {
     description: 'Generate each slide-component',
     usage: `${pkgManager} generate [options]`,
