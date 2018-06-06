@@ -46,7 +46,7 @@ export default {
 
         if (isSlide) {
           this.slide.id = componentPath.split('\\').pop().replace(/\.vue$/gi, '');
-          this.slide.path = componentPath.replace(/(?:^src\\)|(?:\.vue)/gi, '').replace(/\\/, '/');
+          this.slide.path = componentPath.replace(/(?:^src\\)|(?:\.vue)/gi, '').replace(/\\/g, '/');
 
         } else {
           // This code will run when this mixin was included in 'non-slide-component;
