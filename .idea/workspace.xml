@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a92edda9-b309-4bfa-9f7f-76081a78d43f" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generator/template/src/app/mixins.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/app/mixins.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,8 +21,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="611">
-                <caret line="317" column="7" selection-start-line="317" selection-start-column="7" selection-end-line="317" selection-end-column="7" />
+              <first_editor relative-caret-position="459">
+                <caret line="292" column="132" selection-start-line="292" selection-start-column="132" selection-end-line="292" selection-end-column="132" />
                 <folding>
                   <element signature="e#2185#2246#0" />
                 </folding>
@@ -254,7 +254,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="9.11.1" />
     <property name="jsx.switch.disabled" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="L:/vue-clm-test-project" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -319,7 +319,7 @@
       <workItem from="1527314552060" duration="4565000" />
       <workItem from="1528128753109" duration="649000" />
       <workItem from="1528225442930" duration="368000" />
-      <workItem from="1528225884973" duration="15642000" />
+      <workItem from="1528225884973" duration="16172000" />
     </task>
     <task id="LOCAL-00001" summary="work constructor for testing server">
       <created>1527268621556</created>
@@ -346,7 +346,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49786000" />
+    <option name="totallyTimeSpent" value="50316000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-1" width="1616" height="879" extended-state="6" />
@@ -622,8 +622,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="611">
-            <caret line="317" column="7" selection-start-line="317" selection-start-column="7" selection-end-line="317" selection-end-column="7" />
+          <first_editor relative-caret-position="459">
+            <caret line="292" column="132" selection-start-line="292" selection-start-column="132" selection-end-line="292" selection-end-column="132" />
             <folding>
               <element signature="e#2185#2246#0" />
             </folding>
