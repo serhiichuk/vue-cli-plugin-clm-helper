@@ -1,6 +1,6 @@
 <script type="text/jsx">
   export default {
-    name: "json-to-dom",
+    name: "json-to-html",
     props: {
       json: {
         type: Object,
