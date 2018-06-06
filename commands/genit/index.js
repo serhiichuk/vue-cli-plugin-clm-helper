@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 const fs = require('fs');
 const fse = require('fs-extra');
 const path = require('path');
@@ -39,7 +38,7 @@ module.exports = (api, projectOptions, args) => {
 };
 
 function createData(sl, lang) {
-  const slDataPath = path.resolve(__dirname, 'templates/slide-data.js');
+  const slDataPath = path.resolve(__dirname, 'default-templates/slide-data.js');
 
   fse.copySync(slDataPath, path.join(paths.src, 'data', sl.path.replace('slides', lang) + '.js'))
 }
@@ -47,7 +46,7 @@ function createData(sl, lang) {
 
 function createSlide(sl) {
   const slDirPath = path.join(paths.src, sl.path);
-  const slTemplatePath = path.resolve(__dirname, 'templates/slide-template.vue');
+  const slTemplatePath = path.resolve(__dirname, 'default-templates/slide-template.vue');
 
   fse.copySync(slTemplatePath, path.join(slDirPath, `${sl.id}.vue`))
 }
