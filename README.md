@@ -48,10 +48,10 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
 
 ## Getting started
 
-:warning: Make sure you have [vue-cli 3.x.x:](https://github.com/vuejs/vue-cli)
+:warning: Make sure you have [vue-cli 3.x.x](https://github.com/vuejs/vue-cli) and node 8.x.x versions
 
 ```
-vue --version
+vue/node --version
 ```
 
 If you don't have a project created with vue-cli 3.x yet:

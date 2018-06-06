@@ -13,21 +13,23 @@ module.exports = (api, projectOptions, args) => {
     lang: ''
   });
 
+  let languagesToGenerate = languages;
+
   if (!args.lang.test('')) {
     info(`Lang filter: ${chalk.green(args.lang)}`);
 
-    const languagesToGenerate = languages.filter(lang => args.lang.test(lang));
+    languagesToGenerate = languages.filter(lang => args.lang.test(lang));
 
     if (!languagesToGenerate.length) {
       error(`Wrong lang filter. Filter must mach ${chalk.green(languages.join('|'))}`);
       process.exit(0)
     }
-
-    /** Create Data for each lang **/
-    languagesToGenerate.forEach(lang => {
-      structure.forEach(sl => createData(sl, lang))
-    })
   }
+
+  /** Create Data for each lang **/
+  languagesToGenerate.forEach(lang => {
+    structure.forEach(sl => createData(sl, lang))
+  });
 
   /** Create Slide and Slide Asset Dir only in one instance **/
   structure.forEach(sl => {
@@ -48,7 +50,7 @@ function createSlide(sl) {
   const slDirPath = path.join(paths.src, sl.path);
   const slTemplatePath = path.resolve(__dirname, 'default-templates/slide-template.vue');
 
-  fse.copySync(slTemplatePath, path.join(slDirPath, `${sl.id}.vue`))
+  fse.copySync(slTemplatePath, slDirPath + '.vue')
 }
 
 function createAssetsDirs(sl) {
