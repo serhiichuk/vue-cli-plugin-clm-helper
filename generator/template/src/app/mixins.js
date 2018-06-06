@@ -66,7 +66,7 @@ export default {
        * Slides data must contain in 'src/data/[lang]/[slide.id].js'
        **/
 
-      const dataPath = this.slide.path.replace(/^slides/, this.$store.state.lang);
+      const dataPath = this.slide.path.replace(/^slides/, this.$store.state.currentLang);
       import(/* webpackChunkName: "data" */ '@/data/' + dataPath).then(m => this.data = m.default)
     }
   }
