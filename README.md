@@ -2,6 +2,8 @@
 
 [![vue-cli3](https://img.shields.io/badge/vue--cli-3.x-brightgreen.svg)](https://github.com/vuejs/vue-cli)
 
+**Status: beta** 
+
 **:pray: Easy work with CLM presentations!**
 
 This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and Veeva CRM systems.
@@ -25,7 +27,7 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
 ## Table of contents
 
 - [Getting started](#getting-started)
-- [Plugin Commands](#plugin-commands)
+- [Plugin CLI Commands](#plugin-cli-commands)
   - [Generate](#generate)
   - [Dev](#dev)
   - [Build](#build)
@@ -143,7 +145,7 @@ yarn build -c v,mt,pt -o ns -f "slide-2_1|slide-main -l ru"
 
 Plugin generator create `vue.config.js` with necessary options:
 
-See [official documentation](https://github.com/vuejs/vue-cli/blob/dev/docs/config.md) for full details.
+See [official documentation](https://cli.vuejs.org/config/#vue-config-js) for full details.
 
 ```
 module.exports = {
@@ -209,7 +211,7 @@ CLM platform options:
     ```
       device: {
         resolution: {
-          width: 2048, // pixels
+          width: 2048, //px
           height: 1536
         }
       },
@@ -245,7 +247,7 @@ CLM platform options:
 
  Each `slide-component` must be named under rule: 
  
- `slide-[flow-num|name]_[slide-num].vue`
+ `slide-[flow-num/name]_[slide-num].vue`
 
  All `slide-components` must contain in `./src/slides`, and you can create difference folders structure here, just describe that in `clm.structure.js`
 
@@ -281,7 +283,7 @@ export default {
 
 ##### Mixin Global
 
-Each vue-component initially include `global` mixin which was created from merge `./src/app/clm` and `./src/app/mixins`.
+Each vue-component initially include `global` mixin which was created from merge `./src/app/clm` and `global` object from `./src/app/mixins`.
 
 ```
 // main.js
@@ -294,13 +296,13 @@ Vue.mixin({...clm, ...mixins.global});
 
 `import clm from '@/app/clm'` return basic functionalities for necessary CLM *(set during build)*, or if `NODE_ENV === 'development'` return the same basic functionalities for development.
 
-Basic functionalities:
+Basic functional in mixin:
 
 - `navigateTo(id)` 
   
   Method for navigation around slides.
   
-  Parameter `id`: id from one of slide in [structure](#structure). See also [productId](#productid)
+  Parameter `id`: id from one of slides in [structure](#structure). See also [productId](#productid)
 
 
 ##### Mixin Slide

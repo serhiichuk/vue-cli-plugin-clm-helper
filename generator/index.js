@@ -3,7 +3,7 @@ const path = require('path');
 const chalk = require('chalk');
 const {hasYarn} = require('@vue/cli-shared-utils');
 
-module.exports = (api, options) => {
+module.exports = (api, options, rootOptions) => {
 
   // modify package.json fields
   api.extendPackage({
@@ -24,7 +24,7 @@ module.exports = (api, options) => {
       "sass-loader": "^7.0.1"
     }
   });
-  
+
   if (!api.hasPlugin('@vue/cli-plugin-babel')) {
     api.extendPackage({
       devDependencies: {
@@ -40,15 +40,19 @@ module.exports = (api, options) => {
   // clear src and copy clm-template
   api.onCreateComplete(() => {
     const src = api.resolve('src');
-  
+    const public = api.resolve('public');
+
     fse.emptydirSync(src);
     fse.copySync(path.resolve(__dirname, 'template/src'), src);
+
+    fse.emptydirSync(public);
+    fse.copySync(path.resolve(__dirname, 'template/public'), public);
   });
 
   // show info after complete
   const command = (command) => hasYarn()
     ? chalk.green(`yarn ${command}`)
     : chalk.green(`npm ${command}`);
-  
+
   api.exitLog(`To Development: ${command('dev')}. To build: ${command('build --help')}`);
 };
