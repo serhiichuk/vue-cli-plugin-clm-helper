@@ -1,7 +1,7 @@
 <template>
-  <div class="development-elements">
+  <div id="development-elements" v-if="isActiveThisPage">
 
-    <section class="development-help-elements" v-if="isActiveDevHelpElements">
+    <section class="development-helpers" v-if="isActiveDevHelpers">
 
       <div class="nav">
         <div class="nav-dev-page">Dev</div>
@@ -40,7 +40,11 @@
   export default {
     name: "development-elements",
     computed: {
-      ...mapState(['languages', 'currentLang', 'isActiveDevHelpElements', 'clmSystemElements']),
+      ...mapState(['languages', 'currentLang', 'isActiveDevHelpers', 'clmSystemElements']),
+      isActiveThisPage() {
+        const {isActiveDevHelpers, clmSystemElements} = this;
+        return isActiveDevHelpers || Object.keys(clmSystemElements).some(key => !!clmSystemElements[key])
+      }
     },
     methods: {
       ...mapMutations(['SET_LANG']),
@@ -52,13 +56,13 @@
   $border-color: aqua;
   $mi-touch-padding: 8%;
 
-  .development-elements {
+  #development-elements {
     * {
       z-index: 10001;
     }
   }
 
-  .development-help-elements {
+  .development-helpers {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -124,6 +128,9 @@
   }
 
   .veeva {
+    > * {
+      opacity: 0.9;
+    }
     &-item-1 {
       position: absolute;
       top: 0;

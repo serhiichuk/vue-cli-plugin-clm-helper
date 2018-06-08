@@ -45,9 +45,9 @@
 
       <section class="sidebar-dev-help-el">
         <div class="description">CLM System Elements</div>
-        <div class="btn" :class="{active: isActiveDevHelpElements}"
-             @click="TOGGLE_DEV_HELP_ELEMENTS"
-        >{{isActiveDevHelpElements ? 'on' : 'off'}}
+        <div class="btn" :class="{active: isActiveDevHelpers}"
+             @click="TOGGLE_DEV_HELPERS"
+        >{{isActiveDevHelpers ? 'on' : 'off'}}
         </div>
       </section>
 
@@ -85,6 +85,15 @@
       <div class="external-data-description">Use these addresses to load live preview on other devices.</div>
     </section>
 
+    <!-- Preloader -->
+    <transition name="fade">
+      <div class="preloader" v-if="!ready">
+        <div class="loader">
+          <div class="spin"></div>
+          <div class="bounce"></div>
+        </div>
+      </div>
+    </transition>
   </section>
 </template>
 
@@ -95,8 +104,10 @@
   import {mapMutations, mapState} from 'vuex'
 
   export default {
+    name: 'development-page',
     data() {
       return {
+        ready: false,
         languages,
         activeModal: '',
         externalData: {
@@ -107,7 +118,7 @@
     },
 
     computed: {
-      ...mapState(['currentLang', 'isActiveDevHelpElements', 'clmSystemElements']),
+      ...mapState(['currentLang', 'isActiveDevHelpers', 'clmSystemElements']),
 
       slides() {
         return structure.map(sl => {
@@ -124,7 +135,7 @@
     },
 
     methods: {
-      ...mapMutations(['SET_LANG', 'TOGGLE_DEV_HELP_ELEMENTS', 'SET_CLM_SYSTEM_ELEMENTS']),
+      ...mapMutations(['SET_LANG', 'TOGGLE_DEV_HELPERS', 'SET_CLM_SYSTEM_ELEMENTS']),
 
       copyTextToClipboard() {
         const copyText = document.getElementById('external-link');
@@ -162,6 +173,20 @@
         this.externalData.qr = qr.createSvgTag(20);
         this.externalData.link = externalHref;
       });
+    },
+
+    mounted() {
+      document.querySelectorAll('#app > *').forEach(appChildEl => {
+        if (!/development-|dev-/.test(appChildEl.getAttribute('id'))) {
+          appChildEl.style.display = 'none';
+        }
+      });
+
+      this.$nextTick(function () {
+        // Code that will run only after the
+        // entire view has been rendered
+        this.ready = true;
+      })
     }
   }
 </script>
@@ -578,4 +603,128 @@
     }
   }
 
+  /* Preloader */
+  .preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000000;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: lighten($color-dev-accent-1, 50%);
+
+    @include flexCentered;
+
+    .loader {
+      position: relative;
+      height: 5rem;
+      width: 10rem;
+      box-sizing: content-box;
+
+      * {
+        box-sizing: content-box;
+      }
+
+      &:before {
+        content: '';
+        @include transformCentered;
+
+        height: 0;
+        width: 0;
+
+        border: 0.2rem solid $color-dev-accent-2;
+      }
+
+      .spin {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+
+        margin-left: -1rem;
+        margin-top: -1rem;
+
+        width: 2rem;
+        height: 2rem;
+
+        animation: spin 2.25s linear infinite;
+
+        &:before {
+          content: '';
+          position: absolute;
+          left: 50%;
+          top: 50%;
+
+          height: inherit;
+          width: inherit;
+
+          transform: translate(-50%, -50%) rotate(45deg);
+          border: 0.3rem solid $color-dev-accent-2;
+        }
+      }
+
+      .bounce {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+
+        animation: bounce 2.25s linear infinite;
+
+        &:after, &:before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          height: 1rem;
+          width: 1rem;
+          margin-top: -0.5rem;
+
+          transform: rotate(45deg);
+        }
+
+        &:before {
+          left: 0;
+          border-bottom: .3rem solid $color-dev-accent-2;
+          border-left: .3rem solid $color-dev-accent-2;
+        }
+
+        &:after {
+          right: 0;
+          border-right: .3rem solid $color-dev-accent-2;
+          border-top: .3rem solid $color-dev-accent-2;
+        }
+      }
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(0deg);
+    }
+    20% {
+      transform: rotate(90deg);
+    }
+    35% {
+      transform: rotate(90deg);
+    }
+    45% {
+      transform: rotate(180deg);
+    }
+    60% {
+      transform: rotate(180deg);
+    }
+    75% {
+      transform: rotate(270deg);
+    }
+    85% {
+      transform: rotate(270deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 </style>
