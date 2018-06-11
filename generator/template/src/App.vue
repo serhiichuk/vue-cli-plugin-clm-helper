@@ -6,6 +6,7 @@
 </template>
 
 <script>
+  import "@/style/main.scss";
   const isDev = process.env.NODE_ENV === 'development';
 
   export default {
@@ -17,7 +18,6 @@
 </script>
 
 <style lang="scss">
-  @import "./style/main";
 
   body, html {
     position: relative;
