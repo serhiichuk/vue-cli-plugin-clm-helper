@@ -45,7 +45,7 @@ export default {
         const isSlide = /(?=.*slides(\\|\/))(?=.*slide-)/gi.test(componentPath); // match 'slides\' and 'slide-';
 
         if (isSlide) {
-          this.slide.id = componentPath.split('\\').pop().replace(/\.vue$/gi, '');
+          this.slide.id = this.$route.path.replace(/\//g, '');
           this.slide.path = componentPath.replace(/(?:^src\\)|(?:\.vue)/gi, '').replace(/\\/g, '/');
 
         } else {
