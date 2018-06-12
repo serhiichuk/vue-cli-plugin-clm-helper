@@ -60,6 +60,7 @@ export default {
         this.slide.path = process.env.VUE_APP_SL_PATH;
       }
 
+      this.$store.commit('SET_CURRENT_SLIDE', this.slide);
 
       /**
        * Import text data for current slide
@@ -67,7 +68,7 @@ export default {
        **/
 
       const dataPath = this.slide.path.replace(/^slides/, this.$store.state.currentLang);
-      import(/* webpackChunkName: "data" */ '@/data/' + dataPath).then(m => this.data = m.default)
+      import(/* webpackChunkName: "[request]" */ '@/data/' + dataPath).then(m => this.data = m.default)
     }
   }
 };
