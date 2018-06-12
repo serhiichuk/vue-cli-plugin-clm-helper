@@ -5,5 +5,10 @@ export default {
     navigateTo(id) {
       Router.push(`/${id}`)
     }
+  },
+  created() {
+    global.setLang = (lang) => {
+      this.$store.commit('SET_LANG', lang)
+    }
   }
 }

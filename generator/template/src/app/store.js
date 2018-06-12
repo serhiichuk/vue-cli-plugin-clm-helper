@@ -1,10 +1,50 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {languages} from '@/clm.config'
+import {languages, structure} from '@/clm.config'
 
 Vue.use(Vuex);
 
 const isDev = process.env.NODE_ENV === 'development';
+const store = new Vuex.Store({
+  state: {
+    languages,
+    currentLang: isDev
+      ? sessionStorage.getItem('current-lang') || languages[0]
+      : process.env.VUE_APP_SL_LANG,
+
+    currentSlide: {
+      id: '',
+      path: '',
+      name: ''
+    }
+  },
+
+  getters: {
+    structure: state => {
+      return structure.map(sl => ({
+        ...sl,
+        name: typeof sl.name === 'string' ? sl.name : sl.name[state.currentLang]
+      }));
+    }
+  },
+
+  mutations: {
+    SET_LANG(state, currentLang) {
+      if (state.languages.indexOf(currentLang) === -1 && isDev) {
+        console.error(`[Error]: Can't find lang "${currentLang}" in project languages: "${state.languages.join(', ')}"`)
+      } else {
+        state.currentLang = currentLang;
+        sessionStorage.setItem('current-lang', currentLang)
+      }
+    },
+
+    SET_CURRENT_SLIDE(state, currentSlide) {
+      state.currentSlide = currentSlide;
+    }
+  }
+});
+
+
 // Set or get booleans in session storage
 const storage = {
   setValue(key, value) {
@@ -15,8 +55,8 @@ const storage = {
   }
 };
 
-// Development Module
-const development = {
+store.registerModule('dev', {
+  namespaced: true,
   state: {
     isActiveDevHelpers: storage.getValue('show-development-helpers'),
     clmSystemElements: {
@@ -39,23 +79,6 @@ const development = {
       });
     }
   }
-};
+});
 
-export default new Vuex.Store({
-  state: {
-    ...development.state,
-    languages,
-    currentLang: sessionStorage.getItem('current-lang') || languages[0]
-  },
-  mutations: {
-    ...development.mutations,
-    SET_LANG(state, currentLang) {
-      if (state.languages.indexOf(currentLang) === -1 && isDev) {
-        console.error(`[Error]: Can't find lang "${currentLang}" in project languages: "${state.languages.join(', ')}"`)
-      } else {
-        state.currentLang = currentLang;
-        sessionStorage.setItem('current-lang', currentLang)
-      }
-    }
-  }
-})
+export default store;

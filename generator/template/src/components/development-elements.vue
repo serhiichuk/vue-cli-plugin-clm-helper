@@ -14,6 +14,7 @@
       <div class="languages" v-if="languages.length > 0">
         <div v-for="lang in languages" :key="lang"
              :class="{active: lang === currentLang}"
+             :id="`lang-${lang}`"
              @touchend="SET_LANG(lang)"
         >{{lang}}
         </div>
@@ -43,6 +44,8 @@
   import {mapMutations, mapState} from 'vuex'
   import {structure} from '@/clm.config'
 
+  const isDev = process.env.NODE_ENV === 'development';
+
   export default {
     name: "development-elements",
     data() {
@@ -51,11 +54,13 @@
       }
     },
     computed: {
-      ...mapState(['languages', 'currentLang', 'isActiveDevHelpers', 'clmSystemElements']),
+      ...mapState(['languages', 'currentLang']),
+      ...mapState('dev', ['isActiveDevHelpers', 'clmSystemElements']),
+
       isActiveThisPage() {
-        const {isActiveDevHelpers, clmSystemElements} = this;
-        return isActiveDevHelpers || Object.keys(clmSystemElements).some(key => !!clmSystemElements[key])
+        return isDev && this.isActiveDevHelpers || Object.keys(this.clmSystemElements).some(key => !!this.clmSystemElements[key])
       },
+
       adjacentSlides() {
         const result = {};
 
@@ -187,13 +192,13 @@
     .toggle-btn {
       content: '';
       position: absolute;
-      top: 99.9%;
+      top: 99%;
       left: 50%;
       display: block;
       transform: translateX(-50%);
 
       width: 2em;
-      height: 1em;
+      height: 1.25em;
 
       background: inherit;
       background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDI5Mi4zNjIgMjkyLjM2MiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjkyLjM2MiAyOTIuMzYyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgY2xhc3M9IiI+PGc+PGc+Cgk8cGF0aCBkPSJNMjg2LjkzNSw2OS4zNzdjLTMuNjE0LTMuNjE3LTcuODk4LTUuNDI0LTEyLjg0OC01LjQyNEgxOC4yNzRjLTQuOTUyLDAtOS4yMzMsMS44MDctMTIuODUsNS40MjQgICBDMS44MDcsNzIuOTk4LDAsNzcuMjc5LDAsODIuMjI4YzAsNC45NDgsMS44MDcsOS4yMjksNS40MjQsMTIuODQ3bDEyNy45MDcsMTI3LjkwN2MzLjYyMSwzLjYxNyw3LjkwMiw1LjQyOCwxMi44NSw1LjQyOCAgIHM5LjIzMy0xLjgxMSwxMi44NDctNS40MjhMMjg2LjkzNSw5NS4wNzRjMy42MTMtMy42MTcsNS40MjctNy44OTgsNS40MjctMTIuODQ3QzI5Mi4zNjIsNzcuMjc5LDI5MC41NDgsNzIuOTk4LDI4Ni45MzUsNjkuMzc3eiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9ImFjdGl2ZS1wYXRoIiBzdHlsZT0iZmlsbDojMkMzRTUwIiBkYXRhLW9sZF9jb2xvcj0iIzJjM2U1MCI+PC9wYXRoPgo8L2c+PC9nPiA8L3N2Zz4=);
@@ -203,7 +208,7 @@
 
       border-radius: 0 0 1em 1em;
 
-      transition: transform .35s;
+      /*transition: transform .35s;*/
     }
 
     &.active {
@@ -236,6 +241,7 @@
         transform: translate(-50%, -50%);
 
         font-family: sans-serif;
+        font-size: .5em;
         color: #555;
 
         background-color: #A6DAFA;

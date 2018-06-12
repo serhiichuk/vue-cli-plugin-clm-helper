@@ -90,9 +90,9 @@
 
 <script>
   import qrcode from 'qrcode-generator'
+  import {mapMutations, mapState} from 'vuex'
   import {languages, structure} from '@/clm.config'
   import {getLocalIP} from '@/app/utils/get-system-info'
-  import {mapMutations, mapState} from 'vuex'
 
   export default {
     name: 'development-page',
@@ -108,7 +108,8 @@
     },
 
     computed: {
-      ...mapState(['currentLang', 'isActiveDevHelpers', 'clmSystemElements']),
+      ...mapState(['currentLang']),
+      ...mapState('dev', ['isActiveDevHelpers', 'clmSystemElements']),
 
       slides() {
         return structure.map(sl => {
@@ -125,7 +126,8 @@
     },
 
     methods: {
-      ...mapMutations(['SET_LANG', 'TOGGLE_DEV_HELPERS', 'SET_CLM_SYSTEM_ELEMENTS']),
+      ...mapMutations(['SET_LANG']),
+      ...mapMutations('dev', ['TOGGLE_DEV_HELPERS', 'SET_CLM_SYSTEM_ELEMENTS']),
 
       copyTextToClipboard() {
         const copyText = document.getElementById('external-link');
