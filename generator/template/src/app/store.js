@@ -55,30 +55,30 @@ const storage = {
   }
 };
 
-store.registerModule('dev', {
-  namespaced: true,
-  state: {
-    isActiveDevHelpers: storage.getValue('show-development-helpers'),
-    clmSystemElements: {
-      'veeva': storage.getValue('show-system-elements-veeva'),
-      'pharma-touch': storage.getValue('show-system-elements-pharma-touch'),
-      'mi-touch': storage.getValue('show-system-elements-mi-touch')
-    }
-  },
-  mutations: {
-    TOGGLE_DEV_HELPERS(state) {
-      state.isActiveDevHelpers = !state.isActiveDevHelpers;
-      storage.setValue('show-development-helpers', state.isActiveDevHelpers);
+if (isDev) {
+  store.registerModule('dev', {
+    namespaced: true,
+
+    state: {
+      isActiveDevHelpers: storage.getValue('show-development-helpers'),
+      clmSystemElements: {
+        'veeva': storage.getValue('show-system-elements-veeva'),
+        'pharma-touch': storage.getValue('show-system-elements-pharma-touch'),
+        'mi-touch': storage.getValue('show-system-elements-mi-touch')
+      }
     },
 
-    SET_CLM_SYSTEM_ELEMENTS(state, payload) {
-      state.clmSystemElements = {...state.clmSystemElements, ...payload};
+    mutations: {
+      TOGGLE_DEV_HELPERS(state) {
+        state.isActiveDevHelpers = !state.isActiveDevHelpers;
+        storage.setValue('show-development-helpers', state.isActiveDevHelpers);
+      },
 
-      Object.keys(payload).forEach(key => {
-        storage.setValue(`show-system-elements-${key}`, payload[key])
-      });
+      SET_CLM_SYSTEM_ELEMENTS(state, payload) {
+        state.clmSystemElements = {...state.clmSystemElements, ...payload};
+        Object.keys(payload).forEach(key => storage.setValue(`show-system-elements-${key}`, payload[key]));
+      }
     }
-  }
-});
-
+  })
+}
 export default store;
