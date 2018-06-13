@@ -82,8 +82,6 @@
       },
 
       devNavigate(btn) {
-        this.toggleDevBar();
-
         switch (btn) {
           case 'dev-page':
             this.navigateTo('');
