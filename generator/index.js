@@ -1,3 +1,4 @@
+const fs = require('fs');
 const fse = require('fs-extra');
 const path = require('path');
 const chalk = require('chalk');
@@ -39,14 +40,30 @@ module.exports = (api, options, rootOptions) => {
 
   // clear src and copy clm-template
   api.onCreateComplete(() => {
-    const src = api.resolve('src');
-    const public = api.resolve('public');
+    const deleted = [];
+    const toDelete = [
+      'public/favicon.ico',
 
-    fse.emptydirSync(src);
-    fse.copySync(path.resolve(__dirname, 'template/src'), src);
+      'src/assets/logo.png',
+      'src/components/HelloWorld.vue',
+      'src/views',
+      'src/router.js',
+      'src/store.js',
+    ];
 
-    fse.emptydirSync(public);
-    fse.copySync(path.resolve(__dirname, 'template/public'), public);
+
+    toDelete.forEach(relativePath => {
+      const fullPath = api.resolve(relativePath);
+
+      if (fs.existsSync(fullPath)) {
+        fse.removeSync(fullPath);
+        deleted.push('\t' + relativePath);
+      }
+    });
+
+    if (!!deleted.length) {
+      console.log(`\n\n    The following files have been deleted:\n ${chalk.red(deleted.join('\n'))}\n`);
+    }
   });
 
   // show info after complete
