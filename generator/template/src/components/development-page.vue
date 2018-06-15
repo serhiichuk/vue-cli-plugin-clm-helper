@@ -165,14 +165,6 @@
         this.externalData.qr = qr.createSvgTag(20);
         this.externalData.link = externalHref;
       });
-    },
-
-    mounted() {
-      document.querySelectorAll('#app > *').forEach(appChildEl => {
-        if (!/development-|dev-/.test(appChildEl.getAttribute('id'))) {
-          appChildEl.style.display = 'none';
-        }
-      });
     }
   }
 </script>
@@ -194,14 +186,14 @@
   }
 
   #development-page {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 10000;
 
     width: 100%;
     height: 100%;
-
+    background-color: #fff;
     color: $color-dev-accent-2;
 
     font: 400 calc(100vw / 1920 * 40)/1.33 "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
