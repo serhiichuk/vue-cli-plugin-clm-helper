@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="[currentSlide.id, currentClm]">
     <router-view/>
     <DevElements v-if="isDev"/>
   </div>
@@ -13,6 +13,12 @@
     data: () => ({isDev}),
     components: {
       DevElements: isDev ? () => import('@/components/development-elements') : false,
+    },
+    computed: {
+      ...mapState(['currentSlide']),
+      currentClm() {
+        return isDev ?  false : process.env.VUE_APP_CLM
+      }
     }
   }
 </script>
