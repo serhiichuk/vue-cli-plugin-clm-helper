@@ -6,6 +6,7 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex'
   import "@/style/main.scss";
   const isDev = process.env.NODE_ENV === 'development';
 
