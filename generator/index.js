@@ -1,6 +1,5 @@
 const fs = require('fs');
 const fse = require('fs-extra');
-const path = require('path');
 const chalk = require('chalk');
 const {hasYarn} = require('@vue/cli-shared-utils');
 
@@ -26,13 +25,13 @@ module.exports = (api, options, rootOptions) => {
     }
   });
 
-  if (!api.hasPlugin('@vue/cli-plugin-babel')) {
-    api.extendPackage({
-      devDependencies: {
-        "@vue/cli-plugin-babel": "^3.0.0-beta.15"
-      }
-    })
-  }
+  // if (!api.hasPlugin('@vue/cli-plugin-babel')) {
+  //   api.extendPackage({
+  //     devDependencies: {
+  //       "@vue/cli-plugin-babel": "^3.0.0-rc.3"
+  //     }
+  //   })
+  // }
 
 
   // copy and render all files in ./template with ejs
