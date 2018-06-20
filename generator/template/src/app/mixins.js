@@ -5,7 +5,7 @@ export default {
    * This object will added each vue instance
    * and, this keys will overwrite clm-instance keys in @/app/clm
    */
-  global: {},
+   global: {},
 
 
   /**
@@ -13,7 +13,7 @@ export default {
    * for adding this options to other components
    * just import mixin and include it => mixins: [mixins.slide]
    */
-  slide: {
+   slide: {
     data() {
       return {
         slide: {
@@ -40,7 +40,7 @@ export default {
        *
        * Each 'slide-component' must be named under rule: 'slide-[flow-num|name]_[slide-num].vue'
        */
-      if (isDev) {
+       if (isDev) {
         const componentPath = this.$options.__file;
         const isSlide = /(?=.*slides(\\|\/))(?=.*slide-)/gi.test(componentPath); // match 'slides\' and 'slide-';
 
@@ -67,8 +67,10 @@ export default {
        * Slides data must contain in 'src/data/[lang]/[slide.id].js'
        **/
 
-      const dataPath = this.slide.path.replace(/^slides/, this.$store.state.currentLang);
-      import(/* webpackChunkName: "[request]" */ '@/data/' + dataPath).then(m => this.data = m.default)
-    }
-  }
-};
+       const dataPath = this.slide.path.replace(/^slides/, this.$store.state.currentLang);
+       import(/* webpackChunkName: "[request]" */ '@/data/' + dataPath)
+       .then(m => this.data = m.default || m)
+       .then(m => this.$store.commit('SET_CURRENT_DATA', m.default || m))
+     }
+   }
+ };
