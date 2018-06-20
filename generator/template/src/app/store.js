@@ -9,13 +9,18 @@ const store = new Vuex.Store({
   state: {
     languages,
     currentLang: isDev
-      ? sessionStorage.getItem('current-lang') || languages[0]
-      : process.env.VUE_APP_SL_LANG,
+    ? sessionStorage.getItem('current-lang') || languages[0]
+    : process.env.VUE_APP_SL_LANG,
 
     currentSlide: {
       id: '',
       path: '',
       name: ''
+    },
+    
+    currentData: {
+      content: {},
+      popup: {}
     }
   },
 
@@ -40,6 +45,10 @@ const store = new Vuex.Store({
 
     SET_CURRENT_SLIDE(state, currentSlide) {
       state.currentSlide = currentSlide;
+    },
+
+    SET_CURRENT_DATA(state, currentData) {
+      state.currentData = {...state.currentData, ...currentData};
     }
   }
 });
