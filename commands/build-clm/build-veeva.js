@@ -6,7 +6,6 @@ const webpackSlideBuild = require('../../lib/webpack-slide-builder');
 const {getFullId, parseSlId} = require('../../lib/util/sl-id-parser');
 
 module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
-  const startConfig = api.resolveWebpackConfig();
 
   for (let sl of slidesToBuild) {
     const outSlName = getFullId(sl.id, sl.lang);
@@ -22,7 +21,10 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
     fse.emptyDirSync(process.env.VUE_APP_OUT_DIR_PATH);
 
     /** Webpack Build **/
-    await webpackSlideBuild(api, projectOptions, startConfig);
+    await webpackSlideBuild(api, projectOptions);
+
+    /** Create screens **/
+    if (!args.options['no-screens']) await require('../../lib/screens-maker')(sl);
 
     /** Create thumbnails **/
     await thumbMaker({width: 849, height: 637, thumbName: `${outSlName}-full.jpg`});

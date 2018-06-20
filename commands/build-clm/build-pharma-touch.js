@@ -9,7 +9,6 @@ const archiveMaker = require('../../lib/archive-maker');
 const webpackSlideBuild = require('../../lib/webpack-slide-builder');
 
 module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
-  const startConfig = api.resolveWebpackConfig();
 
   for (let sl of slidesToBuild) {
     const outSlName = getFullId(sl.id, sl.lang);
@@ -22,7 +21,10 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
     process.env.VUE_APP_OUT_HTML_NAME = outSlName;
 
     /** Webpack Build **/
-    await webpackSlideBuild(api, projectOptions, startConfig);
+    await webpackSlideBuild(api, projectOptions);
+
+    /** Create screens **/
+    if (!args.options['no-screens']) await require('../../lib/screens-maker')(sl);
 
     /** Create thumbnails **/
     await thumbMaker({width: 300, height: 225});

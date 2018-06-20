@@ -58,11 +58,7 @@ async function runBuild(api, projectOptions, args, slidesToBuild) {
     info(`Lang filter: ${chalk.green(args.lang)}`);
   }
 
-  /** Create screens **/
-  if (!args.options['no-screens']) await require('../../lib/screens-maker')(slidesToBuild);
-
   /** Webpack build for necessary CLM-systems **/
-  logWithSpinner('Building slides...');
   process.env.NODE_ENV = 'production';
 
   for (let clm of Object.keys(args.clm)) {
