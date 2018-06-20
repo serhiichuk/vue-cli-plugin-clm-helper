@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-clm-helper",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta-2",
   "author": "serhiichuk",
   "license": "MIT",
   "main": "index.js",
@@ -11,7 +11,6 @@
     "chalk": "^2.4.1",
     "cyrillic-to-translit-js": "^2.1.0",
     "fs-extra": "^6.0.1",
-    "html-webpack-plugin": "^3.2.0",
     "nightmare": "^3.0.1",
     "rimraf": "^2.6.2",
     "sharp": "^0.20.3",
