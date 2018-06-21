@@ -24,14 +24,20 @@ const store = new Vuex.Store({
     }
   },
 
-  getters: {
-    structure: state => {
-      return structure.map(sl => ({
+  structure: state => {
+    return structure.map(sl => {
+      const newSl = {
         ...sl,
         name: typeof sl.name === 'string' ? sl.name : sl.name[state.currentLang]
-      }));
-    }
-  },
+      };
+
+      if (sl.flowName) {
+        newSl.flowName = typeof sl.flowName === 'string' ? sl.flowName : sl.flowName[state.currentLang]
+      }
+
+      return newSl
+    });
+  }
 
   mutations: {
     SET_LANG(state, currentLang) {
