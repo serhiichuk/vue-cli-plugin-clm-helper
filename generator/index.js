@@ -21,18 +21,10 @@ module.exports = (api, options, rootOptions) => {
     },
     devDependencies: {
       "node-sass": "^4.9.0",
-      "sass-loader": "^7.0.1"
+      "sass-loader": "^7.0.1",
+      "vue-svg-loader": "^0.5.0"
     }
   });
-
-  // if (!api.hasPlugin('@vue/cli-plugin-babel')) {
-  //   api.extendPackage({
-  //     devDependencies: {
-  //       "@vue/cli-plugin-babel": "^3.0.0-rc.3"
-  //     }
-  //   })
-  // }
-
 
   // copy and render all files in ./template with ejs
   api.render('./template');

@@ -11,5 +11,13 @@ module.exports = {
         data: require('./src/style/shared')
       }
     }
+  },
+
+  chainWebpack: config => {
+    const svgRule = config.module.rule('svg');
+    svgRule.uses.clear();
+    svgRule
+      .use('vue-svg-loader')
+      .loader('vue-svg-loader')
   }
 };
