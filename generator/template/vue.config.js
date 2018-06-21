@@ -11,10 +11,5 @@ module.exports = {
         data: require('./src/style/shared')
       }
     }
-  },
-
-  // Delete prefetch plugin because, slide don't use all chunks which webpack created
-  chainWebpack: config => {
-    config.plugins.delete('prefetch')
   }
 };
