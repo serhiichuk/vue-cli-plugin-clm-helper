@@ -1,11 +1,14 @@
 const fs = require('fs');
 const fse = require('fs-extra');
 const path = require('path');
+const {done} = require('@vue/cli-shared-utils');
+
 const {getFullId, parseSlId} = require('../../lib/util/sl-id-parser');
+const webpackSlideBuild = require('../../lib/webpack-slide-builder');
+const assetsCleaner = require('../../lib/assets-cleaner');
 const thumbMaker = require('../../lib/thumb-maker');
 const archiveMaker = require('../../lib/archive-maker');
-const webpackSlideBuild = require('../../lib/webpack-slide-builder');
-const {done} = require('@vue/cli-shared-utils');
+
 
 module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
 
@@ -24,6 +27,9 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
 
     /** Webpack Build **/
     await webpackSlideBuild(api, projectOptions);
+
+    /** Clean excess from assets directory **/
+    if (!args.options['no-clear-assets']) assetsCleaner();
 
     /** Create screens **/
     if (!args.options['no-screens']) await require('../../lib/screens-maker')(sl);

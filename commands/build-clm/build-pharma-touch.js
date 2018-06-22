@@ -1,12 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 const cyrillicToTransit = require('cyrillic-to-translit-js');
+
 const {paths} = require('../../lib/config');
 const {languages, clm, structure} = require(paths.clm.config);
 const {getFullId, parseSlId} = require('../../lib/util/sl-id-parser');
+const webpackSlideBuild = require('../../lib/webpack-slide-builder');
 const thumbMaker = require('../../lib/thumb-maker');
 const archiveMaker = require('../../lib/archive-maker');
-const webpackSlideBuild = require('../../lib/webpack-slide-builder');
 
 module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
 
