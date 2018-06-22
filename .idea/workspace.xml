@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a92edda9-b309-4bfa-9f7f-76081a78d43f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/build-clm/build-mi-touch.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/build-clm/build-mi-touch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/build-clm/build-pharma-touch.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/build-clm/build-pharma-touch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/build-clm/build-veeva.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/build-clm/build-veeva.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/assets-cleaner.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/assets-cleaner.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/webpack-slide-builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/webpack-slide-builder.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -21,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="webpack-slide-builder.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="webpack-slide-builder.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/webpack-slide-builder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+            <state relative-caret-position="-331">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -42,8 +38,8 @@
       <file leaf-file-name="build-veeva.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commands/build-clm/build-veeva.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="29" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="29" />
+            <state relative-caret-position="306">
+              <caret line="18" column="36" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -66,11 +62,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commands/build-clm/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
               <caret line="48" column="6" selection-start-line="48" selection-start-column="2" selection-end-line="48" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="26" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -149,12 +154,12 @@
         <option value="$PROJECT_DIR$/generator/template/vue.config.js" />
         <option value="$PROJECT_DIR$/generator/index.js" />
         <option value="$PROJECT_DIR$/generator/template/src/style/fonts.scss" />
-        <option value="$PROJECT_DIR$/lib/webpack-slide-builder.js" />
         <option value="$PROJECT_DIR$/commands/build-clm/build-mi-touch.js" />
         <option value="$PROJECT_DIR$/commands/build-clm/build-veeva.js" />
         <option value="$PROJECT_DIR$/commands/build-clm/build-pharma-touch.js" />
         <option value="$PROJECT_DIR$/lib/assets-cleaner.js" />
         <option value="$PROJECT_DIR$/commands/build-clm/index.js" />
+        <option value="$PROJECT_DIR$/lib/webpack-slide-builder.js" />
       </list>
     </option>
   </component>
@@ -314,7 +319,7 @@
       <workItem from="1529564473547" duration="1985000" />
       <workItem from="1529585611108" duration="2736000" />
       <workItem from="1529651584481" duration="604000" />
-      <workItem from="1529670388462" duration="2710000" />
+      <workItem from="1529670388462" duration="4314000" />
     </task>
     <task id="LOCAL-00001" summary="work constructor for testing server">
       <created>1527268621556</created>
@@ -355,19 +360,19 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79825000" />
+    <option name="totallyTimeSpent" value="81429000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1984375" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1984375" />
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32943678" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Terminal" order="3" visible="true" weight="0.32890624" />
+      <window_info active="true" anchor="right" id="Terminal" order="3" visible="true" weight="0.32890624" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -587,13 +592,6 @@
     <entry file="file://$PROJECT_DIR$/lib/config/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/generator/template/vue.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -624,13 +622,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commands/build-clm/build-veeva.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="29" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/commands/build-clm/build-pharma-touch.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-637">
@@ -645,6 +636,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/commands/build-clm/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="48" column="6" selection-start-line="48" selection-start-column="2" selection-end-line="48" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="26" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/assets-cleaner.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -652,17 +657,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/webpack-slide-builder.js">
+    <entry file="file://$PROJECT_DIR$/commands/build-clm/build-veeva.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+        <state relative-caret-position="306">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commands/build-clm/index.js">
+    <entry file="file://$PROJECT_DIR$/lib/webpack-slide-builder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="48" column="6" selection-start-line="48" selection-start-column="2" selection-end-line="48" selection-end-column="6" />
+        <state relative-caret-position="-331">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
