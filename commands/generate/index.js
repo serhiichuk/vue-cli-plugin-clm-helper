@@ -1,10 +1,9 @@
-const fs = require('fs');
 const fse = require('fs-extra');
 const path = require('path');
 const chalk = require('chalk');
 const {paths} = require('../../lib/config/index');
 const parseArgs = require('../../lib/util/parse-args');
-const {log, done, info, logWithSpinner, stopSpinner, error} = require('@vue/cli-shared-utils');
+const {info, error} = require('@vue/cli-shared-utils');
 const {structure, languages} = require(paths.clm.config);
 
 module.exports = (api, projectOptions, args) => {
@@ -42,7 +41,7 @@ module.exports = (api, projectOptions, args) => {
 function createData(sl, lang) {
   const slDataPath = path.resolve(__dirname, 'default-templates/slide-data.js');
 
-  fse.copySync(slDataPath, path.join(paths.src, 'data', sl.path.replace('slides', lang) + '.js'))
+  fse.copySync(slDataPath, path.join(paths.src, 'data', sl.path.replace('slides', lang) + '.js'), {overwrite: false})
 }
 
 
@@ -50,7 +49,7 @@ function createSlide(sl) {
   const slDirPath = path.join(paths.src, sl.path);
   const slTemplatePath = path.resolve(__dirname, 'default-templates/slide-template.vue');
 
-  fse.copySync(slTemplatePath, slDirPath + '.vue')
+  fse.copySync(slTemplatePath, slDirPath + '.vue', {overwrite: false})
 }
 
 function createAssetsDirs(sl) {

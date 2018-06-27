@@ -1,8 +1,7 @@
 const fs = require('fs');
-const path = require('path');
 const chalk = require('chalk');
 const {paths} = require('../../lib/config');
-const {log, done, info, logWithSpinner, stopSpinner, error} = require('@vue/cli-shared-utils');
+const {log, done, info, stopSpinner, error} = require('@vue/cli-shared-utils');
 let {structure, languages} = require(paths.clm.config);
 const parseArgs = require('../../lib/util/parse-args');
 

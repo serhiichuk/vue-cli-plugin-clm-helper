@@ -1,10 +1,11 @@
 const fs = require('fs');
 const path = require('path');
+const {done} = require('@vue/cli-shared-utils');
 const cyrillicToTransit = require('cyrillic-to-translit-js');
 
 const {paths} = require('../../lib/config');
 const {languages, clm, structure} = require(paths.clm.config);
-const {getFullId, parseSlId} = require('../../lib/util/sl-id-parser');
+const {getFullId} = require('../../lib/util/sl-id-parser');
 const webpackSlideBuild = require('../../lib/webpack-slide-builder');
 const thumbMaker = require('../../lib/thumb-maker');
 const archiveMaker = require('../../lib/archive-maker');
@@ -29,6 +30,8 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
 
     /** Create thumbnails **/
     await thumbMaker({width: 300, height: 225});
+
+    done(`Save: ${outSlName} for ${clmName}`)
   }
 
 

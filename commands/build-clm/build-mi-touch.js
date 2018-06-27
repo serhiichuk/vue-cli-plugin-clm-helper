@@ -48,7 +48,7 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
     /** Create Archive **/
     await archiveMaker({});
 
-    done(`Save: ${outSlName}`)
+    done(`Save: ${outSlName} for ${clmName}`)
   }
 };
 
