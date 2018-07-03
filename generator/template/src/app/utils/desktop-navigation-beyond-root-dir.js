@@ -5,10 +5,14 @@
  *
  * @param slide
  */
-export default (slide) => {
+export default (slide, replaceHtmlName) => {
   const href = window.location.href.split('/').slice(0, -3);
   href.push(slide);
-  href.push(slide + '.html');
+  if (replaceHtmlName) {
+    href.push(slide + '.html');
+  } else {
+    href.push('index.html');
+  }
 
   window.location.assign(href.join('/'))
 }
