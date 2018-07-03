@@ -42,7 +42,7 @@
 
 <script>
   import {mapMutations, mapState} from 'vuex'
-  import {structure} from '@/clm.config'
+  const {structure} = require('@/clm.config');
 
   const isDev = process.env.NODE_ENV === 'development';
 
@@ -85,7 +85,7 @@
         switch (btn) {
           case 'dev-page':
             this.toggleDevBar();
-            this.navigateTo('');
+            this.$router.push('/');
             break;
           case 'next':
             this.navigateTo(this.adjacentSlides.next);

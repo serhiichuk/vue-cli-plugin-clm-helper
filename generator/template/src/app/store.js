@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {languages, structure} from '@/clm.config'
+const {languages, structure} = require('@/clm.config');
 
 Vue.use(Vuex);
 
@@ -9,35 +9,37 @@ const store = new Vuex.Store({
   state: {
     languages,
     currentLang: isDev
-    ? sessionStorage.getItem('current-lang') || languages[0]
-    : process.env.VUE_APP_SL_LANG,
+      ? sessionStorage.getItem('current-lang') || languages[0]
+      : process.env.VUE_APP_SL_LANG,
 
     currentSlide: {
       id: '',
       path: '',
       name: ''
     },
-    
+
     currentData: {
       content: {},
       popup: {}
     }
   },
 
-  structure: state => {
-    return structure.map(sl => {
-      const newSl = {
-        ...sl,
-        name: typeof sl.name === 'string' ? sl.name : sl.name[state.currentLang]
-      };
+  getters: {
+    structure: state => {
+      return structure.map(sl => {
+        const newSl = {
+          ...sl,
+          name: typeof sl.name === 'string' ? sl.name : sl.name[state.currentLang]
+        };
 
-      if (sl.flowName) {
-        newSl.flowName = typeof sl.flowName === 'string' ? sl.flowName : sl.flowName[state.currentLang]
-      }
+        if (sl.flowName) {
+          newSl.flowName = typeof sl.flowName === 'string' ? sl.flowName : sl.flowName[state.currentLang]
+        }
 
-      return newSl
-    });
-  }
+        return newSl
+      });
+    }
+  },
 
   mutations: {
     SET_LANG(state, currentLang) {
@@ -71,11 +73,13 @@ const storage = {
 };
 
 if (isDev) {
+  const isActiveDevHelpers = storage.getValue('show-development-helpers');
+
   store.registerModule('dev', {
     namespaced: true,
 
     state: {
-      isActiveDevHelpers: storage.getValue('show-development-helpers'),
+      isActiveDevHelpers: isActiveDevHelpers === null ? true : isActiveDevHelpers,
       clmSystemElements: {
         'veeva': storage.getValue('show-system-elements-veeva'),
         'pharma-touch': storage.getValue('show-system-elements-pharma-touch'),
@@ -96,4 +100,5 @@ if (isDev) {
     }
   })
 }
+
 export default store;

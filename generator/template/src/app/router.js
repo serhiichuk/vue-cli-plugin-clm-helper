@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import {structure} from '@/clm.config'
+const {structure} = require('@/clm.config');
 
 Vue.use(Router);
 

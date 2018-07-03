@@ -91,8 +91,8 @@
 <script>
   import qrcode from 'qrcode-generator'
   import {mapMutations, mapState} from 'vuex'
-  import {languages, structure} from '@/clm.config'
   import {getLocalIP} from '@/app/utils/get-system-info'
+  const {languages, structure} = require('@/clm.config');
 
   export default {
     name: 'development-page',

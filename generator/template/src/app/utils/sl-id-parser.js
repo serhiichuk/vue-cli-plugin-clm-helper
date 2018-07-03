@@ -1,4 +1,5 @@
-import {clm, languages} from '@/clm.config';
+const {clm} = require('@/clm.config');
+
 
 export const getFullId = (id, lang = process.env.VUE_APP_SL_LANG) => {
   if (!id || !lang) throw console.error(`Missing required parameter "id" or "lang", \n\tYou pass: id = ${id}, lang = ${lang}`);
