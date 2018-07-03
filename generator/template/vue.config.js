@@ -14,10 +14,22 @@ module.exports = {
   },
 
   chainWebpack: config => {
+    // Replace SVG loader
     const svgRule = config.module.rule('svg');
-    svgRule.uses.clear();
+    svgRule
+      .uses.clear();
+
     svgRule
       .use('vue-svg-loader')
-      .loader('vue-svg-loader')
+      .loader('vue-svg-loader');
+
+    // Fix Lazy loading routes Error: Cyclic dependency
+    // https://github.com/vuejs/vue-cli/issues/1669#issuecomment-399851138
+    config
+      .plugin('html')
+      .tap(args => {
+        args[0].chunksSortMode = 'none';
+        return args
+      });
   }
 };
