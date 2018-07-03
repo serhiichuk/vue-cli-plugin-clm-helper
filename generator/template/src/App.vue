@@ -1,49 +1,25 @@
 <template>
-  <div id="app" :class="[currentSlide.id, currentClm]">
+  <div id="app" :class="[currentSlide.id, clmName]" v-touch:swipe="swipeHandler">
     <router-view/>
+
+    <!-- MI Touch Components -->
+    <!--<mt-menu/>-->
+    <!--<mt-popup/>-->
+
+    <!-- Components will rendered only in development -->
     <DevElements v-if="isDev"/>
   </div>
 </template>
 
 <script>
-  import {mapState} from 'vuex'
-  import "@/style/main.scss";
-  const isDev = process.env.NODE_ENV === 'development';
+  import '@/style/main.scss';
+  import mixins from '@/app/mixins'
 
   export default {
-    data: () => ({isDev}),
-    components: {
-      DevElements: isDev ? () => import('@/components/development-elements') : false,
-    },
-    computed: {
-      ...mapState(['currentSlide']),
-      currentClm() {
-        return isDev ?  false : process.env.VUE_APP_CLM
-      }
-    }
+    mixins: [...mixins.app]
   }
 </script>
 
 <style lang="scss">
-
-  body, html {
-    position: relative;
-    width: $width;
-    height: $height;
-
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-  }
-
-  #app, #content {
-    position: absolute;
-    left: 0;
-    top: 0;
-
-    width: 100%;
-    height: 100%;
-  }
-
 
 </style>

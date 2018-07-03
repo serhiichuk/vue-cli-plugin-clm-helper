@@ -1,15 +1,18 @@
 import Vue from 'vue'
 import App from '@/App'
-import clm from '@/app/clm'
 import store from '@/app/store'
 import router from '@/app/router'
 import mixins from '@/app/mixins'
 
-const isDev = process.env.NODE_ENV === 'development';
+/* Include Plugins */
+import Vue2TouchEvents from 'vue2-touch-events'
+// import MtPlugin from 'vue-clm-helper-mi-touch'
 
-// Disable dev-tools extension in production
-Vue.config.productionTip = !isDev;
-Vue.mixin({...clm, ...mixins.global});
+Vue.use(Vue2TouchEvents, { swipeTolerance: 80 });
+// Vue.use(MtPlugin, store);
+
+Vue.mixin(...mixins.global);
+Vue.config.productionTip = process.env.NODE_ENV === 'production';
 
 new Vue({
   el: '#app',

@@ -1,5 +1,6 @@
 <template>
   <div id="content">
+    <h1 class="title" v-html="t.title"></h1>
 
   </div>
 </template>
@@ -8,7 +9,7 @@
   import mixins from '@/app/mixins'
 
   export default {
-    mixins: [mixins.slide],
+    mixins: [...mixins.slide],
   }
 </script>
 

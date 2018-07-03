@@ -4,6 +4,7 @@ export default {
 	},
 
 	popup: {
-		references: {}
+		references: {},
+    'research-design': {}
 	}
 }
