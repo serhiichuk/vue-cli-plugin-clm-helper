@@ -20,7 +20,8 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
     process.env.VUE_APP_SL_PATH = sl.path;
     process.env.VUE_APP_SL_LANG = sl.lang;
     process.env.VUE_APP_OUT_DIR_PATH = api.resolve(path.join('dist', clmName, sl.lang, outSlName));
-    process.env.VUE_APP_OUT_HTML_NAME = outSlName;
+    process.env.VUE_APP_OUT_DIR_NAME = outSlName;
+    process.env.VUE_APP_OUT_HTML_NAME = 'index';
 
     /** Clear slide dir **/
     fse.emptyDirSync(process.env.VUE_APP_OUT_DIR_PATH);
@@ -46,7 +47,9 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
     createSpecialMiTouchElements();
 
     /** Create Archive **/
-    await archiveMaker({});
+    await archiveMaker({
+      archiveName: process.env.VUE_APP_OUT_DIR_NAME
+    });
 
     done(`Save: ${outSlName} for ${clmName}`)
   }
@@ -55,7 +58,7 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
 function createSpecialMiTouchElements() {
   const slide = {
     path: process.env.VUE_APP_OUT_DIR_PATH,
-    name: process.env.VUE_APP_OUT_HTML_NAME
+    name: process.env.VUE_APP_OUT_DIR_NAME
   };
 
   fse.outputFileSync(path.join(slide.path, 'export', 'export.pdf'));
