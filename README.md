@@ -358,5 +358,5 @@ export default {
 
 In `App.vue` has functional for swipe control: `v-touch:swipe="swipeHandler"`.
 
-`swipeHandler` will get [`disableSwipeBetweenFlows`](#disable-swipe-between-flows), and [`swipe`](#structure) keys from `clm.config`, and depending on their values will call [`navigateTo`](#navigate-to) or `prevent` necessary swipe.
+`swipeHandler` will get [`disableSwipeBetweenFlows`](#disableswipebetweenflows), and [`swipe`](#structure) keys from `clm.config`, and depending on their values will call [`navigateTo`](#navigateto) or `prevent` necessary swipe.
 
