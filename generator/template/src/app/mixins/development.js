@@ -14,6 +14,9 @@ import getSlideObjectById from '@/app/utils/get-slide-object-by-id'
 export const global = [
   {
     methods: {
+      /**
+       * @param id <String>
+       */
       navigateTo(id) {
         // Check is slide exist in structure
         getSlideObjectById(id);
