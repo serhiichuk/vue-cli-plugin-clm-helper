@@ -10,19 +10,21 @@ module.exports = (api, options, rootOptions) => {
     scripts: {
       build: 'vue-cli-service build-clm',
       'build-standard': 'vue-cli-service build',
-      dev: 'vue-cli-service serve',
+      // Increase JavaScript heap of memory
+      dev: 'node --max_old_space_size=4096 node_modules/@vue/cli-service/bin/vue-cli-service serve',
       generate: 'vue-cli-service generate'
     },
     dependencies: {
-      'qrcode-generator': "^1.4.0",
       'veevalibrary': "^4.0.8",
+      "vue2-touch-events": "^1.0.0",
       "vue-router": "^3.0.1",
-      "vuex": "^3.0.1"
+      "vuex": "^3.0.1",
     },
     devDependencies: {
       "node-sass": "^4.9.0",
       "sass-loader": "^7.0.1",
-      "vue-svg-loader": "^0.5.0"
+      "vue-svg-loader": "^0.5.0",
+      'qrcode-generator': "^1.4.0"
     }
   });
 
