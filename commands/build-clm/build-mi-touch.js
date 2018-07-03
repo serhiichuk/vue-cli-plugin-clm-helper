@@ -1,9 +1,8 @@
-const fs = require('fs');
 const fse = require('fs-extra');
 const path = require('path');
 const {done} = require('@vue/cli-shared-utils');
 
-const {getFullId, parseSlId} = require('../../lib/util/sl-id-parser');
+const {getFullId} = require('../../lib/util/sl-id-parser');
 const webpackSlideBuild = require('../../lib/webpack-slide-builder');
 const assetsCleaner = require('../../lib/assets-cleaner');
 const thumbMaker = require('../../lib/thumb-maker');
