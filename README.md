@@ -94,7 +94,7 @@ yarn dev
   
 Plugin generator inject `generate`, `build` and `dev` commands to `package.json`. 
 
-Plugin cli commands can run with fully-named `--clm veeva,mi-touch` or short-named `-c v,mt` syntax.
+Plugin CLI commands can run with fully-named `--clm veeva,mi-touch` or short-named `-c v,mt` syntax.
 
 *:information_source: For using [standard vue build](https://cli.vuejs.org/guide/build-targets.html), just run `yarn build-standard`.*
   
@@ -167,7 +167,7 @@ CLM platform options:
 
     `String`, must be named under rule: `<PROJECT-NAME>_<CYCLE>_<YEAR>`.
 
-    During build to `productId` will added lang and slide id parts.
+    During build to `productId` will added language and slide id parts.
 
   - ##### disableSwipeBetweenFlows
   	
@@ -184,7 +184,7 @@ CLM platform options:
 
 - #### languages
 
-  To build different language versions just add necessary lang.
+  To build different language versions just add necessary language.
 
   *Valid values for cyrilic languages: `ua`, `ru`.*
 
