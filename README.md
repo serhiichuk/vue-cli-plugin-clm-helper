@@ -95,13 +95,13 @@ The `public` directory contains your static files. Each file inside this directo
 
 Example: `/public/media/pdf/instruction.pdf` is mapped as `/media/pdf/instruction.pdf`
 
-[More documentation about Static integration](#https://cli.vuejs.org/guide/html-and-static-assets.html#the-public-folder)
+[More documentation about Static integration](https://cli.vuejs.org/guide/html-and-static-assets.html#the-public-folder)
 
 ### The Assets Directory
 
 The `assets` directory contains your un-compiled assets such as Images, Videos, Fonts. 
 
-[More documentation about Assets integration](#https://cli.vuejs.org/guide/html-and-static-assets.html#static-assets-handling)
+[More documentation about Assets integration](https://cli.vuejs.org/guide/html-and-static-assets.html#static-assets-handling)
 
 *:warning: Each slide must have a subdirectory, whose name coincides with the name of the [slide-component](#slide-component), because during production build, each slide assets will cleaned with [`assetsCleaner`.](#lib/assets-cleaner.js), also you can disable `assetsCleaner` with option `no-clear-assets` in [build](#build)*
 
@@ -399,6 +399,6 @@ In addition, `App.vue` contains some development functionality, do not worry abo
 
 ## Acknowledgments
 
-Thank [Vue CLI Team](#https://github.com/vuejs/vue-cli/graphs/contributors) for the excellent tool and documents.
+Thank [Vue CLI Team](https://github.com/vuejs/vue-cli/graphs/contributors) for the excellent tool and documents.
 
-Thank [vue-cli-plugin-apollo](#https://github.com/Akryum/vue-cli-plugin-apollo/blob/master/README.md) and [Nuxt](#https://nuxtjs.org/guide) for great documentation example.
+Thank [vue-cli-plugin-apollo](https://github.com/Akryum/vue-cli-plugin-apollo/blob/master/README.md) and [Nuxt](https://nuxtjs.org/guide) for great documentation example.
