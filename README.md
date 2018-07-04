@@ -27,6 +27,13 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
 ## Table of contents
 
 - [Getting started](#getting-started)
+- [Directory Structure](#directory-structure)
+  - [The Public Directory](#the-public-directory)
+  - [The Assets Directory](#the-assets-directory)
+  - [The App Directory](#the-app-directory)
+  - [The Components Directory](#the-components-directory)
+  - [The Slides Directory](#the-slides-directory)
+  - [The Style Directory](#the-style-directory)
 - [Plugin CLI Commands](#plugin-cli-commands)
   - [Generate](#generate)
   - [Dev](#dev)
@@ -50,6 +57,7 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
       - [Text data](#text-data)
       - [Slide info data](#slide-info-data)
     - [App Functionality](#app-functionality)
+- [Acknowledgments](#acknowledgments)   
 
 
 ## Getting started
@@ -79,15 +87,42 @@ yarn dev
 
 ## Directory Structure
 
-### The App Directory
+*The default plugin structure is intended to provide a great starting point for great working with CLM presentations. Of course, you are free to organize your application however you like.*
+
+### The Public Directory
+
+The `public` directory contains your static files. Each file inside this directory is mapped to `/`.
+
+Example: `/public/media/pdf/instruction.pdf` is mapped as `/media/pdf/instruction.pdf`
+
+[More documentation about Static integration](#https://cli.vuejs.org/guide/html-and-static-assets.html#the-public-folder)
 
 ### The Assets Directory
-	
+
+The `assets` directory contains your un-compiled assets such as Images, Videos, Fonts. 
+
+[More documentation about Assets integration](#https://cli.vuejs.org/guide/html-and-static-assets.html#static-assets-handling)
+
+*:warning: Each slide must have a subdirectory, whose name coincides with the name of the [slide-component](#slide-component), because during production build, each slide assets will cleaned with [`assetsCleaner`.](#lib/assets-cleaner.js), also you can disable `assetsCleaner` with option `no-clear-assets` in [build](#build)*
+
+
+### The App Directory
+
+The `app` directory contains [basic functionality](#basic-functionality) such as store, router and mixins.	
 ### The Components Directory
+
+The `components` directory contains your Vue.js Components.
 
 ### The Slides Directory
 
+The `slides` directory contains your all [slide-components](#slide-component).
+
 ### The Style Directory
+
+The `style` directory contains your `scss` global styles, mixins and variables. All `*.scss` files from `style/shared` will imported to all vue-components and styles.
+
+*:warning: Do not include any files here which will have actual css output, otherwise our bundle file size will grow rapidly as the output will be in every file.*
+
 
 
 ## Plugin CLI Commands
@@ -98,7 +133,7 @@ Plugin CLI commands can run with fully-named `--clm veeva,mi-touch` or short-nam
 
 *:information_source: For using [standard vue build](https://cli.vuejs.org/guide/build-targets.html), just run `yarn build-standard`.*
   
-#### Generate
+### Generate
 
 Generating [slide-components](#slide-component) to `src/slides`, assets folders for each slide to `src/assets` and all text data files to `src/data`.
   
@@ -173,7 +208,7 @@ CLM platform options:
   	
     `Boolean`, enable/disable auto preventing swipes between flows 
     
-    *:information_source: At the moment, work only with MI Touch.*
+    *:warning: At the moment, work only with MI Touch.*
 
     ```
     clm: {
@@ -360,3 +395,10 @@ In `App.vue` has functional for swipe control: `v-touch:swipe="swipeHandler"`.
 
 `swipeHandler` will get [`disableSwipeBetweenFlows`](#disableswipebetweenflows), and [`swipe`](#structure) keys from `clm.config`, and depending on their values will call [`navigateTo`](#navigateto) or `prevent` necessary swipe.
 
+In addition, `App.vue` contains some development functionality, do not worry about it, all development functions will be deleted/disabled during the production build.
+
+## Acknowledgments
+
+Thank [Vue CLI Team](#https://github.com/vuejs/vue-cli/graphs/contributors) for the excellent tool and documents.
+
+Thank [vue-cli-plugin-apollo](#https://github.com/Akryum/vue-cli-plugin-apollo/blob/master/README.md) and [Nuxt](#https://nuxtjs.org/guide) for great documentation example.
