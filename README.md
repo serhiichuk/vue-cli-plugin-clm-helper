@@ -178,7 +178,7 @@ yarn build --clm mi-touch --options no-screens --filter "slide-1_1|slide-2_1" --
 *Short-named syntax:*
 
 ```
-yarn build -c mt -o ns -f "slide-1_1|slide-2_1 -l ua"
+yarn build -c mt -o ns -f "slide-1_1|slide-2_1" -l ua
 ```
 
 ## Configuration
