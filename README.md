@@ -71,7 +71,7 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
 vue add clm-helper
 ```
 
-**Put Exel File** with [valid structure](#commands/generate/default-templates/Structure_Example.xlsx) to `src` folder.
+**Put Exel File** with [valid structure](./commands/generate/default-templates/Structure_Example.xlsx) to `src` folder.
 
 or
 
