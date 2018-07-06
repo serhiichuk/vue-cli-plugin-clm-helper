@@ -22,7 +22,7 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
   - QR-code for opening external link
   - Opportunity for display CRM system elements
   - Included basic functionality
-  - Converting Understand Exel Structure
+  - Understanding exel structure
 - Project config
 
 ## Table of contents
@@ -71,13 +71,13 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
 vue add clm-helper
 ```
 
-Put Exel File with [valid structure](#commands/generate/default-templates/Structure_Example.xlsx) to `src` folder.
+**Put Exel File** with [valid structure](#commands/generate/default-templates/Structure_Example.xlsx) to `src` folder.
 
 or
 
-**Fill in** [config](#clm-config) file manually
+**Fill in** [config](#clm-config) file manually.
 
-and [generate](#generate) the project [structure](#structure):
+[**Generate**](#generate) the project [structure](#structure):
 
 *:information_source: File structure depend of `structure` key in `src/clm.config.js`.*
 
