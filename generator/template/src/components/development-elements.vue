@@ -41,8 +41,8 @@
 </template>
 
 <script>
-  import {mapMutations, mapState} from 'vuex'
-  const {structure} = require('@/clm.config');
+  import { mapMutations, mapState } from 'vuex'
+  import { structure } from '@/clm.config'
 
   const isDev = process.env.NODE_ENV === 'development';
 
@@ -50,15 +50,15 @@
     name: "development-elements",
     data() {
       return {
-        isActiveDevBar: false
+        isActiveDevBar: false,
       }
     },
     computed: {
-      ...mapState(['languages', 'currentLang']),
-      ...mapState('dev', ['isActiveDevHelpers', 'clmSystemElements']),
+      ...mapState([ 'languages', 'currentLang' ]),
+      ...mapState('dev', [ 'isActiveDevHelpers', 'clmSystemElements' ]),
 
       isActiveThisPage() {
-        return isDev && this.isActiveDevHelpers || Object.keys(this.clmSystemElements).some(key => !!this.clmSystemElements[key])
+        return isDev && this.isActiveDevHelpers || Object.keys(this.clmSystemElements).some(key => !!this.clmSystemElements[ key ])
       },
 
       adjacentSlides() {
@@ -66,16 +66,16 @@
 
         structure.forEach((sl, key) => {
           if (sl.id === this.$route.path.replace(/\//, '')) {
-            result.next = (structure[key + 1] && structure[key + 1].id);
-            result.prev = (structure[key - 1] && structure[key - 1].id);
+            result.next = (structure[ key + 1 ] && structure[ key + 1 ].id);
+            result.prev = (structure[ key - 1 ] && structure[ key - 1 ].id);
           }
         });
 
         return result
-      }
+      },
     },
     methods: {
-      ...mapMutations(['SET_LANG']),
+      ...mapMutations([ 'SET_LANG' ]),
 
       toggleDevBar() {
         this.isActiveDevBar = !this.isActiveDevBar
@@ -94,8 +94,8 @@
             this.navigateTo(this.adjacentSlides.prev);
             break;
         }
-      }
-    }
+      },
+    },
   }
 </script>
 
@@ -114,7 +114,7 @@
 
   /* Dev Elements */
   .development-helpers {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 50%;
     z-index: 10002;

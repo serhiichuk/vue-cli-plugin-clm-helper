@@ -12,7 +12,7 @@ let sharedData = fs.readdirSync(__dirname).map(file => {
 }).join('\n');
 
 // Include resolution
-const {width, height} = require('../../clm.config').device.resolution;
+const { width, height } = require('../../clm.config').device.resolution;
 
 sharedData += `$width: ${width}px;`;
 sharedData += `$height: ${height}px;`;

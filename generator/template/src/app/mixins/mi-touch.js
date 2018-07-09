@@ -1,7 +1,7 @@
 import slideCommonMixin from './common/slide'
 import appCommonMixin from './common/app'
 
-import {getFullId} from '@/app/utils/sl-id-parser'
+import { getFullId } from '@/app/utils/sl-id-parser'
 import desktopNavigationBeyondRootDir from '@/app/utils/desktop-navigation-beyond-root-dir'
 
 /**
@@ -21,7 +21,7 @@ export const global = [
         } catch (err) {
           desktopNavigationBeyondRootDir(id, false /* replaceHtmlName */);
         }
-      }
+      },
     },
 
     created() {
@@ -30,14 +30,14 @@ export const global = [
       //   e.preventDefault();
       // }, true);
     },
-  }
+  },
 ];
 
 /**
  * This object will added to each 'slide-component' instance
  */
 export const slide = [
-  slideCommonMixin
+  slideCommonMixin,
 ];
 
 
@@ -55,13 +55,7 @@ export const app = [
         const el = document.getElementById('app');
         if (swipe === 'next') el.dataset.preventLeftSwipe = 'true';
         if (swipe === 'prev') el.dataset.preventRightSwipe = 'true';
-      }
-    }
-  }
+      },
+    },
+  },
 ];
-
-
-
-
-
-

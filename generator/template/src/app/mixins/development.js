@@ -21,7 +21,7 @@ export const global = [
         // Check is slide exist in structure
         getSlideObjectById(id);
         Router.push(`/${id}`);
-      }
+      },
     },
 
     // created() {
@@ -29,14 +29,14 @@ export const global = [
     //     this.$store.commit('SET_LANG', lang)
     //   }
     // }
-  }
+  },
 ];
 
 /**
  * This object will added to each 'slide-component' instance
  */
 export const slide = [
-  slideCommonMixin
+  slideCommonMixin,
 ];
 
 
@@ -55,18 +55,12 @@ export const app = [
       }
     },
     components: {
-      DevElements: () => import('@/components/development-elements')
+      DevElements: () => import('@/components/development-elements'),
     },
     methods: {
       swipePreventMethod(swipe) {
         console.log(`[APP] Prevent ${swipe} swipe.`);
-      }
-    }
-  }
+      },
+    },
+  },
 ];
-
-
-
-
-
-

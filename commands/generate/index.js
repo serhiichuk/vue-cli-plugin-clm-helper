@@ -1,23 +1,15 @@
-const fs = require('fs');
 const fse = require('fs-extra');
 const path = require('path');
 const chalk = require('chalk');
-const fsExplorerUI = require('fs-explorer-ui');
-const ExelParser = require('../../lib/ExelParser');
 const parseArgs = require('../../lib/util/parse-args');
 const { paths } = require('../../lib/config/index');
 const { info, error, done } = require('@vue/cli-shared-utils');
 const { structure, languages } = require(paths.clm.config);
 
-const exelExtensions = [ '.xlsx' ];
-
-module.exports = async (api, projectOptions, args) => {
+module.exports = (api, projectOptions, args) => {
   // Valid commands and options
   args = parseArgs(args, {
     lang: '',
-    options: {
-      ne: 'no-exel',
-    },
   });
 
   let languagesToGenerate = languages;
@@ -33,10 +25,6 @@ module.exports = async (api, projectOptions, args) => {
     }
   }
 
-  /** Parse Exel file in 'src' to config **/
-  if (!args.options[ 'no-exel' ]) await convertExelToJson();
-
-
   /** Create Data for each lang **/
   languagesToGenerate.forEach(lang => {
     structure.forEach(sl => createData(sl, lang))
@@ -51,46 +39,8 @@ module.exports = async (api, projectOptions, args) => {
   info(`Assets folders for each slide was created.`);
   info(`Slide-component files was created.`);
 
-  setTimeout(() => {
-    done(`Generating complete.`)
-  }, 200)
+  done(`Generating complete.`)
 };
-
-async function convertExelToJson() {
-  const xlsxFiles = fs.readdirSync(paths.src).reduce((finalList, file) => {
-    const isTempFile = /^~\$/.test(file);
-    file = path.join(paths.src, file);
-
-    if (isXlsxFile(file) && !isTempFile) finalList.push(file);
-    return finalList;
-  }, []);
-
-  if (xlsxFiles.length === 1) {
-    new ExelParser(xlsxFiles[ 0 ])
-  } else if (xlsxFiles.length >= 1) {
-    let xlsxPath = await exploreFile(`Select your structure file ("${exelExtensions.join(', ')}")`);
-
-    while (!isXlsxFile(xlsxPath)) {
-      xlsxPath = await exploreFile(chalk.red(`Wrong file! File extension must be a "${exelExtensions.join(', ')}"`));
-    }
-
-    new ExelParser(xlsxPath);
-
-  } else {
-    info(`"${exelExtensions.join(', ')}" file not found, generate default "clm.config"`);
-  }
-}
-
-function isXlsxFile(filePath) {
-  return exelExtensions.indexOf(path.parse(filePath).ext) !== -1
-}
-
-async function exploreFile(msg) {
-  return await new fsExplorerUI({
-    startPath: paths.src,
-    message: msg,
-  });
-}
 
 
 function createData(sl, lang) {

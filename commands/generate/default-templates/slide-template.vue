@@ -9,7 +9,7 @@
   import mixins from '@/app/mixins'
 
   export default {
-    mixins: [...mixins.slide],
+    mixins: [ ...mixins.slide ],
   }
 </script>
 

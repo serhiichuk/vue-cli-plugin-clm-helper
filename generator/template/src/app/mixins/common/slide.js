@@ -1,4 +1,5 @@
 import getSlideObjectById from '@/app/utils/get-slide-object-by-id'
+
 const isDev = process.env.NODE_ENV === 'development';
 
 export default {
@@ -7,21 +8,21 @@ export default {
       slide: {},
       data: {
         content: {},
-        popup: {}
-      }
+        popup: {},
+      },
     }
   },
   computed: {
     t() {
       return this.data.content
-    }
+    },
   },
   created() {
     const id = isDev
       ? this.$route.path.replace(/\//g, '')
       : process.env.VUE_APP_SL_ID;
 
-    this.slide = {...getSlideObjectById(id)};
+    this.slide = { ...getSlideObjectById(id) };
     this.$store.commit('SET_CURRENT_SLIDE', this.slide);
 
     /**
@@ -33,5 +34,5 @@ export default {
     import(/* webpackChunkName: "[request]" */ '@/data/' + dataPath)
       .then(m => this.data = m.default || m)
       .then(m => this.$store.commit('SET_CURRENT_DATA', m.default || m))
-  }
+  },
 }

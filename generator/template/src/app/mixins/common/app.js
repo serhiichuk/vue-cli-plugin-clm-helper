@@ -1,15 +1,15 @@
-import {mapState} from 'vuex';
-const {clm, structure} = require('@/clm.config');
+import { mapState } from 'vuex';
+import { clm, structure } from '@/clm.config'
 
 
 export default {
   data() {
     return {
-      clmName: process.env.VUE_APP_CLM
+      clmName: process.env.VUE_APP_CLM,
     }
   },
   computed: {
-    ...mapState(['currentSlide']),
+    ...mapState([ 'currentSlide' ]),
 
     /**
      * Return adjacent slides
@@ -20,13 +20,13 @@ export default {
     adjacentSlides() {
       const result = {
         next: undefined,
-        prev: undefined
+        prev: undefined,
       };
 
       structure.forEach((sl, key) => {
         if (sl.id === this.currentSlide.id) {
-          result.next = (structure[key + 1] && structure[key + 1].id);
-          result.prev = (structure[key - 1] && structure[key - 1].id);
+          result.next = (structure[ key + 1 ] && structure[ key + 1 ].id);
+          result.prev = (structure[ key - 1 ] && structure[ key - 1 ].id);
         }
       });
 
@@ -40,11 +40,11 @@ export default {
      * @returns {{next: String, prev: String}}
      */
     configSwipe() {
-      const {swipe} = this.currentSlide;
+      const { swipe } = this.currentSlide;
 
       return {
         next: (swipe && swipe.next) ? swipe.next : undefined,
-        prev: (swipe && swipe.prev) ? swipe.prev : undefined
+        prev: (swipe && swipe.prev) ? swipe.prev : undefined,
       }
     },
 
@@ -58,22 +58,22 @@ export default {
      * @returns {{next: boolean, prev: boolean}}
      */
     isPreventSwipe() {
-      const {configSwipe} = this;
+      const { configSwipe } = this;
       const result = {
         next: false,
-        prev: false
+        prev: false,
       };
 
       Object.keys(result).forEach(key => {
         // Check clm.config -> clm -> disableSwipeBetweenFlows value and
         // check is next or prev slides from another flow
-        if (this.adjacentSlides[key]) {
-          const isSlideFromAnotherFlow = !this.compareFlowNameById(this.currentSlide.id, this.adjacentSlides[key]);
-          if (clm.disableSwipeBetweenFlows && isSlideFromAnotherFlow) result[key] = true;
+        if (this.adjacentSlides[ key ]) {
+          const isSlideFromAnotherFlow = !this.compareFlowNameById(this.currentSlide.id, this.adjacentSlides[ key ]);
+          if (clm.disableSwipeBetweenFlows && isSlideFromAnotherFlow) result[ key ] = true;
         }
 
         // Check clm.config -> structure -> slide-object -> swipe value
-        if (configSwipe[key] === 'prevent') result[key] = true;
+        if (configSwipe[ key ] === 'prevent') result[ key ] = true;
       });
 
       return result;
@@ -84,9 +84,9 @@ export default {
     /** Running, preventing swiping after counting adjacentSlides **/
     adjacentSlides() {
       Object.keys(this.isPreventSwipe).forEach(swipe => {
-        if (this.isPreventSwipe[swipe]) this.swipePreventMethod(swipe);
+        if (this.isPreventSwipe[ swipe ]) this.swipePreventMethod(swipe);
       });
-    }
+    },
   },
 
   methods: {
@@ -99,17 +99,17 @@ export default {
      * @param event
      */
     swipeHandler(direction, event) {
-      const {configSwipe, navigateTo} = this;
+      const { configSwipe, navigateTo } = this;
       let _direction = false;
       if (direction === 'left') _direction = 'next';
       if (direction === 'right') _direction = 'prev';
 
       if (_direction &&
-        configSwipe[_direction] &&
-        configSwipe[_direction] !== 'prevent') {
+        configSwipe[ _direction ] &&
+        configSwipe[ _direction ] !== 'prevent') {
 
         event.preventDefault();
-        navigateTo(configSwipe[_direction])
+        navigateTo(configSwipe[ _direction ])
       }
     },
 
@@ -128,10 +128,10 @@ export default {
       const regex = /^slide-([^\.]+)/;
 
       try {
-        return regex.exec(id1)[1].split('_')[0] === regex.exec(id2)[1].split('_')[0]
+        return regex.exec(id1)[ 1 ].split('_')[ 0 ] === regex.exec(id2)[ 1 ].split('_')[ 0 ]
       } catch (e) {
         throw new Error(`Wrong slide ID\n${e}`)
       }
-    }
-  }
+    },
+  },
 }

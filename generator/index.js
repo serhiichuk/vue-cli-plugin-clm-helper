@@ -12,6 +12,7 @@ module.exports = (api, options, rootOptions) => {
       'build-standard': 'vue-cli-service build',
       // Increase JavaScript heap of memory
       dev: 'node --max_old_space_size=4096 node_modules/@vue/cli-service/bin/vue-cli-service serve',
+      exel: 'vue-cli-service exel-to-config',
       generate: 'vue-cli-service generate'
     },
     dependencies: {

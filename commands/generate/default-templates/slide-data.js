@@ -1,10 +1,10 @@
 export default {
-	content: {
-		title: ''
-	},
+  content: {
+    title: '',
+  },
 
-	popup: {
-		references: {},
+  popup: {
+    references: {},
     'research-design': {}
-	}
+  }
 }

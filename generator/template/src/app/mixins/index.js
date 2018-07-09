@@ -4,8 +4,8 @@
  */
 
 const clmFile = process.env.NODE_ENV === 'development'
-	? 'development'
-	: process.env.VUE_APP_CLM;
+  ? 'development'
+  : process.env.VUE_APP_CLM;
 
 const module = require(/* webpackChunkName: "[request]" */ './' + clmFile);
 export default module.default || module;

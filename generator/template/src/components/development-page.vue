@@ -1,5 +1,5 @@
 <template>
-  <section id="development-page">
+  <section id="development-page" :class="{tablet: !isFullFunctional}">
     <!-- Header -->
     <header>
       <h1 class="dev-title">Development Page</h1>
@@ -55,7 +55,7 @@
         <div class="description">CLM System Elements</div>
         <div class="btn" v-for="(value, key) in clmSystemElements" :key="key"
              :class="{active: value}"
-             @click="SET_CLM_SYSTEM_ELEMENTS({[key]: !value})"
+             @click="SET_CLM_SYSTEM_ELEMENTS({key, value})"
         >{{key}}
         </div>
       </section>
@@ -65,7 +65,13 @@
 
     <!-- Footer -->
     <footer>
-      <h5>Created by <b>Taras Serhiichuk</b></h5>
+      <ul class="additional-info">
+        <b>See also:</b>
+        <li><a href="https://github.com/serhiichuk/vue-cli-plugin-clm-helper">Plugin documentation,</a></li>
+        <li><a href="https://github.com/serhiichuk/vue-cli-plugin-clm-helper">Plugin MI Touch</a></li>
+      </ul>
+
+      <h5>Created by <a href="https://github.com/serhiichuk" target="_blank">Taras Serhiichuk</a></h5>
     </footer>
 
     <!-- Modal Sections -->
@@ -89,10 +95,10 @@
 </template>
 
 <script>
-  import qrcode from 'qrcode-generator'
-  import {mapMutations, mapState} from 'vuex'
-  import {getLocalIP} from '@/app/utils/get-system-info'
-  const {languages, structure} = require('@/clm.config');
+  import qrCodeGenerator from 'qrcode-generator'
+  import { mapMutations, mapState } from 'vuex'
+  import { getLocalIP } from '@/app/utils/get-system-info'
+  import { languages, structure } from '@/clm.config'
 
   export default {
     name: 'development-page',
@@ -102,32 +108,32 @@
         activeModal: '',
         externalData: {
           qr: '',
-          link: ''
-        }
+          link: '',
+        },
       }
     },
 
     computed: {
-      ...mapState(['currentLang']),
-      ...mapState('dev', ['isActiveDevHelpers', 'clmSystemElements']),
+      ...mapState([ 'currentLang' ]),
+      ...mapState('dev', [ 'isActiveDevHelpers', 'clmSystemElements' ]),
 
       slides() {
         return structure.map(sl => {
           return {
             ...sl,
-            name: sl.name[this.currentLang] || sl.name
+            name: sl.name[ this.currentLang ] || sl.name,
           }
         })
       },
 
       isFullFunctional() {
         return !!this.externalData.link
-      }
+      },
     },
 
     methods: {
-      ...mapMutations(['SET_LANG']),
-      ...mapMutations('dev', ['TOGGLE_DEV_HELPERS', 'SET_CLM_SYSTEM_ELEMENTS']),
+      ...mapMutations([ 'SET_LANG' ]),
+      ...mapMutations('dev', [ 'TOGGLE_DEV_HELPERS', 'SET_CLM_SYSTEM_ELEMENTS' ]),
 
       copyTextToClipboard() {
         const copyText = document.getElementById('external-link');
@@ -158,14 +164,14 @@
         const externalHref = `http://${ip}${port}`;
         const typeNumber = 0;
         const errorCorrectionLevel = 'L';
-        const qr = qrcode(typeNumber, errorCorrectionLevel);
+        const qr = qrCodeGenerator(typeNumber, errorCorrectionLevel);
 
         qr.addData(externalHref);
         qr.make();
         this.externalData.qr = qr.createSvgTag(20);
         this.externalData.link = externalHref;
       });
-    }
+    },
   }
 </script>
 
@@ -185,8 +191,17 @@
     box-sizing: border-box;
   }
 
+  a {
+    text-decoration: underline;
+    color: inherit;
+
+    &:hover {
+      color: $color-dev-accent-1;
+    }
+  }
+
   #development-page {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 10000;
@@ -201,6 +216,10 @@
     -webkit-text-size-adjust: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    &.tablet {
+      font: 400 calc(100vw / 1024 * 40)/1.33 "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    }
   }
 
   .btn {
@@ -303,10 +322,29 @@
     font-weight: 300;
     color: $color-dev-accent-3;
 
-    justify-content: flex-end;
+    justify-content: space-between;
+
+    .additional-info {
+      padding-left: 0;
+
+      list-style-type: disc;
+      color: inherit;
+      font-size: .4em;
+      font-weight: normal;
+
+      li {
+        display: inline-block;
+        margin: 0 .2em;
+      }
+    }
 
     > h5 {
       font-size: .75em;
+      font-weight: normal;
+
+      a {
+        font-weight: bold;
+      }
     }
   }
 
@@ -330,8 +368,8 @@
       font-size: .85em;
 
       &-1 {
-        width: 5%;
-        text-align: right;
+        width: 2em;
+        padding-right: 0.5em;
       }
 
       &-2 {

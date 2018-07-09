@@ -3,10 +3,7 @@
     "productId": "TEST_C2_18",
     "disableSwipeBetweenFlows": true
   },
-  "languages": [
-    "ua",
-    "ru"
-  ],
+  "languages": ["ua", "ru"],
   "device": {
     "resolution": {
       "width": 2048,

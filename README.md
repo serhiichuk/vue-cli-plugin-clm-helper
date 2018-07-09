@@ -36,6 +36,7 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
   - [The Slides Directory](#the-slides-directory)
   - [The Style Directory](#the-style-directory)
 - [Plugin CLI Commands](#plugin-cli-commands)
+  - [Exel](#exel)
   - [Generate](#generate)
   - [Dev](#dev)
   - [Build](#build)
@@ -71,15 +72,17 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
 vue add clm-helper
 ```
 
-**Put Exel File** with [valid structure](./commands/generate/default-templates/Structure_Example.xlsx) to `src` folder.
+**Put Exel File** with [valid structure](./commands/generate/default-templates/Structure_Example.xlsx) in root-folder, and [convert structure](#exel) from exel-file to `clm.config.json`
 
-or
+```
+yarn exel
+```
 
-**Fill in** [config](#clm-config) file manually.
+Or, **Fill in** [config](#clm-config) file manually.
 
 [**Generate**](#generate) the project [structure](#structure):
 
-*:information_source: File structure depend of `structure` key in `src/clm.config.js`.*
+*:information_source: File structure depend of `structure` key in `src/clm.config.json`.*
 
 ```
 yarn generate
@@ -139,13 +142,20 @@ Plugin CLI commands can run with fully-named `--clm veeva,mi-touch` or short-nam
 
 *:information_source: For using [standard vue build](https://cli.vuejs.org/guide/build-targets.html), just run `yarn build-standard`.*
   
+  
+### Exel
+
+Convert [valid structure](./commands/generate/default-templates/Structure_Example.xlsx) from exel-file in root-folder to `clm.config.json`.  
+
+- **`yarn exel`**
+
 ### Generate
 
 Generating [slide-components](#slide-component) to `src/slides`, assets folders for each slide to `src/assets` and all text data files to `src/data`.
   
 - **`yarn generate [lang]`**
 
-  - `lang` - optional parameter, regular expression, must match one or more of `languages` key in `./src/cli.config.js`
+  - `lang` - optional parameter, regular expression, must match one or more of `languages` key in `src/clm.config.json`
 
 *:information_source: For correct passing regular expressions from terminal, please wrap it in **double quotes**.*
 
@@ -198,7 +208,7 @@ See [official documentation](https://cli.vuejs.org/config/#vue-config-js) for fu
 
 ### CLM Config
 
-**All project depend of `src/clm.config.js`**
+**All project depend of `src/clm.config.json`**
 
 CLM platform options:
 
@@ -338,7 +348,7 @@ methods: {
 import mixins from '@/app/mixins'
 ...
 export default {
-    mixins: [...mixins.slide],
+    mixins: [ ...mixins.slide ],
 }
 ```
 
