@@ -2,7 +2,7 @@
 
 [![vue-cli3](https://img.shields.io/badge/vue--cli-3.x-brightgreen.svg)](https://github.com/vuejs/vue-cli)
 
-**Status: beta** 
+**Status: rc** 
 
 **:pray: Easy work with CLM presentations!**
 
