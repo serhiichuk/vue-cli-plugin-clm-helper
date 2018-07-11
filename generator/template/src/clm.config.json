@@ -1,7 +1,12 @@
 {
   "clm": {
     "productId": "TEST_C2_18",
-    "disableSwipeBetweenFlows": true
+    "productName": "Some_Test_Project_C2_2018",
+    "disableSwipeBetweenFlows": true,
+    "csv": {
+      "country": "Ukraine",
+      "product": "INCH"
+    }
   },
   "languages": ["ua", "ru"],
   "device": {

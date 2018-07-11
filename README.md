@@ -45,7 +45,11 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
   - [CLM Config](#clm-config)
     - [clm](#clm)
       - [productId](#productid)
+      - [productName](#productname)
       - [disableSwipeBetweenFlows](#disableswipebetweenflows)
+      - [csv](#csv)
+        - [country](#country)
+        - [product](#product)
     - [languages](#languages)
     - [device](#device)
       - [resolution](#resolution)
@@ -216,38 +220,48 @@ CLM platform options:
 
   - ##### productId
 
-    `String`, must be named under rule: `<PROJECT-NAME>_<CYCLE>_<YEAR>`.
+    `String`, `Reauired`, must be named under rule: `<PROJECT-NAME>_<CYCLE>_<YEAR>`.
 
     During build to `productId` will added language and slide id parts.
+  
+  - ##### productName
+    
+    `String`, `Reauired`, Usually this is the same name as the root folder
 
   - ##### disableSwipeBetweenFlows
   	
-    `Boolean`, enable/disable auto preventing swipes between flows 
+    `Boolean`, `Optional`, enable/disable auto preventing swipes between flows 
     
     *:warning: At the moment, work only with MI Touch.*
-
-    ```
-    clm: {
-      productId: 'SOME_PRODUCT_C2_18',
-      disableSwipeBetweenFlows: true // enable auto preventing swipes between flows
-    }
-    ```
+  
+  - ##### csv
+    
+    `Object`, `Optional`, contains information for creating a CSV file for Veeva
+  
+    - ###### country
+    
+    `String`, default: 'Ukraine' 
+    
+    - ###### product
+        
+    `String`, default: 'INCH'
+    
 
 - #### languages
 
-  To build different language versions just add necessary language.
+  `Array`, `Required`, to build different language versions just add necessary language.  
 
   *Valid values for cyrilic languages: `ua`, `ru`.*
 
   ```
-    languages: ['ua', 'ru', 'kz']
+    languages: ['ua', 'ru', 'fr']
   ```
 
 - #### device
 
   - ##### resolution
 
-    Device resolution will export to [shared styles](#vue-config).
+    `Object`, `Required`, device resolution will export to [shared styles](#vue-config).
     
     Also resolution using for [creating slide screenshots](./lib/screens-maker.js).
     
@@ -261,7 +275,8 @@ CLM platform options:
     ```
 
 - #### structure
-  Each slide must be specified in the `structure` with following keys: 
+
+  `Array`, `Required`, each slide must be specified in the `structure` with following keys: 
  
   Option | Type | Specify | Description
   --- | --- | --- | ---
