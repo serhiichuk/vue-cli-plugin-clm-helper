@@ -22,12 +22,17 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
   - QR-code for opening external link
   - Opportunity for display CRM system elements
   - Included basic functionality
-  - Understanding exel structure
+  - Understanding excel structure
 - Project config
 
 ## Table of contents
 
 - [Getting started](#getting-started)
+- [Plugin CLI Commands](#plugin-cli-commands)
+  - [Exсel](#excel)
+  - [Generate](#generate)
+  - [Dev](#dev)
+  - [Build](#build)
 - [Directory Structure](#directory-structure)
   - [The Public Directory](#the-public-directory)
   - [The Assets Directory](#the-assets-directory)
@@ -35,11 +40,6 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
   - [The Components Directory](#the-components-directory)
   - [The Slides Directory](#the-slides-directory)
   - [The Style Directory](#the-style-directory)
-- [Plugin CLI Commands](#plugin-cli-commands)
-  - [Exel](#exel)
-  - [Generate](#generate)
-  - [Dev](#dev)
-  - [Build](#build)
 - [Configuration](#configuration)
   - [Vue Config](#vue-config)
   - [CLM Config](#clm-config)
@@ -76,10 +76,10 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
 vue add clm-helper
 ```
 
-**Put Exel File** with [valid structure](./commands/generate/default-templates/Structure_Example.xlsx) in root-folder, and [convert structure](#exel) from exel-file to `clm.config.json`
+**Put Exсel File** with [valid structure](./commands/generate/default-templates/Structure_Example.xlsx) in root-folder, and [convert structure](#excel) from excel-file to `clm.config.json`
 
 ```
-yarn exel
+yarn excel
 ```
 
 Or, **Fill in** [config](#clm-config) file manually.
@@ -98,46 +98,6 @@ yarn generate
 yarn dev
 ```
 
-## Directory Structure
-
-*The default plugin structure is intended to provide a great starting point for great working with CLM presentations. Of course, you are free to organize your application however you like.*
-
-### The Public Directory
-
-The `public` directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/public/media/pdf/instruction.pdf` is mapped as `/media/pdf/instruction.pdf`
-
-[More documentation about Static integration](https://cli.vuejs.org/guide/html-and-static-assets.html#the-public-folder)
-
-### The Assets Directory
-
-The `assets` directory contains your un-compiled assets such as Images, Videos, Fonts. 
-
-[More documentation about Assets integration](https://cli.vuejs.org/guide/html-and-static-assets.html#static-assets-handling)
-
-*:warning: Each slide must have a subdirectory, whose name coincides with the name of the [slide-component](#slide-component), because during production build, each slide assets will cleaned with [`assetsCleaner`.](#lib/assets-cleaner.js), also you can disable `assetsCleaner` with option `no-clear-assets` in [build](#build)*
-
-
-### The App Directory
-
-The `app` directory contains [basic functionality](#basic-functionality) such as store, router and mixins.	
-### The Components Directory
-
-The `components` directory contains your Vue.js Components.
-
-### The Slides Directory
-
-The `slides` directory contains your all [slide-components](#slide-component).
-
-### The Style Directory
-
-The `style` directory contains your `scss` global styles, mixins and variables. All `*.scss` files from `style/shared` will imported to all vue-components and styles.
-
-*:warning: Do not include any files here which will have actual css output, otherwise our bundle file size will grow rapidly as the output will be in every file.*
-
-
-
 ## Plugin CLI Commands
   
 Plugin generator inject `generate`, `build` and `dev` commands to `package.json`. 
@@ -147,11 +107,11 @@ Plugin CLI commands can run with fully-named `--clm veeva,mi-touch` or short-nam
 *:information_source: For using [standard vue build](https://cli.vuejs.org/guide/build-targets.html), just run `yarn build-standard`.*
   
   
-### Exel
+### Excel
 
-Convert [valid structure](./commands/generate/default-templates/Structure_Example.xlsx) from exel-file in root-folder to `clm.config.json`.  
+Convert [valid structure](./commands/generate/default-templates/Structure_Example.xlsx) from excel-file in root-folder to `clm.config.json`.  
 
-- **`yarn exel`**
+- **`yarn excel`**
 
 ### Generate
 
@@ -200,6 +160,46 @@ yarn build --clm mi-touch --options no-screens --filter "slide-1_1|slide-2_1" --
 ```
 yarn build -c mt -o ns -f "slide-1_1|slide-2_1" -l ua
 ```
+
+## Directory Structure
+
+*The default plugin structure is intended to provide a great starting point for great working with CLM presentations. Of course, you are free to organize your application however you like.*
+
+### The Public Directory
+
+The `public` directory contains your static files. Each file inside this directory is mapped to `/`.
+
+Example: `/public/media/pdf/instruction.pdf` is mapped as `/media/pdf/instruction.pdf`
+
+[More documentation about Static integration](https://cli.vuejs.org/guide/html-and-static-assets.html#the-public-folder)
+
+### The Assets Directory
+
+The `assets` directory contains your un-compiled assets such as Images, Videos, Fonts. 
+
+[More documentation about Assets integration](https://cli.vuejs.org/guide/html-and-static-assets.html#static-assets-handling)
+
+*:warning: Each slide must have a subdirectory, whose name coincides with the name of the [slide-component](#slide-component), because during production build, each slide assets will cleaned with [`assetsCleaner`.](#lib/assets-cleaner.js), also you can disable `assetsCleaner` with option `no-clear-assets` in [build](#build)*
+
+
+### The App Directory
+
+The `app` directory contains [basic functionality](#basic-functionality) such as store, router and mixins.	
+### The Components Directory
+
+The `components` directory contains your Vue.js Components.
+
+### The Slides Directory
+
+The `slides` directory contains your all [slide-components](#slide-component).
+
+### The Style Directory
+
+The `style` directory contains your `scss` global styles, mixins and variables. All `*.scss` files from `style/shared` will imported to all vue-components and styles.
+
+*:warning: Do not include any files here which will have actual css output, otherwise our bundle file size will grow rapidly as the output will be in every file.*
+
+
 
 ## Configuration
 

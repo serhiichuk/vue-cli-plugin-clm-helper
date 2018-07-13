@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a92edda9-b309-4bfa-9f7f-76081a78d43f" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/exel-to-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/excel-to-config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/generate/default-templates/Structure_Example.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/commands/generate/default-templates/Structure_Example.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/exel-parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/excel-parser.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -15,7 +21,56 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="excel-parser.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/excel-parser.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="598">
+              <caret line="60" column="2" selection-start-line="60" selection-start-column="2" selection-end-line="60" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="170">
+                <caret line="31" column="13" lean-forward="true" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" column="3" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/generator/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="excel-to-config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/commands/excel-to-config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="37">
+              <caret line="10" column="55" lean-forward="true" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -28,9 +83,16 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>productID</find>
+      <find>exel</find>
+      <find>Exel</find>
+      <find>excel</find>
+      <find>Excel</find>
     </findStrings>
     <replaceStrings>
       <replace>productId</replace>
+      <replace>Exсel</replace>
+      <replace>excel</replace>
+      <replace>Excel</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -44,10 +106,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/generator/template/src/app/utils/desktop-navigation-beyond-root-dir.js" />
-        <option value="$PROJECT_DIR$/generator/template/src/app/clm/veeva.js" />
-        <option value="$PROJECT_DIR$/commands/gererate.js" />
-        <option value="$PROJECT_DIR$/lib/util/parseArgs.js" />
         <option value="$PROJECT_DIR$/lib/util/parse-args.js" />
         <option value="$PROJECT_DIR$/commands/generate.js" />
         <option value="$PROJECT_DIR$/commands/generate/generate.js" />
@@ -83,17 +141,21 @@
         <option value="$PROJECT_DIR$/lib/util/sl-id-parser.js" />
         <option value="$PROJECT_DIR$/lib/ExelParser.js" />
         <option value="$PROJECT_DIR$/commands/build-clm/index.js" />
-        <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/generator/index.js" />
         <option value="$PROJECT_DIR$/commands/generate/index.js" />
         <option value="$PROJECT_DIR$/lib/config/index.js" />
-        <option value="$PROJECT_DIR$/lib/exel-parser.js" />
-        <option value="$PROJECT_DIR$/commands/exel-to-config.js" />
         <option value="$PROJECT_DIR$/commands/generate/default-templates/slide-template.vue" />
         <option value="$PROJECT_DIR$/commands/generate/default-templates/slide-data.js" />
         <option value="$PROJECT_DIR$/commands/build-clm/build-veeva.js" />
         <option value="$PROJECT_DIR$/generator/template/src/clm.config.json" />
         <option value="$PROJECT_DIR$/CHANGELOG.md" />
+        <option value="$PROJECT_DIR$/lib/exel-parser.js" />
+        <option value="$PROJECT_DIR$/commands/exel-to-config.js" />
+        <option value="$PROJECT_DIR$/commands/exсel-to-config.js" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/lib/exсel-parser.js" />
+        <option value="$PROJECT_DIR$/generator/index.js" />
+        <option value="$PROJECT_DIR$/commands/excel-to-config.js" />
+        <option value="$PROJECT_DIR$/lib/excel-parser.js" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
@@ -126,26 +188,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-cli-plugin-clm-helper" type="cbb8eebc:String" user="vue-cli-plugin-clm-helper" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-        <subPane subId="Default">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="vue-cli-plugin-clm-helper" type="cbb8eebc:String" user="vue-cli-plugin-clm-helper" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -167,26 +209,32 @@
             <path>
               <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
               <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
-              <item name="commands" type="462c0819:PsiDirectoryNode" />
-              <item name="generate" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
               <item name="generator" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
               <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
-              <item name="generator" type="462c0819:PsiDirectoryNode" />
-              <item name="template" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
             <path>
-              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
-              <item name="generator" type="462c0819:PsiDirectoryNode" />
-              <item name="template" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="vue-cli-plugin-clm-helper" type="cbb8eebc:String" user="vue-cli-plugin-clm-helper" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Default">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="vue-cli-plugin-clm-helper" type="cbb8eebc:String" user="vue-cli-plugin-clm-helper" />
             </path>
           </expand>
           <select />
@@ -200,7 +248,7 @@
     <property name="editorconfig.notification" value="null" />
     <property name="javascript.nodejs.core.library.configured.version" value="9.11.1" />
     <property name="jsx.switch.disabled" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Development/test-clm-helper" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -281,7 +329,9 @@
       <workItem from="1531122418983" duration="56000" />
       <workItem from="1531134694204" duration="7514000" />
       <workItem from="1531220739687" duration="1113000" />
-      <workItem from="1531221874548" duration="14662000" />
+      <workItem from="1531221874548" duration="14781000" />
+      <workItem from="1531315214522" duration="4426000" />
+      <workItem from="1531487390634" duration="1558000" />
     </task>
     <task id="LOCAL-00001" summary="work constructor for testing server">
       <created>1527268621556</created>
@@ -322,19 +372,21 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158209000" />
+    <option name="totallyTimeSpent" value="164312000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11406995" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13195549" />
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32943678" />
+      <window_info anchor="bottom" id="Find" order="2" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="right" id="Terminal" order="3" visible="true" weight="0.28497615" />
+      <window_info anchor="right" id="Terminal" order="3" weight="0.28497615" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -344,7 +396,6 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32984293" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="2" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,24 +450,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/thumb-maker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="73" selection-start-line="15" selection-start-column="73" selection-end-line="15" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/webpack-slide-builder.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="29" column="27" lean-forward="true" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/screens-maker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
@@ -535,13 +572,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/commands/build-clm/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -557,13 +587,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/generator/template/src/clm.config.js" />
-    <entry file="file://$PROJECT_DIR$/lib/exel-parser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="808">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/generator/template/src/app/utils/sl-id-parser.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -571,20 +594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commands/exel-to-config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="68" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="68" />
         </state>
       </provider>
     </entry>
@@ -599,13 +608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -630,36 +632,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CHANGELOG.md" />
     <entry file="file://$PROJECT_DIR$/commands/build-clm/build-veeva.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-779">
-          <caret line="16" selection-start-line="16" selection-end-line="46" selection-end-column="3" />
-          <folding>
-            <element signature="e#1811#2215#0" />
-          </folding>
+        <state relative-caret-position="612">
+          <caret line="36" column="46" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor>
-            <caret column="25" lean-forward="true" selection-start-column="25" selection-end-column="25" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/lib/thumb-maker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="10" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/screens-maker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="12" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="3" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commands/excel-to-config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="10" column="55" lean-forward="true" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/excel-parser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="60" column="2" selection-start-line="60" selection-start-column="2" selection-end-line="60" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="68">
-            <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+          <first_editor relative-caret-position="170">
+            <caret line="31" column="13" lean-forward="true" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
+      <provider editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

@@ -24,9 +24,9 @@ const commands = {
     }
   },
 
-  'exel-to-config': {
-    description: 'Convert structure from exel-file to clm.config.js:',
-    usage: `${pkgManager} exel`
+  'excel-to-config': {
+    description: 'Convert structure from exсel-file to clm.config.js:',
+    usage: `${pkgManager} exсel`
   }
 };
 
