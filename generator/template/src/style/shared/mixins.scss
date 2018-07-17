@@ -17,6 +17,31 @@
   text-align: center;
 }
 
+@mixin cross($size: 60%, $color: #fff, $stroke: 1.5px) {
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -$stroke/2;
+    margin-top: -$size/2;
+
+    transform-origin: center;
+    width: $stroke;
+    height: $size;
+    background-color: $color;
+    border-radius: $stroke;
+  }
+
+  &:before {
+    transform: rotate(-45deg);
+  }
+
+  &:after {
+    transform: rotate(45deg);
+  }
+}
+
 @mixin triangle($side,$color,$size) {
   @if $side == left {
     border: $size solid transparent;
