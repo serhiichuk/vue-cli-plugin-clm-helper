@@ -4,6 +4,9 @@
   "author": "serhiichuk",
   "license": "MIT",
   "main": "index.js",
+  "scripts": {
+    "push": "yarn unlink && yarn publish"
+  },
   "dependencies": {
     "@vue/cli-service": "^3.0.0-rc.3",
     "@vue/cli-shared-utils": "^3.0.0-rc.3",
