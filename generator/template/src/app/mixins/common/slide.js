@@ -30,5 +30,6 @@ export default {
      **/
     this.data = getData(this.slide.path.replace(/^slides/, ''));
     this.$store.commit('SET_CURRENT_SLIDE', this.slide);
+    this.$store.commit('SET_CURRENT_DATA', this.data);
   },
 }
