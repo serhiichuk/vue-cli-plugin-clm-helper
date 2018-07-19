@@ -59,6 +59,7 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
   - [Basic Functionality](#basic-functionality)
     - [Global Functionality](#global-functionality)
       - [navigateTo](#navigateto)
+      - [addData](#adddata)
     - [Slide Functionality](#slide-functionality)
       - [Text data](#text-data)
       - [Slide info data](#slide-info-data)
@@ -139,7 +140,7 @@ yarn dev
 
 ### Build
 
-Build slides for necessary CLM's. Each slide will be built with webpack, have the necessary CLM files and be archived.
+Build slides for necessary CLM"s. Each slide will be built with webpack, have the necessary CLM files and be archived.
 
 
 - **`yarn build <clm> [options] [filter] [lang]`**  
@@ -179,7 +180,7 @@ The `assets` directory contains your un-compiled assets such as Images, Videos, 
 
 [More documentation about Assets integration](https://cli.vuejs.org/guide/html-and-static-assets.html#static-assets-handling)
 
-*:warning: Each slide must have a subdirectory, whose name coincides with the name of the [slide-component](#slide-component), because during production build, each slide assets will cleaned with [`assetsCleaner`.](#lib/assets-cleaner.js), also you can disable `assetsCleaner` with option `no-clear-assets` in [build](#build)*
+*:warning: Each slide must have a subdirectory, whose name coincides with the name of the [slide-component](#slide-component), because during production build, each slide assets will cleaned with [`assetsCleaner`.](#./lib/assets-cleaner.js), also you can disable `assetsCleaner` with option `no-clear-assets` in [build](#build)*
 
 
 ### The App Directory
@@ -240,11 +241,11 @@ CLM platform options:
   
     - ###### country
     
-    `String`, default: 'Ukraine' 
+    `String`, default: "Ukraine" 
     
     - ###### product
         
-    `String`, default: 'INCH'
+    `String`, default: "INCH"
     
 
 - #### languages
@@ -254,7 +255,7 @@ CLM platform options:
   *Valid values for cyrilic languages: `ua`, `ru`.*
 
   ```
-    languages: ['ua', 'ru', 'fr']
+    languages: ["ua", "ru", "fr"]
   ```
 
 - #### device
@@ -266,10 +267,10 @@ CLM platform options:
     Also resolution using for [creating slide screenshots](./lib/screens-maker.js).
     
     ```
-      device: {
-        resolution: { // Pixels
-          width: 2048,
-          height: 1536
+      "device": {
+        "resolution": { // Pixels
+          "width": "2048",
+          "height": "1536"
         }
       },
     ```
@@ -285,24 +286,37 @@ CLM platform options:
   name | `String/Object` | Required |  Slide name. Required for [creating "slides.json" in Pharma Touch build](./commands/build-clm/build-pharma-touch.js), usualy using in `navigation-components`. **If `object` - keys names must match with [languages](#languages) items.**
   flowName | `String/Object` | Optional | Flow name, have the same rules as `name` key.
   swipe | `Object` | Optional | Define swipe rules. Can have `next` and `prev` keys.
-  swipe.next, swipe.prev | `String` | Optional | Appropriate swipe will [navigate to](#navigateto) <slide-id> or prevented CLM swipe with 'prevent' value.  
+  swipe.next, swipe.prev | `String` | Optional | Appropriate swipe will [navigate to](#navigateto) <slide-id> or prevented CLM swipe with "prevent" value.  
+  callDialog | `Array` | Optional | List of questions for call dialog definition. *(Only fo MI Touch).* 
   
   ```
   structure: [
     {
-       id: 'slide-main',
-       path: 'slides/slide-main',
-       name: {ua: 'Назва', ru: 'Название'}
+      "id": "slide-main",
+      "path": "slides/slide-main",
+      "name": {"ua": "Назва", "ru": "Название"}
     },
     ...
     {
-       id: 'slide-4_20',
-       path: 'slides/slide-4_20',
-       name: {ua: 'Назва', ru: 'Название'},
-       flowName: {ua: 'Flow Назва', ru: 'Flow Название'},
-       swipe: {
-  	      next: 'slide-5_10',
-          prev: 'prevent'
+      "id": "slide-1_3",
+      "path": "slides/slide-1_3",
+      "name": {"ua": "Назва", "ru": "Название"}
+      "callDialog": "[
+        "This Question will have automatic generated quiesion-id (Q1)",
+        {
+          "id": "custon_id", 
+          "question": "This Question will have custon id"
+        }
+      ]
+    },
+    ...
+    {
+      "id": "slide-4_20",
+      "path": "slides/slide-4_20",
+      "name": {"ua": "Назва", "ru": "Название"},
+      "swipe": {
+  	    "next": "slide-5_10",
+        "prev": "prevent"
       }
     }
   ]
@@ -326,7 +340,7 @@ Most of the basic functions defined in `src/app`.
 
 ```
 // main.js
-import mixins from '@/app/mixins'
+import mixins from "@/app/mixins"
 ...
 Vue.mixin(...mixins.global);
 ```
@@ -344,30 +358,64 @@ During development, `navigateTo` will check on existing parameter `id` in [struc
 *Using in template:*
 
 ```
-<button class="some-navigation-button" @touchend="navigateTo('slide-1_4')"></button>
+<button class="some-navigation-button" @touchend="navigateTo("slide-1_4")"></button>
 ```
 
 *Using in vue instance:*
 ```
 methods: {
-	someMethod() {
-       ...
-       this.navigateTo('slide-1_4')
-   }
+  someNavigateMethod() {
+    ...
+    this.navigateTo("slide-1_4")
+  }
+}
+```
+
+##### addData
+
+A global method that sends a calldialog response to the required clm database.
+
+In development method `addData` will check on existing [`callDialog`](#structure) key in [current slide](#slide-info-data).
+
+*Using in vue instance:*
+```
+methods: {
+  sendSomeData() {
+    ...
+    this.addData("Q1", "Response for quiesion with automatic generated quiesion-id");
+    this.addData("custon_id", "Response for quiesion with custon id");
+  }
 }
 ```
 
 #### Slide Functionality
 ```
 // each slide-component
-import mixins from '@/app/mixins'
+import mixins from "@/app/mixins"
 ...
 export default {
-    mixins: [ ...mixins.slide ],
+  mixins: [ ...mixins.slide ],
 }
 ```
 
 ##### Text data 
+
+For import text data for current language just call: `getData` with relative (from **language** folder to file) path:
+
+```$xslt
+import getData from '@/data'
+
+const myData = getData('/my-data.js')
+``` 
+
+```
++-- src
+|   +-- data
+|   |   +-- ua
+|   |   |   +-- my-data.js
+|   |   +-- ru
+|   |   |   +-- my-data.js
+```
 
 Each [`slide-component`](#slide-component) already has appropriate imported text data in `data` key.
 
@@ -384,7 +432,7 @@ mounted() {
     // => 
     { 
     	content: {
-        	title: 'This is Awesome Documentations'
+        	title: "This is Awesome Documentations"
         },
         
         popup: {..} 
@@ -394,7 +442,7 @@ mounted() {
     console.log(this.t); 
     // =>
     {
-    	title: 'This is Awesome Documentations'
+    	title: "This is Awesome Documentations"
     }
 }
 ```
@@ -415,7 +463,7 @@ Each [`slide-component`](#slide-component) already has "personal info" in `slide
 
 ```
 // App.vue
-import mixins from '@/app/mixins'
+import mixins from "@/app/mixins"
 ...
 export default {
   mixins: [...mixins.app]

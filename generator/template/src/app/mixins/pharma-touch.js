@@ -8,7 +8,7 @@ import { getOperatingSystem } from '@/app/utils/get-system-info'
  * Mixin for all components
  * include basic functionality for all components
  *
- * Required: navigateTo
+ * Required: navigateTo, addData
  */
 export const global = [
   {
@@ -32,6 +32,10 @@ export const global = [
             }
         }
       },
+
+      addData(id, value) {
+        console.log(`${id}=${value}`);
+      }
     },
   },
 ];

@@ -11,11 +11,11 @@
              @touchend="devNavigate('next')"></div>
       </div>
 
-      <div class="languages" v-if="languages.length > 0">
+      <div class="languages" v-if="languages.length > 1">
         <div v-for="lang in languages" :key="lang"
              :class="{active: lang === currentLang}"
              :id="`lang-${lang}`"
-             @touchend="SET_LANG(lang)"
+             @touchend="changeLang(lang)"
         >{{lang}}
         </div>
       </div>
@@ -95,6 +95,11 @@
             break;
         }
       },
+
+      changeLang(lang) {
+        this.SET_LANG(lang);
+        window.location.reload();
+      }
     },
   }
 </script>

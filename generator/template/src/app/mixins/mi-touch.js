@@ -8,7 +8,7 @@ import desktopNavigationBeyondRootDir from '@/app/utils/desktop-navigation-beyon
  * Mixin for all components
  * include basic functionality for all components
  *
- * Required: navigateTo
+ * Required: navigateTo, addData
  */
 export const global = [
   {
@@ -22,6 +22,10 @@ export const global = [
           desktopNavigationBeyondRootDir(id, false /* replaceHtmlName */);
         }
       },
+
+      addData(id, value) {
+        console.log(`Write data: "${id}" - "${value}"`);
+      }
     },
 
     created() {

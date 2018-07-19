@@ -9,18 +9,33 @@ import getSlideObjectById from '@/app/utils/get-slide-object-by-id'
  * Mixin for all components
  * include basic functionality for all components
  *
- * Required: navigateTo
+ * Required: navigateTo, addData
  */
 export const global = [
   {
     methods: {
       /**
+       * A global method that performs the function of navigating to the desired slide.
+
        * @param id <String>
        */
       navigateTo(id) {
         // Check is slide exist in structure
         getSlideObjectById(id);
         Router.push(`/${id}`);
+      },
+
+      /**
+       * A global method that sends a calldialog response to the required clm database.
+       *
+       * @param id
+       * @param value
+       */
+      addData(id, value) {
+        if (!id) throw new Error(`Missing required parameter: "${id}"!`);
+        if (!value) throw new Error(`Missing required parameter: "${value}"!`);
+
+        console.log(`Write data: "${id}" - "${value}"`);
       },
     },
 

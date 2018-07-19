@@ -1,8 +1,10 @@
 const fse = require('fs-extra');
 const path = require('path');
-const {done} = require('@vue/cli-shared-utils');
 
-const {getFullId} = require('../../lib/util/sl-id-parser');
+const { done } = require('@vue/cli-shared-utils');
+const { paths } = require('../../lib/config');
+const { structure } = require(paths.clm.config);
+const { getFullId } = require('../../lib/util/sl-id-parser');
 const webpackSlideBuild = require('../../lib/webpack-slide-builder');
 const assetsCleaner = require('../../lib/assets-cleaner');
 const thumbMaker = require('../../lib/thumb-maker');
@@ -39,7 +41,7 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
       width: 200,
       height: 150,
       thumbName: `200x150.jpg`,
-      thumbPath: path.join(process.env.VUE_APP_OUT_DIR_PATH, 'media', 'images', 'thumbnails')
+      thumbPath: path.join(process.env.VUE_APP_OUT_DIR_PATH, 'media', 'images', 'thumbnails'),
     });
 
     /** MI Touch special **/
@@ -47,7 +49,7 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
 
     /** Create Archive **/
     await archiveMaker({
-      archiveName: process.env.VUE_APP_OUT_DIR_NAME
+      archiveName: process.env.VUE_APP_OUT_DIR_NAME,
     });
 
     done(`Save: ${outSlName} for ${clmName}`)
@@ -55,13 +57,28 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
 };
 
 function createSpecialMiTouchElements() {
-  const slide = {
-    path: process.env.VUE_APP_OUT_DIR_PATH,
-    name: process.env.VUE_APP_OUT_DIR_NAME
-  };
+  fse.outputFileSync(path.join(process.env.VUE_APP_OUT_DIR_PATH, 'export', 'export.pdf'));
+  fse.outputFileSync(path.join(process.env.VUE_APP_OUT_DIR_PATH, 'parameters', 'parameters.xml'), getParametersFileContent());
+}
 
-  fse.outputFileSync(path.join(slide.path, 'export', 'export.pdf'));
+function getParametersFileContent(slide) {
+  let callDialog = undefined;
 
-  const paramsContent = `<Sequence Id="${slide.name}" xmlns="urn:param-schema"></Sequence>`;
-  fse.outputFileSync(path.join(slide.path, 'parameters', 'parameters.xml'), paramsContent);
+  structure.forEach(sl => {
+    if (sl.id === process.env.VUE_APP_SL_ID) callDialog = sl.callDialog
+  });
+
+  return `<Sequence Id="${process.env.VUE_APP_OUT_DIR_NAME}" xmlns="urn:param-schema">
+  ${(!!callDialog && callDialog.length) ?
+    `<CallDialog>
+      <Questions>
+        ${callDialog.map((question, i) => {
+          const id = typeof question === 'object' ? question.id : `Q${i + 1}`;
+          const text = typeof question === 'object' ? question.question : question;
+          return `        <Question id="${id}" text="${text}" type="TEXT"/>`
+        }).join('\n')}
+    </Questions>
+  </CallDialog>`
+    : ''}
+</Sequence>`;
 }
