@@ -34,8 +34,9 @@ export const global = [
       addData(id, value) {
         if (!id) throw new Error(`Missing required parameter: "${id}"!`);
         if (!value) throw new Error(`Missing required parameter: "${value}"!`);
+        if (typeof value !== 'string') throw new Error(`Type of parameter "value" must be a "string", you pass: "${typeof value}"`);
 
-        console.log(`Write data: "${id}" - "${value}"`);
+        console.log(`Write data - ID: "${id}", Value: "${value}"`);
       },
     },
 
