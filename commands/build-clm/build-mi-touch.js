@@ -72,11 +72,11 @@ function getParametersFileContent(slide) {
   ${(!!callDialog && callDialog.length) ?
     `<CallDialog>
       <Questions>
-        ${callDialog.map((question, i) => {
-          const id = typeof question === 'object' ? question.id : `Q${i + 1}`;
-          const text = typeof question === 'object' ? question.question : question;
-          return `        <Question id="${id}" text="${text}" type="TEXT"/>`
-        }).join('\n')}
+${callDialog.map((question, i) => {
+  const id = typeof question === 'object' ? question.id : `Q${i + 1}`;
+  const text = typeof question === 'object' ? question.question : question;
+  return `        <Question id="${id}" text="${text}" type="TEXT"/>`
+}).join('\n')}
     </Questions>
   </CallDialog>`
     : ''}
