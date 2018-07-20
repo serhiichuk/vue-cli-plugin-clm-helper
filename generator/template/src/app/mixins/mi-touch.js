@@ -24,8 +24,8 @@ export const global = [
       },
 
       addData(id, value) {
-        console.log(`Write data: "${id}" - "${value}"`);
-      }
+        window.parent.addData(id, value);
+      },
     },
 
     created() {
