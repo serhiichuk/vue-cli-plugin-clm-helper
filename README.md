@@ -33,13 +33,6 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
   - [Generate](#generate)
   - [Dev](#dev)
   - [Build](#build)
-- [Directory Structure](#directory-structure)
-  - [The Public Directory](#the-public-directory)
-  - [The Assets Directory](#the-assets-directory)
-  - [The App Directory](#the-app-directory)
-  - [The Components Directory](#the-components-directory)
-  - [The Slides Directory](#the-slides-directory)
-  - [The Style Directory](#the-style-directory)
 - [Configuration](#configuration)
   - [Vue Config](#vue-config)
   - [CLM Config](#clm-config)
@@ -64,6 +57,13 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
       - [Text data](#text-data)
       - [Slide info data](#slide-info-data)
     - [App Functionality](#app-functionality)
+  - [Directory Structure](#directory-structure)
+    - [The Public Directory](#the-public-directory)
+    - [The Assets Directory](#the-assets-directory)
+    - [The App Directory](#the-app-directory)
+    - [The Components Directory](#the-components-directory)
+    - [The Slides Directory](#the-slides-directory)
+    - [The Style Directory](#the-style-directory)
 - [Acknowledgments](#acknowledgments)   
 
 
@@ -162,46 +162,6 @@ yarn build --clm mi-touch --options no-screens --filter "slide-1_1|slide-2_1" --
 yarn build -c mt -o ns -f "slide-1_1|slide-2_1" -l ua
 ```
 
-## Directory Structure
-
-*The default plugin structure is intended to provide a great starting point for great working with CLM presentations. Of course, you are free to organize your application however you like.*
-
-### The Public Directory
-
-The `public` directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/public/media/pdf/instruction.pdf` is mapped as `/media/pdf/instruction.pdf`
-
-[More documentation about Static integration](https://cli.vuejs.org/guide/html-and-static-assets.html#the-public-folder)
-
-### The Assets Directory
-
-The `assets` directory contains your un-compiled assets such as Images, Videos, Fonts. 
-
-[More documentation about Assets integration](https://cli.vuejs.org/guide/html-and-static-assets.html#static-assets-handling)
-
-*:warning: Each slide must have a subdirectory, whose name coincides with the name of the [slide-component](#slide-component), because during production build, each slide assets will cleaned with [`assetsCleaner`.](#./lib/assets-cleaner.js), also you can disable `assetsCleaner` with option `no-clear-assets` in [build](#build)*
-
-
-### The App Directory
-
-The `app` directory contains [basic functionality](#basic-functionality) such as store, router and mixins.	
-### The Components Directory
-
-The `components` directory contains your Vue.js Components.
-
-### The Slides Directory
-
-The `slides` directory contains your all [slide-components](#slide-component).
-
-### The Style Directory
-
-The `style` directory contains your `scss` global styles, mixins and variables. All `*.scss` files from `style/shared` will imported to all vue-components and styles.
-
-*:warning: Do not include any files here which will have actual css output, otherwise our bundle file size will grow rapidly as the output will be in every file.*
-
-
-
 ## Configuration
 
 ### Vue Config
@@ -288,6 +248,7 @@ CLM platform options:
   swipe | `Object` | Optional | Define swipe rules. Can have `next` and `prev` keys.
   swipe.next, swipe.prev | `String` | Optional | Appropriate swipe will [navigate to](#navigateto) <slide-id> or prevented CLM swipe with "prevent" value.  
   callDialog | `Array` | Optional | List of questions for call dialog definition. *(Only fo MI Touch).* 
+  isHidden | `Boolean` | Optional | Set `false` to hide slide in menu list. *(Only fo MI Touch).*
   
   ```
   structure: [
@@ -475,6 +436,45 @@ In `App.vue` has functional for swipe control: `v-touch:swipe="swipeHandler"`.
 `swipeHandler` will get [`disableSwipeBetweenFlows`](#disableswipebetweenflows), and [`swipe`](#structure) keys from `clm.config`, and depending on their values will call [`navigateTo`](#navigateto) or `prevent` necessary swipe.
 
 In addition, `App.vue` contains some development functionality, do not worry about it, all development functions will be deleted/disabled during the production build.
+
+
+## Directory Structure
+
+*The default plugin structure is intended to provide a great starting point for great working with CLM presentations. Of course, you are free to organize your application however you like.*
+
+### The Public Directory
+
+The `public` directory contains your static files. Each file inside this directory is mapped to `/`.
+
+Example: `/public/media/pdf/instruction.pdf` is mapped as `/media/pdf/instruction.pdf`
+
+[More documentation about Static integration](https://cli.vuejs.org/guide/html-and-static-assets.html#the-public-folder)
+
+### The Assets Directory
+
+The `assets` directory contains your un-compiled assets such as Images, Videos, Fonts. 
+
+[More documentation about Assets integration](https://cli.vuejs.org/guide/html-and-static-assets.html#static-assets-handling)
+
+*:warning: Each slide must have a subdirectory, whose name coincides with the name of the [slide-component](#slide-component), because during production build, each slide assets will cleaned with [`assetsCleaner`.](#./lib/assets-cleaner.js), also you can disable `assetsCleaner` with option `no-clear-assets` in [build](#build)*
+
+
+### The App Directory
+
+The `app` directory contains [basic functionality](#basic-functionality) such as store, router and mixins.	
+### The Components Directory
+
+The `components` directory contains your Vue.js Components.
+
+### The Slides Directory
+
+The `slides` directory contains your all [slide-components](#slide-component).
+
+### The Style Directory
+
+The `style` directory contains your `scss` global styles, mixins and variables. All `*.scss` files from `style/shared` will imported to all vue-components and styles.
+
+*:warning: Do not include any files here which will have actual css output, otherwise our bundle file size will grow rapidly as the output will be in every file.*
 
 ## Acknowledgments
 
