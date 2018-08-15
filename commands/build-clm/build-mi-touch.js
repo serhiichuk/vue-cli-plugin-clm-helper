@@ -1,7 +1,5 @@
 const fse = require('fs-extra');
 const path = require('path');
-
-const { done } = require('@vue/cli-shared-utils');
 const { paths } = require('../../lib/config');
 const { structure } = require(paths.clm.config);
 const { getFullId } = require('../../lib/util/sl-id-parser');
@@ -12,7 +10,6 @@ const archiveMaker = require('../../lib/archive-maker');
 
 
 module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
-
   for (let sl of slidesToBuild) {
     const outSlName = getFullId(sl.id, sl.lang);
 
@@ -51,8 +48,6 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
     await archiveMaker({
       archiveName: process.env.VUE_APP_OUT_DIR_NAME,
     });
-
-    done(`Save: ${outSlName} for ${clmName}`)
   }
 };
 

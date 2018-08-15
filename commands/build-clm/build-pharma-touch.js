@@ -1,11 +1,10 @@
 const fs = require('fs');
 const path = require('path');
-const {done} = require('@vue/cli-shared-utils');
 const cyrillicToTransit = require('cyrillic-to-translit-js');
 
-const {paths} = require('../../lib/config');
-const {languages, clm, structure} = require(paths.clm.config);
-const {getFullId} = require('../../lib/util/sl-id-parser');
+const { paths } = require('../../lib/config');
+const { languages, clm, structure } = require(paths.clm.config);
+const { getFullId } = require('../../lib/util/sl-id-parser');
 const webpackSlideBuild = require('../../lib/webpack-slide-builder');
 const thumbMaker = require('../../lib/thumb-maker');
 const archiveMaker = require('../../lib/archive-maker');
@@ -29,9 +28,7 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
     if (!args.options['no-screens']) await require('../../lib/screens-maker')(sl);
 
     /** Create thumbnails **/
-    await thumbMaker({width: 300, height: 225});
-
-    done(`Save: ${outSlName} for ${clmName}`)
+    await thumbMaker({ width: 300, height: 225 });
   }
 
 
@@ -45,10 +42,9 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
     await archiveMaker({
       contentPath: outBuildDir,
       archiveName: `${clm.productId}_${lang.toUpperCase()}`,
-      archivePath: path.join(paths.zip, clmName)
+      archivePath: path.join(paths.zip, clmName),
     });
   }
-
 };
 
 /**
@@ -66,7 +62,7 @@ function createStructureForPT(outBuildDir, lang) {
     filename: getFullId(sl.id, lang) + '.html',
     preview: getFullId(sl.id, lang) + '.jpg',
     ishidden: 0,
-    position: index + 1
+    position: index + 1,
   }));
 
   fs.writeFileSync(path.join(outBuildDir, 'slides.json'), JSON.stringify(json, null, '  '));
@@ -84,10 +80,10 @@ function getTransitName(name, lang) {
 
   switch (lang) {
     case 'ua':
-      return cyrillicToTransit({preset: 'uk'}).transform(name);
+      return cyrillicToTransit({ preset: 'uk' }).transform(name);
 
     case 'ru':
-      return cyrillicToTransit({preset: 'ru'}).transform(name);
+      return cyrillicToTransit({ preset: 'ru' }).transform(name);
     default:
       return name
   }

@@ -42,8 +42,6 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
 
     /** Create Archive **/
     await archiveMaker({ archiveSubDir: outSlName });
-
-    done(`Save: ${outSlName} for ${clmName}`)
   }
 
   generateVeevaCsv(clmName);

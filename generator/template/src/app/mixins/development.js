@@ -84,10 +84,10 @@ export const app = [
       },
     },
 
-    created() {
+    // created() {
       //   global.setLang = (lang) => {
       //     this.$store.commit('SET_LANG', lang)
       //   }
-    },
+    // },
   },
 ];

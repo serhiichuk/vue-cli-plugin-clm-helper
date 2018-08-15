@@ -58,11 +58,5 @@ export const app = [
         if (swipe === 'prev') el.dataset.preventRightSwipe = 'true';
       },
     },
-
-    created() {
-      document.addEventListener("selectstart", function () {
-        e.preventDefault();
-      }, false);
-    },
   },
 ];

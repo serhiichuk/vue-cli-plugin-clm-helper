@@ -28,13 +28,6 @@ export const global = [
         // Coming soon....
       },
     },
-
-    created() {
-      // Disable system vertical fucking swipe
-      document.addEventListener('touchmove', function (e) {
-        e.preventDefault();
-      }, true);
-    },
   },
 ];
 
@@ -59,6 +52,13 @@ export const app = [
       swipePreventMethod(swipe) {
         // In Veeva CRM, the prevent swipe is set in the Admin panel
       },
+    },
+
+    created() {
+      // Disable system vertical fucking swipe
+      document.addEventListener('touchmove', function (e) {
+        e.preventDefault();
+      }, true);
     },
   },
 ];

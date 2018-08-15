@@ -1,8 +1,9 @@
 const fs = require('fs');
+const path = require('path');
 const chalk = require('chalk');
-const {paths} = require('../../lib/config');
-const {log, done, info, stopSpinner, error} = require('@vue/cli-shared-utils');
-let {structure, languages} = require(paths.clm.config);
+const { paths } = require('../../lib/config');
+const { log, done, info, error, logWithSpinner, stopSpinner, resumeSpinner } = require('@vue/cli-shared-utils');
+let { structure, languages } = require(paths.clm.config);
 const parseArgs = require('../../lib/util/parse-args');
 
 module.exports = async (api, projectOptions, args) => {
@@ -11,14 +12,14 @@ module.exports = async (api, projectOptions, args) => {
     clm: {
       'pt': 'pharma-touch',
       'mt': 'mi-touch',
-      'v': 'veeva'
+      'v': 'veeva',
     },
     options: {
       'ns': 'no-screens',
-      'nca': 'no-clear-assets'
+      'nca': 'no-clear-assets',
     },
     filter: '',
-    lang: ''
+    lang: '',
   });
 
   // arg 'clm' is required
@@ -51,6 +52,10 @@ async function runBuild(api, projectOptions, args, slidesToBuild) {
   }
   if (!args.filter.test('')) {
     info(`ID filter: ${chalk.green(args.filter)}`);
+    info('Slides to build:');
+    console.log('\tID\t\t| Lang');
+    console.log('\t--------------------');
+    console.log(slidesToBuild.map(sl => `\t${chalk.green(sl.id)}\t| ${chalk.yellow(sl.lang)}`).join('\n'))
   }
 
   if (!args.lang.test('')) {
@@ -61,20 +66,25 @@ async function runBuild(api, projectOptions, args, slidesToBuild) {
   process.env.NODE_ENV = 'production';
 
   for (let clm of Object.keys(args.clm)) {
-    await require(`./build-${clm}`)(api, projectOptions, args, slidesToBuild, clm)
+    resumeSpinner();
+
+    await require(`./build-${clm}`)(api, projectOptions, args, slidesToBuild, clm);
+
+    stopSpinner(true);
+    done(`Save slide to: ${path.relative(paths.root, process.env.VUE_APP_OUT_DIR_PATH)}.`)
   }
 
   return new Promise(resolve => resolve())
 }
 
-function showConclusion({filter, lang}, slidesToBuild) {
+function showConclusion({ filter, lang }, slidesToBuild) {
   stopSpinner();
   log();
   done('Build complete.');
 
   if (!filter.test('')) {
     info('Built slides:');
-    console.log('\tLang\t\t| ID');
+    console.log('\tID\t\t| Lang');
     console.log('\t--------------------');
     console.log(slidesToBuild.map(sl => `\t${chalk.green(sl.id)}\t| ${chalk.yellow(sl.lang)}`).join('\n'))
   }
@@ -82,7 +92,7 @@ function showConclusion({filter, lang}, slidesToBuild) {
   info(`You can find archives in ${chalk.green(paths.zip)}`);
 }
 
-function getFilteredSlidesToBuild({filter, lang}) {
+function getFilteredSlidesToBuild({ filter, lang }) {
   const slidesToBuild = [];
   const hasLangFilter = lang.test(languages.toString());
 
@@ -90,7 +100,7 @@ function getFilteredSlidesToBuild({filter, lang}) {
     id: sl.id,
     path: sl.path,
     name: typeof sl.name === 'string' ? sl.name : sl.name[lang],
-    lang
+    lang,
   });
 
   languages.forEach(slideLang => {
@@ -107,7 +117,7 @@ function getFilteredSlidesToBuild({filter, lang}) {
 }
 
 function killAllNodeProcesses() {
-  const {exec} = require('child_process');
+  const { exec } = require('child_process');
   const os = require('os');
 
   if (os.platform() === 'win32') {

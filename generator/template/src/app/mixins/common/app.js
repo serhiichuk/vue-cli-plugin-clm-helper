@@ -134,4 +134,10 @@ export default {
       }
     },
   },
+
+  created() {
+    document.addEventListener("selectstart", function (e) {
+      e.preventDefault();
+    }, false);
+  },
 }
