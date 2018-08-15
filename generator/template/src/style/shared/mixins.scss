@@ -150,3 +150,24 @@
   background-size: ($dashlength + $spacelength) $borderwidth, $borderwidth ($dashlength + $spacelength), ($dashlength + $spacelength) $borderwidth, $borderwidth ($dashlength + $spacelength);
   background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
 }
+
+@mixin list-dotted($size: 8px, $color: inherit) {
+  > * {
+    position: relative;
+    margin-left: $size * 4;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(-$size * 3, -50%);
+
+      width: $size;
+      height: $size;
+
+      border-radius: 50%;
+      background-color: $color;
+    }
+  }
+}

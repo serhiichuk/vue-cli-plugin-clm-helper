@@ -26,13 +26,10 @@ export const global = [
       addData(id, value) {
         window.parent.addData(id, value);
       },
-    },
 
-    created() {
-      // // Disable system vertical fucking swipe
-      // document.addEventListener('touchmove', function (e) {
-      //   e.preventDefault();
-      // }, true);
+      openPdfIos(pdfPath) {
+        window.parent.PDFHelper.OpenPDF(pdfPath, window, true);
+      },
     },
   },
 ];
@@ -60,6 +57,12 @@ export const app = [
         if (swipe === 'next') el.dataset.preventLeftSwipe = 'true';
         if (swipe === 'prev') el.dataset.preventRightSwipe = 'true';
       },
+    },
+
+    created() {
+      document.addEventListener("selectstart", function () {
+        e.preventDefault();
+      }, false);
     },
   },
 ];

@@ -4,7 +4,6 @@ import appCommonMixin from './common/app'
 import Router from '@/app/router'
 import getSlideObjectById from '@/app/utils/get-slide-object-by-id'
 
-
 /**
  * Mixin for all components
  * include basic functionality for all components
@@ -36,17 +35,23 @@ export const global = [
         if (!value) throw new Error(`Missing required parameter: "${value}"!`);
         if (typeof value !== 'string') throw new Error(`Type of parameter "value" must be a "string", you pass: "${typeof value}"`);
 
-        console.log(`Write data - ID: "${id}", Value: "${value}"`);
+        console.log(`[App] Write data - ID: "${id}", Value: "${value}"`);
+      },
+
+      /**
+       * Function opens a PDF document in a native full screen window
+       * (only for MI Touch on iOS)
+       *
+       * @param pdfPath
+       */
+      openPdfIos(pdfPath) {
+        if (pdfPath[0] === '/') throw new Error('PDF path cannot start with «/»');
+        window.open(`/${pdfPath}`);
       },
     },
-
-    // created() {
-    //   global.setLang = (lang) => {
-    //     this.$store.commit('SET_LANG', lang)
-    //   }
-    // }
   },
 ];
+
 
 /**
  * This object will added to each 'slide-component' instance
@@ -77,6 +82,12 @@ export const app = [
       swipePreventMethod(swipe) {
         console.log(`[APP] Prevent ${swipe} swipe.`);
       },
+    },
+
+    created() {
+      //   global.setLang = (lang) => {
+      //     this.$store.commit('SET_LANG', lang)
+      //   }
     },
   },
 ];

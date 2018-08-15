@@ -114,14 +114,14 @@
     },
 
     computed: {
-      ...mapState([ 'currentLang' ]),
-      ...mapState('dev', [ 'isActiveDevHelpers', 'clmSystemElements' ]),
+      ...mapState(['currentLang']),
+      ...mapState('dev', ['isActiveDevHelpers', 'clmSystemElements']),
 
       slides() {
         return structure.map(sl => {
           return {
             ...sl,
-            name: sl.name[ this.currentLang ] || sl.name,
+            name: sl.name[this.currentLang] || sl.name,
           }
         })
       },
@@ -132,8 +132,8 @@
     },
 
     methods: {
-      ...mapMutations([ 'SET_LANG' ]),
-      ...mapMutations('dev', [ 'TOGGLE_DEV_HELPERS', 'SET_CLM_SYSTEM_ELEMENTS' ]),
+      ...mapMutations(['SET_LANG']),
+      ...mapMutations('dev', ['TOGGLE_DEV_HELPERS', 'SET_CLM_SYSTEM_ELEMENTS']),
 
       copyTextToClipboard() {
         const copyText = document.getElementById('external-link');
@@ -218,7 +218,7 @@
     -moz-osx-font-smoothing: grayscale;
 
     &.tablet {
-      font: 400 calc(100vw / 1024 * 40)/1.33 "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+      font: 400 calc(100vw / 1024 * 20)/1.33 "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
     }
   }
 

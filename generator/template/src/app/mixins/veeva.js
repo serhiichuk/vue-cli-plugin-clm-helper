@@ -26,7 +26,7 @@ export const global = [
 
       addData(id, value) {
         // Coming soon....
-      }
+      },
     },
 
     created() {

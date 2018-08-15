@@ -9,7 +9,7 @@ const store = new Vuex.Store({
   state: {
     languages,
     currentLang: isDev
-      ? sessionStorage.getItem('current-lang') || languages[ 0 ]
+      ? sessionStorage.getItem('current-lang') || languages[0]
       : process.env.VUE_APP_SL_LANG,
 
     currentSlide: {
@@ -29,11 +29,11 @@ const store = new Vuex.Store({
       return structure.map(sl => {
         const newSl = {
           ...sl,
-          name: typeof sl.name === 'string' ? sl.name : sl.name[ state.currentLang ],
+          name: typeof sl.name === 'string' ? sl.name : sl.name[state.currentLang],
         };
 
         if (sl.flowName) {
-          newSl.flowName = typeof sl.flowName === 'string' ? sl.flowName : sl.flowName[ state.currentLang ]
+          newSl.flowName = typeof sl.flowName === 'string' ? sl.flowName : sl.flowName[state.currentLang]
         }
 
         return newSl

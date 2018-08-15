@@ -35,7 +35,7 @@ export const global = [
 
       addData(id, value) {
         console.log(`${id}=${value}`);
-      }
+      },
     },
   },
 ];
