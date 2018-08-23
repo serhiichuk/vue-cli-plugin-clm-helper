@@ -248,10 +248,11 @@ CLM platform options:
   swipe | `Object` | Optional | Define swipe rules. Can have `next` and `prev` keys.
   swipe.next, swipe.prev | `String` | Optional | Appropriate swipe will [navigate to](#navigateto) <slide-id> or prevented CLM swipe with "prevent" value.  
   callDialog | `Array` | Optional | List of questions for call dialog definition. *(Only fo MI Touch).* 
-  isHidden | `Boolean` | Optional | Set `false` to hide slide in menu list. *(Only fo MI Touch).*
+  isHidden | `Boolean` | Optional | Set `true` to hide slide in menu list. *(Only fo MI Touch).*
   
   ```
   structure: [
+    // required keys 
     {
       "id": "slide-main",
       "path": "slides/slide-main",
@@ -263,10 +264,10 @@ CLM platform options:
       "path": "slides/slide-1_3",
       "name": {"ua": "Назва", "ru": "Название"}
       "callDialog": "[
-        "This Question will have automatic generated quiesion-id (Q1)",
+        "My Question 1", // this question will have automatic generated quiesion-id (Q1)
         {
-          "id": "custon_id", 
-          "question": "This Question will have custon id"
+          "id": "custon_id", // custom question id
+          "question": "My Question 2"
         }
       ]
     },
@@ -274,11 +275,12 @@ CLM platform options:
     {
       "id": "slide-4_20",
       "path": "slides/slide-4_20",
-      "name": {"ua": "Назва", "ru": "Название"},
+      "name": "Назва", // the same name for all languages
       "swipe": {
-  	    "next": "slide-5_10",
-        "prev": "prevent"
-      }
+  	    "next": "slide-5_10", // custon next swipe
+        "prev": "prevent" // block back swipe
+      },
+      "isHidden": true // This slide not be displayed
     }
   ]
   ```

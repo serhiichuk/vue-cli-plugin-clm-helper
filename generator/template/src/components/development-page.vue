@@ -66,9 +66,10 @@
     <!-- Footer -->
     <footer>
       <ul class="additional-info">
-        <b>See also:</b>
-        <li><a href="https://github.com/serhiichuk/vue-cli-plugin-clm-helper">Plugin documentation,</a></li>
-        <li><a href="https://github.com/serhiichuk/vue-cli-plugin-clm-helper">Plugin MI Touch</a></li>
+        <b>Useful links on github:</b>
+        <li><a href="https://github.com/serhiichuk/vue-cli-plugin-clm-helper" target="_blank">CLI Plugin Clm Helper</a></li>, 
+        <li><a href="https://github.com/serhiichuk/vue-clm-helper-mi-touch" target="_blank">Plugin MI Touch</a></li>
+        <li><a href="https://github.com/serhiichuk/vue-json-to-html" target="_blank">Plugin Json To Html</a></li>
       </ul>
 
       <h5>Created by <a href="https://github.com/serhiichuk" target="_blank">Taras Serhiichuk</a></h5>
