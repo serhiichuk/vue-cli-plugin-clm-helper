@@ -9,7 +9,7 @@ export default {
     }
   },
   computed: {
-    ...mapState([ 'currentSlide' ]),
+    ...mapState(['currentSlide']),
 
     /**
      * Return adjacent slides
@@ -25,8 +25,8 @@ export default {
 
       structure.forEach((sl, key) => {
         if (sl.id === this.currentSlide.id) {
-          result.next = (structure[ key + 1 ] && structure[ key + 1 ].id);
-          result.prev = (structure[ key - 1 ] && structure[ key - 1 ].id);
+          result.next = (structure[key + 1] && structure[key + 1].id);
+          result.prev = (structure[key - 1] && structure[key - 1].id);
         }
       });
 
@@ -67,13 +67,13 @@ export default {
       Object.keys(result).forEach(key => {
         // Check clm.config -> clm -> disableSwipeBetweenFlows value and
         // check is next or prev slides from another flow
-        if (this.adjacentSlides[ key ]) {
-          const isSlideFromAnotherFlow = !this.compareFlowNameById(this.currentSlide.id, this.adjacentSlides[ key ]);
-          if (clm.disableSwipeBetweenFlows && isSlideFromAnotherFlow) result[ key ] = true;
+        if (this.adjacentSlides[key]) {
+          const isSlideFromAnotherFlow = !this.compareFlowNameById(this.currentSlide.id, this.adjacentSlides[key]);
+          if (clm.disableSwipeBetweenFlows && isSlideFromAnotherFlow) result[key] = true;
         }
 
         // Check clm.config -> structure -> slide-object -> swipe value
-        if (configSwipe[ key ] === 'prevent') result[ key ] = true;
+        if (configSwipe[key] === 'prevent') result[key] = true;
       });
 
       return result;
@@ -84,7 +84,8 @@ export default {
     /** Running, preventing swiping after counting adjacentSlides **/
     adjacentSlides() {
       Object.keys(this.isPreventSwipe).forEach(swipe => {
-        if (this.isPreventSwipe[ swipe ]) this.swipePreventMethod(swipe);
+        if (this.isPreventSwipe[swipe]) this.swipePreventMethod(swipe);
+        if (this.configSwipe[swipe]) this.swipePreventMethod(swipe);
       });
     },
   },
@@ -105,11 +106,12 @@ export default {
       if (direction === 'right') _direction = 'prev';
 
       if (_direction &&
-        configSwipe[ _direction ] &&
-        configSwipe[ _direction ] !== 'prevent') {
+        configSwipe[_direction] &&
+        configSwipe[_direction] !== 'prevent') {
 
         event.preventDefault();
-        navigateTo(configSwipe[ _direction ])
+
+        navigateTo(configSwipe[_direction])
       }
     },
 
@@ -128,7 +130,7 @@ export default {
       const regex = /^slide-([^\.]+)/;
 
       try {
-        return regex.exec(id1)[ 1 ].split('_')[ 0 ] === regex.exec(id2)[ 1 ].split('_')[ 0 ]
+        return regex.exec(id1)[1].split('_')[0] === regex.exec(id2)[1].split('_')[0]
       } catch (e) {
         throw new Error(`Wrong slide ID\n${e}`)
       }
