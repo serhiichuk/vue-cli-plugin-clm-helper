@@ -146,7 +146,7 @@ Build slides for necessary CLM"s. Each slide will be built with webpack, have th
 - **`yarn build <clm> [options] [filter] [lang]`**  
 
   - `clm` - required parameter, can be: `veeva`, `mi-touch` and `pharma-touch`
-  - `options` - optional, can be: `no-screens` and `no-clear-assets`
+  - `options` - optional, can be: `no-screens`, `no-clear-js` and `no-clear-assets`
   - `filter` - optional, regular expression for filtering around slide ID
   - `lang` - optional, regular expression for filtering around slide language
 

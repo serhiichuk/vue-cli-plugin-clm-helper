@@ -17,6 +17,7 @@ module.exports = async (api, projectOptions, args) => {
     options: {
       'ns': 'no-screens',
       'nca': 'no-clear-assets',
+      'ncj': 'no-clear-js',
     },
     filter: '',
     lang: '',

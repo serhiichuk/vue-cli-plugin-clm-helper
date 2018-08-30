@@ -5,6 +5,7 @@ const { structure } = require(paths.clm.config);
 const { getFullId } = require('../../lib/util/sl-id-parser');
 const webpackSlideBuild = require('../../lib/webpack-slide-builder');
 const assetsCleaner = require('../../lib/assets-cleaner');
+const jsCleaner = require('../../lib/js-cleaner');
 const thumbMaker = require('../../lib/thumb-maker');
 const archiveMaker = require('../../lib/archive-maker');
 
@@ -29,6 +30,9 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
 
     /** Clean excess from assets directory **/
     if (!args.options['no-clear-assets']) assetsCleaner();
+
+    /** Clean excess from assets directory **/
+    if (!args.options['no-clear-js']) jsCleaner();
 
     /** Create screens **/
     if (!args.options['no-screens']) await require('../../lib/screens-maker')(sl);
