@@ -1,1 +1,2 @@
-VUE_APP_RESTRICTED_WORKSPACE_REGEX =
+## This to use a restricted workspace, simply uncomment (delete "##") the line below and assign the value of the variable
+## VUE_APP_RESTRICTED_WORKSPACE_REGEX = ""

@@ -21,7 +21,7 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
     process.env.VUE_APP_SL_ID = sl.id;
     process.env.VUE_APP_SL_PATH = sl.path;
     process.env.VUE_APP_SL_LANG = sl.lang;
-    process.env.VUE_APP_OUT_DIR_PATH = api.resolve(path.join('dist', clmName, sl.lang, outSlName));
+    process.env.VUE_APP_OUT_DIR_PATH = path.join(paths.dist, clmName, sl.lang, outSlName);
     process.env.VUE_APP_OUT_HTML_NAME = outSlName;
 
     /** Clear slide dir **/

@@ -48,11 +48,17 @@ module.exports = async (api, projectOptions, args) => {
 
 async function runBuild(api, projectOptions, args, slidesToBuild) {
   info(`Building for ${chalk.yellow(Object.keys(args.clm).join(', '))}.`);
+
   if (Object.keys(args.options).length) {
     info(`Options: ${chalk.green(Object.keys(args.options).join(', '))}`);
   }
+
   if (!args.filter.test('')) {
     info(`ID filter: ${chalk.green(args.filter)}`);
+    if (slidesToBuild.length === 0) {
+      error(`Bad filter expression, no matches found!`);
+      process.exit(0);
+    }
     info('Slides to build:');
     console.log('\tID\t\t| Lang');
     console.log('\t--------------------');

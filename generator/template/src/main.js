@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from '@/App'
-import store from '@/.helper/store'
-import router from '@/.helper/router'
-import mixins from '@/.helper/mixins'
+import store from '@/app-helper/store'
+import router from '@/app-helper/router'
+import mixins from '@/app-helper/mixins'
 
 /* Include Plugins */
 import Vue2TouchEvents from 'vue2-touch-events'
@@ -11,8 +11,8 @@ import Vue2TouchEvents from 'vue2-touch-events'
 Vue.use(Vue2TouchEvents, { swipeTolerance: 80 });
 // Vue.use(MtPlugin, store);
 
-Vue.mixin(...mixins.global);
 Vue.config.productionTip = process.env.NODE_ENV === 'production';
+Vue.mixin(mixins.global);
 
 new Vue({
   el: '#app',

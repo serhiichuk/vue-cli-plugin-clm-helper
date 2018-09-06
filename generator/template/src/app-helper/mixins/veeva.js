@@ -1,35 +1,36 @@
 import slideCommonMixin from './common/slide'
+import globalCommonMixin from './common/global';
 import appCommonMixin from './common/app'
 
 import com from 'veevalibrary'
-import { getFullId } from '@/.helper/utils/sl-id-parser'
-import desktopNavigationBeyondRootDir from '@/.helper/utils/desktop-navigation-beyond-root-dir'
+import { getFullId } from '@/app-helper/utils/sl-id-parser'
+import desktopNavigationBeyondRootDir from '@/app-helper/utils/desktop-navigation-beyond-root-dir'
+import merge from '../utils/deep-merge';
 
 /**
  * Mixin for all components
- * include basic functionality for all components
+ * include basic functionality for all components, must be an Object
  *
  * Required: navigateTo, addData
  */
-export const global = [
-  {
-    methods: {
-      navigateTo(id) {
-        id = getFullId(id);
+export const global = merge({
+  methods: {
+    $navigateTo(id) {
+      id = getFullId(id);
 
-        try {
-          com.veeva.clm.gotoSlide(id + '.zip', '');
-        } catch (err) {
-          desktopNavigationBeyondRootDir(id, true /* replaceHtmlName */);
-        }
-      },
+      try {
+        com.veeva.clm.gotoSlide(id + '.zip', '');
+      } catch (err) {
+        desktopNavigationBeyondRootDir(id, true /* replaceHtmlName */);
+      }
+    },
 
-      addData(id, value) {
-        // Coming soon....
-      },
+    $addData(id, value) {
+      // Veeva data setup in clm-admin page
     },
   },
-];
+}, globalCommonMixin);
+
 
 /**
  * This object will added to each 'slide-component' instance

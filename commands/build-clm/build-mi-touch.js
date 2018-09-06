@@ -18,7 +18,7 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
     process.env.VUE_APP_SL_ID = sl.id;
     process.env.VUE_APP_SL_PATH = sl.path;
     process.env.VUE_APP_SL_LANG = sl.lang;
-    process.env.VUE_APP_OUT_DIR_PATH = api.resolve(path.join('dist', clmName, sl.lang, outSlName));
+    process.env.VUE_APP_OUT_DIR_PATH = path.join(paths.dist, clmName, sl.lang, outSlName);
     process.env.VUE_APP_OUT_DIR_NAME = outSlName;
     process.env.VUE_APP_OUT_HTML_NAME = 'index';
 
@@ -35,15 +35,15 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
     if (!args.options['no-clear-js']) jsCleaner();
 
     /** Create screens **/
-    if (!args.options['no-screens']) await require('../../lib/screens-maker')(sl);
+    // if (!args.options['no-screens']) await require('../../lib/screens-maker')(sl);
 
     /** Create thumbnails **/
-    await thumbMaker({
-      width: 200,
-      height: 150,
-      thumbName: `200x150.jpg`,
-      thumbPath: path.join(process.env.VUE_APP_OUT_DIR_PATH, 'media', 'images', 'thumbnails'),
-    });
+    // await thumbMaker({
+    //   width: 200,
+    //   height: 150,
+    //   thumbName: `200x150.jpg`,
+    //   thumbPath: path.join(process.env.VUE_APP_OUT_DIR_PATH, 'media', 'images', 'thumbnails'),
+    // });
 
     /** MI Touch special **/
     createSpecialMiTouchElements();

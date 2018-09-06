@@ -92,14 +92,14 @@ export default {
   methods: {
     /**
      * Method for 'v-touch:swipe' in App.vue
-     * Catch the left or right swipe and start the 'navigateTo' callback
+     * Catch the left or right swipe and start the '$navigateTo' callback
      * if the slide object has the swipe.next 'or' swipe.prev '
      *
      * @param direction
      * @param event
      */
     swipeHandler(direction, event) {
-      const { configSwipe, navigateTo } = this;
+      const { configSwipe, $navigateTo } = this;
       let _direction = false;
       if (direction === 'left') _direction = 'next';
       if (direction === 'right') _direction = 'prev';
@@ -109,7 +109,7 @@ export default {
         configSwipe[_direction] !== 'prevent') {
 
         event.preventDefault();
-        navigateTo(configSwipe[_direction])
+        $navigateTo(configSwipe[_direction])
       }
     },
 
