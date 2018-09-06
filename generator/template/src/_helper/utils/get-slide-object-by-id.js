@@ -1,4 +1,4 @@
-import store from '@/app/store'
+import store from '@/.helper/store'
 
 export default (id) => {
   let result;

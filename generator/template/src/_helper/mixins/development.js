@@ -1,8 +1,9 @@
-import slideCommonMixin from './common/slide'
+import globalCommonMixin from './common/global'
 import appCommonMixin from './common/app'
+import slideCommonMixin from './common/slide'
 
-import Router from '@/app/router'
-import getSlideObjectById from '@/app/utils/get-slide-object-by-id'
+import Router from '@/.helper/router'
+import getSlideObjectById from '@/.helper/utils/get-slide-object-by-id'
 
 /**
  * Mixin for all components
@@ -11,6 +12,8 @@ import getSlideObjectById from '@/app/utils/get-slide-object-by-id'
  * Required: navigateTo, addData
  */
 export const global = [
+  globalCommonMixin,
+
   {
     methods: {
       /**
@@ -18,7 +21,7 @@ export const global = [
 
        * @param id <String>
        */
-      navigateTo(id) {
+      $navigateTo(id) {
         // Check is slide exist in structure
         getSlideObjectById(id);
         Router.push(`/${id}`);
@@ -30,7 +33,7 @@ export const global = [
        * @param id
        * @param value
        */
-      addData(id, value) {
+      $addData(id, value) {
         if (!id) throw new Error(`Missing required parameter: "${id}"!`);
         if (!value) throw new Error(`Missing required parameter: "${value}"!`);
         if (typeof value !== 'string') throw new Error(`Type of parameter "value" must be a "string", you pass: "${typeof value}"`);
@@ -44,7 +47,7 @@ export const global = [
        *
        * @param pdfPath
        */
-      openPdfIos(pdfPath) {
+      $openPdfIos(pdfPath) {
         if (pdfPath[0] === '/') throw new Error('PDF path cannot start with «/»');
         window.open(`/${pdfPath}`);
       },
@@ -76,7 +79,7 @@ export const app = [
       }
     },
     components: {
-      DevElements: () => import('@/components/development-elements'),
+      DevElements: () => import('@/.helper/components/development-elements'),
     },
     methods: {
       swipePreventMethod(swipe) {
@@ -85,9 +88,9 @@ export const app = [
     },
 
     // created() {
-      //   global.setLang = (lang) => {
-      //     this.$store.commit('SET_LANG', lang)
-      //   }
+    //   global.setLang = (lang) => {
+    //     this.$store.commit('SET_LANG', lang)
+    //   }
     // },
   },
 ];

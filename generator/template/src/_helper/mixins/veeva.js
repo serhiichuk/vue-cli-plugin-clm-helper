@@ -1,8 +1,9 @@
 import slideCommonMixin from './common/slide'
 import appCommonMixin from './common/app'
 
-import { getFullId } from '@/app/utils/sl-id-parser'
-import { getOperatingSystem } from '@/app/utils/get-system-info'
+import com from 'veevalibrary'
+import { getFullId } from '@/.helper/utils/sl-id-parser'
+import desktopNavigationBeyondRootDir from '@/.helper/utils/desktop-navigation-beyond-root-dir'
 
 /**
  * Mixin for all components
@@ -14,27 +15,17 @@ export const global = [
   {
     methods: {
       navigateTo(id) {
-        id = `${getFullId(id)}.html`;
+        id = getFullId(id);
 
-        switch (getOperatingSystem()) {
-          case 'Android' :
-            Android.openSlide(id);
-            break;
-          case 'iOS':
-            window.location.href = id;
-            break;
-
-          default:
-            try {
-              Android.openSlide(id);
-            } catch (err) {
-              window.location.href = id;
-            }
+        try {
+          com.veeva.clm.gotoSlide(id + '.zip', '');
+        } catch (err) {
+          desktopNavigationBeyondRootDir(id, true /* replaceHtmlName */);
         }
       },
 
       addData(id, value) {
-        console.log(`${id}=${value}`);
+        // Coming soon....
       },
     },
   },
@@ -59,8 +50,15 @@ export const app = [
   {
     methods: {
       swipePreventMethod(swipe) {
-        // API Pharma Touch does not support prevent swipe method
+        // In Veeva CRM, the prevent swipe is set in the Admin panel
       },
+    },
+
+    created() {
+      // Disable system vertical fucking swipe
+      document.addEventListener('touchmove', function (e) {
+        e.preventDefault();
+      }, true);
     },
   },
 ];

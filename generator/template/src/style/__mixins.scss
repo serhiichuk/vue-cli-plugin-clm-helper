@@ -1,3 +1,8 @@
+/**
+  Do not include any files here which will have actual css output,
+  otherwise our bundle file size will grow rapidly as the output will be in every file!
+*/
+
 @mixin flexCentered() {
   display: flex;
   align-items: center;
@@ -9,12 +14,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-@mixin textCenter() {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
 }
 
 @mixin cross($size: 60%, $color: #fff, $stroke: 1.5px) {
@@ -128,16 +127,6 @@
     margin: 0 0 0 (-50vw);
     background: $color;
   }
-}
-
-@mixin flex_block($flex-direction : row, $flex-wrap: wrap, $content : space-between, $align-items : flex-start,$align-content : flex-start) {
-
-  display: flex;
-  flex-direction: $flex-direction;
-  flex-wrap: $flex-wrap;
-  justify-content: $content;
-  align-content: $align-content;
-  align-items: $align-items;
 }
 
 @mixin dashed-border($dashlength, $spacelength, $borderwidth, $color) {

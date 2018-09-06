@@ -85,7 +85,6 @@ export default {
     adjacentSlides() {
       Object.keys(this.isPreventSwipe).forEach(swipe => {
         if (this.isPreventSwipe[swipe]) this.swipePreventMethod(swipe);
-        if (this.configSwipe[swipe]) this.swipePreventMethod(swipe);
       });
     },
   },
@@ -110,7 +109,6 @@ export default {
         configSwipe[_direction] !== 'prevent') {
 
         event.preventDefault();
-
         navigateTo(configSwipe[_direction])
       }
     },

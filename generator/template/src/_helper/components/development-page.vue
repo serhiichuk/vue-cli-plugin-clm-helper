@@ -14,7 +14,10 @@
       </div>
 
       <div class="slides-list">
-        <router-link class="slide" v-for="(slide, n) in slides" :to="`/${slide.id}`" :key="n">
+        <router-link class="slide"
+                     v-for="(slide, n) in slides" :key="n"
+                     :to="`/${slide.id}`"
+                     :class="{ignored: slide.isIgnored}">
           <i class="col col-1">{{n + 1}}</i>
           <b class="col col-2">{{slide.id}}</b>
           <span class="col col-3">{{slide.name}}</span>
@@ -67,7 +70,9 @@
     <footer>
       <ul class="additional-info">
         <b>Useful links on github:</b>
-        <li><a href="https://github.com/serhiichuk/vue-cli-plugin-clm-helper" target="_blank">CLI Plugin Clm Helper</a></li>, 
+        <li><a href="https://github.com/serhiichuk/vue-cli-plugin-clm-helper" target="_blank">CLI Plugin Clm Helper</a>
+        </li>
+        ,
         <li><a href="https://github.com/serhiichuk/vue-clm-helper-mi-touch" target="_blank">Plugin MI Touch</a></li>
         <li><a href="https://github.com/serhiichuk/vue-json-to-html" target="_blank">Plugin Json To Html</a></li>
       </ul>
@@ -98,8 +103,9 @@
 <script>
   import qrCodeGenerator from 'qrcode-generator'
   import { mapMutations, mapState } from 'vuex'
-  import { getLocalIP } from '@/app/utils/get-system-info'
+  import { getLocalIP } from '@/.helper/utils/get-system-info'
   import { languages, structure } from '@/clm.config'
+  import Ignored from 'vue-cli-plugin-clm-helper/lib/util/IgnoredSlides'
 
   export default {
     name: 'development-page',
@@ -119,10 +125,12 @@
       ...mapState('dev', ['isActiveDevHelpers', 'clmSystemElements']),
 
       slides() {
+        const ignored = new Ignored(new RegExp(process.env.VUE_APP_RESTRICTED_WORKSPACE_REGEX), structure);
         return structure.map(sl => {
           return {
             ...sl,
             name: sl.name[this.currentLang] || sl.name,
+            isIgnored: ignored.regexp.test(sl.path),
           }
         })
       },
@@ -417,6 +425,27 @@
         &:hover {
           background: rgba($color-dev-accent-2, .8);
         }
+      }
+    }
+
+    .ignored {
+      position: relative;
+      opacity: .5;
+      pointer-events: none;
+
+      &:after {
+        content: 'slide ignored';
+        position: absolute;
+        right: 1em;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: .25em 1em;
+
+        font-size: .5em;
+
+        border-radius: .25em;
+        background-color: rgba($color-dev-red, 1);
+        color: $color-dev-accent-3;
       }
     }
   }

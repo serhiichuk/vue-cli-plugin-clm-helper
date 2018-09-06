@@ -1,4 +1,4 @@
-import getSlideObjectById from '@/app/utils/get-slide-object-by-id'
+import getSlideObjectById from '@/.helper/utils/get-slide-object-by-id'
 import getData from '@/data'
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -27,9 +27,11 @@ export default {
     /**
      * Import text data for current slide
      * Slides data must contain in 'src/data/[lang]/[slide.id].js'
-     **/
+     */
     this.data = getData(this.slide.path.replace(/^slides/, ''));
     this.$store.commit('SET_CURRENT_SLIDE', this.slide);
     this.$store.commit('SET_CURRENT_DATA', this.data);
+
+    this.$appReady();
   },
 }

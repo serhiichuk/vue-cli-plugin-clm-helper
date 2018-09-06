@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import mixins from '@/app/mixins'
+  import mixins from '@/.helper/mixins'
 
   export default {
     mixins: [ ...mixins.slide ],

@@ -6,7 +6,7 @@ Vue.use(Router);
 
 const isDev = process.env.NODE_ENV === 'development';
 
-const routesDev = [{ path: '/', component: () => import('@/components/development-page') }];
+const routesDev = [{ path: '/', component: () => import('@/.helper/components/development-page') }];
 
 structure.forEach(sl => {
   routesDev.push({
@@ -26,5 +26,6 @@ const routesProd = [{
 }];
 
 export default new Router({
+  mode: isDev ? 'history' : 'hash',
   routes: isDev ? routesDev : routesProd,
 });

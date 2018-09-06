@@ -61,18 +61,18 @@ const store = new Vuex.Store({
   },
 });
 
-
-// Set or get booleans in session storage
-const storage = {
-  setValue(key, value) {
-    sessionStorage.setItem(key, JSON.stringify(value))
-  },
-  getValue(key) {
-    return JSON.parse(sessionStorage.getItem(key))
-  },
-};
-
+/** Additional module for development **/
 if (isDev) {
+  // Set or get booleans in session storage
+  const storage = {
+    setValue(key, value) {
+      sessionStorage.setItem(key, JSON.stringify(value))
+    },
+    getValue(key) {
+      return JSON.parse(sessionStorage.getItem(key))
+    },
+  };
+
   const isActiveDevHelpers = storage.getValue('show-development-helpers');
 
   store.registerModule('dev', {

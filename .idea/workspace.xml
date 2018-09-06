@@ -2,79 +2,135 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a92edda9-b309-4bfa-9f7f-76081a78d43f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/generator/template/_env.development" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/js-cleaner.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generator/template/src/_helper/mixins/common/global.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generator/template/src/style/__variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/util/IgnoredSlides.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/build-clm/build-mi-touch.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/build-clm/build-mi-touch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/build-clm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/build-clm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/generate/default-templates/slide-data.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/generate/default-templates/slide-data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/generate/default-templates/slide-template.vue" beforeDir="false" afterPath="$PROJECT_DIR$/commands/generate/default-templates/slide-template.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/app/mixins/common/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/_helper/mixins/common/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/app/mixins/common/slide.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/_helper/mixins/common/slide.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/app/mixins/development.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/_helper/mixins/development.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/app/mixins/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/_helper/mixins/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/app/mixins/mi-touch.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/_helper/mixins/mi-touch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/app/mixins/pharma-touch.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/_helper/mixins/pharma-touch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/app/mixins/veeva.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/_helper/mixins/veeva.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/app/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/_helper/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/app/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/_helper/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/app/utils/desktop-navigation-beyond-root-dir.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/_helper/utils/desktop-navigation-beyond-root-dir.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/app/utils/get-slide-object-by-id.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/_helper/utils/get-slide-object-by-id.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/app/utils/get-system-info.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/_helper/utils/get-system-info.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/app/utils/sl-id-parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/_helper/utils/sl-id-parser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/components/development-elements.vue" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/_helper/components/development-elements.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/components/development-page.vue" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/_helper/components/development-page.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/data/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/data/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/style/fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/style/fonts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/style/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/style/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/style/shared/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/style/shared/mixin-family.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/style/shared/mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/style/__mixins.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/style/shared/variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/template/src/style/transitions.scss" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/style/transitions.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/generator/template/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/vue.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/webpack-slide-builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/webpack-slide-builder.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1411382288">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.18" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.create.new" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="_gitignore" value="1" />
+          <entry key="js" value="11" />
+          <entry key="scss" value="1" />
+          <entry key="vue" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JavaScript" value="11" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="SCSS" value="1" />
+          <entry key="Vue.js" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="js" value="610" />
+          <entry key="vue" value="6" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JavaScript" value="610" />
+          <entry key="Vue.js" value="6" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="webpack-slide-builder.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/webpack-slide-builder.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/util/IgnoredSlides.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" selection-start-line="13" selection-end-line="18" selection-end-column="95" />
-            </state>
+            <state relative-caret-position="-63" />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="js-cleaner.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/js-cleaner.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vue.config.js" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generator/template/vue.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="969">
-              <caret line="65" selection-start-line="65" selection-end-line="65" />
+            <state relative-caret-position="216">
+              <caret line="48" selection-start-line="48" selection-end-line="50" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/generator/template/src/_helper/components/development-page.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="646" selection-start-line="646" selection-end-line="646" />
               <folding>
-                <element signature="e#943#1291#0" />
+                <element signature="e#3589#3635#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_env.development" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/generator/template/_env.development">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/generator/template/_gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="37" lean-forward="true" selection-start-column="37" selection-end-column="37" />
-            </state>
+            <state relative-caret-position="-182" />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="router.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/generator/template/src/app/router.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/generator/template/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="30" />
+            <state relative-caret-position="396">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -82,38 +138,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="assets-cleaner.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/assets-cleaner.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/generator/template/src/_helper/router.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="77" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="77" />
+            <state relative-caret-position="-171">
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/generator/template/src/app/mixins/common/app.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/commands/generate/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1683">
-              <caret line="100" column="7" selection-start-line="100" selection-start-column="7" selection-end-line="100" selection-end-column="7" />
+            <state relative-caret-position="18">
+              <caret line="5" selection-start-line="5" selection-end-line="6" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build-mi-touch.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/commands/build-clm/build-mi-touch.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/commands/generate/default-templates/slide-template.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
+            <state relative-caret-position="126">
+              <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/commands/build-clm/index.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/commands/generate/default-templates/slide-data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+            <state relative-caret-position="108">
+              <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/generator/template/src/data/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -151,28 +218,24 @@
     </option>
     <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/generator/template/src/style/shared/variables.scss" />
-        <option value="$PROJECT_DIR$/generator/template/src/app/mixins.js" />
-        <option value="$PROJECT_DIR$/generator/template/src/components/json-to-html.vue" />
-        <option value="$PROJECT_DIR$/generator/template/src/style/main.css" />
-        <option value="$PROJECT_DIR$/generator/template/public/index.html" />
-        <option value="$PROJECT_DIR$/lib/thumb-maker.js" />
         <option value="$PROJECT_DIR$/lib/screens-maker.js" />
         <option value="$PROJECT_DIR$/prompts.js" />
         <option value="$PROJECT_DIR$/generator/template/src/style/fonts.scss" />
         <option value="$PROJECT_DIR$/lib/assets-cleaner.js" />
         <option value="$PROJECT_DIR$/generator/template/src/style/main.scss" />
-        <option value="$PROJECT_DIR$/generator/template/src/App.vue" />
         <option value="$PROJECT_DIR$/lib/util/sl-id-parser.js" />
         <option value="$PROJECT_DIR$/lib/ExelParser.js" />
         <option value="$PROJECT_DIR$/commands/generate/index.js" />
         <option value="$PROJECT_DIR$/lib/config/index.js" />
-        <option value="$PROJECT_DIR$/commands/generate/default-templates/slide-template.vue" />
-        <option value="$PROJECT_DIR$/commands/generate/default-templates/slide-data.js" />
         <option value="$PROJECT_DIR$/generator/template/src/clm.config.json" />
         <option value="$PROJECT_DIR$/CHANGELOG.md" />
         <option value="$PROJECT_DIR$/lib/exel-parser.js" />
@@ -184,7 +247,6 @@
         <option value="$PROJECT_DIR$/commands/excel-to-config.js" />
         <option value="$PROJECT_DIR$/lib/excel-parser.js" />
         <option value="$PROJECT_DIR$/generator/template/src/app/mixins/common/slide.js" />
-        <option value="$PROJECT_DIR$/generator/template/src/data/index.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/generator/template/src/components/development-elements.vue" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -204,8 +266,18 @@
         <option value="$PROJECT_DIR$/commands/build-clm/index.js" />
         <option value="$PROJECT_DIR$/commands/build-clm/build-mi-touch.js" />
         <option value="$PROJECT_DIR$/lib/js-cleaner.js" />
-        <option value="$PROJECT_DIR$/generator/template/vue.config.js" />
         <option value="$PROJECT_DIR$/generator/template/_env.development" />
+        <option value="$PROJECT_DIR$/generator/template/src/App.vue" />
+        <option value="$PROJECT_DIR$/generator/template/src/main.js" />
+        <option value="$PROJECT_DIR$/generator/template/src/data/index.js" />
+        <option value="$PROJECT_DIR$/commands/generate/default-templates/slide-template.vue" />
+        <option value="$PROJECT_DIR$/lib/util/ignoredForCurrent.js" />
+        <option value="$PROJECT_DIR$/lib/util/ignoredSlides.js" />
+        <option value="$PROJECT_DIR$/lib/util/IgnoredSlides.js" />
+        <option value="$PROJECT_DIR$/generator/template/src/_helper/components/development-elements.vue" />
+        <option value="$PROJECT_DIR$/commands/generate/default-templates/slide-data.js" />
+        <option value="$PROJECT_DIR$/generator/template/vue.config.js" />
+        <option value="$PROJECT_DIR$/generator/template/src/_helper/components/development-page.vue" />
       </list>
     </option>
   </component>
@@ -223,11 +295,25 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2552" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="25" />
+    <option name="y" value="55" />
+    <option name="width" value="1539" />
+    <option name="height" value="654" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Angular</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -237,44 +323,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
-              <item name="commands" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
-              <item name="commands" type="462c0819:PsiDirectoryNode" />
-              <item name="build-clm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
-              <item name="generator" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
-              <item name="generator" type="462c0819:PsiDirectoryNode" />
-              <item name="template" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -295,6 +343,80 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+              <item name="generate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
+              <item name="generator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
+              <item name="generator" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
+              <item name="generator" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
+              <item name="generator" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="_helper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
+              <item name="generator" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="_helper" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -303,11 +425,11 @@
     <property name="editorconfig.notification" value="null" />
     <property name="javascript.nodejs.core.library.configured.version" value="9.11.1" />
     <property name="jsx.switch.disabled" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../test-project" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -315,11 +437,11 @@
       <recent name="D:\vue-cli-plugin-clm-helper\commands\generate" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/generator/template/src/_helper" />
+      <recent name="$PROJECT_DIR$/generator/template/src" />
+      <recent name="$PROJECT_DIR$/generator/template/src/style" />
       <recent name="C:\Users\t.serhiytschuk\Documents\GitHub\vue-cli-plugin-clm-helper\generator\template" />
       <recent name="C:\Users\t.serhiytschuk\Documents\GitHub\vue-cli-plugin-clm-helper\lib" />
-      <recent name="C:\Users\t.serhiytschuk\Documents\GitHub\vue-cli-plugin-clm-helper\generator\template\src\data" />
-      <recent name="C:\Users\t.serhiytschuk\Documents\GitHub\vue-cli-plugin-clm-helper\generator\template\src" />
-      <recent name="C:\Users\t.serhiytschuk\Documents\GitHub\vue-cli-plugin-clm-helper\commands\generate\default-templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -335,9 +457,15 @@
     </option>
   </component>
   <component name="RunManager" selected="Node.js.Unnamed">
-    <configuration name="Unnamed" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="$PROJECT_DIR$" />
-    <configuration name="index.js (1)" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="index.js" working-dir="$PROJECT_DIR$" />
-    <configuration name="index.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="index.js" working-dir="$PROJECT_DIR$/generator" />
+    <configuration name="Unnamed" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.js (1)" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="index.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="index.js" working-dir="$PROJECT_DIR$/generator">
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Node.js.Unnamed" />
       <item itemvalue="Node.js.index.js (1)" />
@@ -398,6 +526,8 @@
       <workItem from="1534324565286" duration="6044000" />
       <workItem from="1535044197554" duration="2087000" />
       <workItem from="1535112413266" duration="110000" />
+      <workItem from="1536175992938" duration="9095000" />
+      <workItem from="1536224107027" duration="1111000" />
     </task>
     <task id="LOCAL-00001" summary="work constructor for testing server">
       <created>1527268621556</created>
@@ -480,40 +610,29 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="189984000" />
+    <option name="totallyTimeSpent" value="200190000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2552" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="25" y="55" width="1539" height="654" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18123667" />
-      <window_info anchor="bottom" id="TODO" order="7" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5005208" side_tool="true" weight="0.32943678" />
-      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49947917" weight="0.32943678" />
-      <window_info anchor="bottom" id="Run" order="3" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17933723" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Terminal" order="3" visible="true" weight="0.25373134" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17864583" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49947917" weight="0.32943678" />
-      <window_info anchor="bottom" id="Run" order="3" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32984293" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5005208" side_tool="true" weight="0.32943678" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="2" />
-      <window_info anchor="right" id="Terminal" order="3" visible="true" weight="0.25260416" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="3" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.500998" side_tool="true" weight="0.32885906" />
+      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.499002" weight="0.32885906" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Terminal" order="3" weight="0.2538513" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -538,53 +657,9 @@
     <MESSAGE value="fix error with wrong compile inline src paths" />
     <option name="LAST_COMMIT_MESSAGE" value="fix error with wrong compile inline src paths" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="4" />
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/generator/template/src/app/mixins.js" />
-    <entry file="file://$PROJECT_DIR$/prompts.js" />
-    <entry file="file://$PROJECT_DIR$/lib/archive-maker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/src/style/main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="10" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/src/style/fonts.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/src/style/style/shared/index.js" />
-    <entry file="file://$PROJECT_DIR$/generator/template/src/app/utils/desktop-navigation-beyond-root-dir.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/src/style/shared/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/template/src/app/utils/desktop-navigation-beyond-root-dir.js" />
+    <entry file="file://$PROJECT_DIR$/generator/template/src/style/shared/index.js" />
     <entry file="file://$PROJECT_DIR$/lib/util/sl-id-parser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -593,41 +668,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/generator/template/src/clm.config.js" />
-    <entry file="file://$PROJECT_DIR$/generator/template/src/app/utils/sl-id-parser.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commands/generate/default-templates/slide-data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commands/generate/default-templates/slide-template.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Development/test-clm-helper/Smecta_CLM_C1_2018_Infections.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/template/src/app/utils/sl-id-parser.js" />
+    <entry file="file://$USER_HOME$/Development/test-clm-helper/Smecta_CLM_C1_2018_Infections.csv" />
     <entry file="file://$PROJECT_DIR$/generator/template/src/clm.config.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commands/generate/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-170">
-          <caret line="5" selection-start-line="5" selection-end-line="6" />
         </state>
       </provider>
     </entry>
@@ -653,24 +699,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/generator/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/commands/excel-to-config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/src/data/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
@@ -681,13 +713,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/src/components/development-elements.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="46" column="52" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/template/src/components/development-elements.vue" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
@@ -696,82 +722,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="465">
-            <caret line="252" column="5" selection-start-line="252" selection-start-column="5" selection-end-line="252" selection-end-column="5" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/src/app/mixins/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/src/app/mixins/common/slide.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/src/app/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="84" selection-start-line="84" selection-end-line="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/src/components/development-page.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-59">
-          <caret line="220" column="37" selection-start-line="220" selection-start-column="37" selection-end-line="220" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/src/style/shared/mixins.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="791">
-          <caret line="173" selection-start-line="173" selection-end-line="173" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/src/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/config/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/src/app/mixins/development.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="91" column="4" lean-forward="true" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/src/app/mixins/pharma-touch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="36" column="38" lean-forward="true" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/src/app/mixins/mi-touch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/template/src/app/mixins/index.js" />
+    <entry file="file://$PROJECT_DIR$/generator/template/src/app/mixins/common/slide.js" />
+    <entry file="file://$PROJECT_DIR$/generator/template/src/app/store.js" />
+    <entry file="file://$PROJECT_DIR$/generator/template/src/components/development-page.vue" />
+    <entry file="file://$PROJECT_DIR$/generator/template/src/style/shared/mixins.scss" />
+    <entry file="file://$PROJECT_DIR$/generator/template/src/app/mixins/development.js" />
+    <entry file="file://$PROJECT_DIR$/generator/template/src/app/mixins/pharma-touch.js" />
+    <entry file="file://$PROJECT_DIR$/generator/template/src/app/mixins/mi-touch.js" />
     <entry file="file://$PROJECT_DIR$/commands/build-clm/build-veeva.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1989">
@@ -780,13 +740,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/src/app/mixins/veeva.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/template/src/app/mixins/veeva.js" />
     <entry file="file://$PROJECT_DIR$/commands/build-clm/build-pharma-touch.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -794,79 +748,159 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/src/app/mixins/common/app.js">
+    <entry file="file://$PROJECT_DIR$/generator/template/src/app/router.js" />
+    <entry file="file://$PROJECT_DIR$/lib/assets-cleaner.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="100" column="7" selection-start-line="100" selection-start-column="7" selection-end-line="100" selection-end-column="7" />
+        <state>
+          <caret line="9" column="77" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/template/src/app/mixins/common/app.js" />
+    <entry file="file://$PROJECT_DIR$/commands/build-clm/build-mi-touch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/commands/build-clm/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/src/app/router.js">
-      <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret selection-end-line="30" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/assets-cleaner.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="77" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commands/build-clm/build-mi-touch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/webpack-slide-builder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" selection-start-line="13" selection-end-line="18" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/js-cleaner.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/vue.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-          <folding>
-            <element signature="e#943#1291#0" />
-          </folding>
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/generator/template/_env.development">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="37" lean-forward="true" selection-start-column="37" selection-end-column="37" />
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/template/src/style/__mixins.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/template/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="31" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/webpack-slide-builder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/config/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/js-cleaner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/template/src/data/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/template/src/_helper/components/development-elements.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="370" lean-forward="true" selection-start-line="370" selection-end-line="370" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/util/IgnoredSlides.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-63" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commands/generate/default-templates/slide-data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commands/generate/default-templates/slide-template.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commands/generate/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="5" selection-start-line="5" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/template/vue.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="48" selection-start-line="48" selection-end-line="50" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/template/src/_helper/components/development-page.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="646" selection-start-line="646" selection-end-line="646" />
+          <folding>
+            <element signature="e#3589#3635#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/template/_gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-182" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/template/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/template/src/_helper/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-171">
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

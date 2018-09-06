@@ -24,10 +24,12 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        // Enable all sass-files in directory 'shared' to all sass styles
-        // Do not include any files here which will have actual css output,
-        // otherwise our bundle file size will grow rapidly as the output will be in every file.
-        data: require('./src/style/shared'),
+        // Set "$width" and "$height" from "clm.config" and include global variables and mixins to all styles.
+        data: `
+          $width: ${require('./src/clm.config').device.resolution.width}px;
+          $height: ${require('./src/clm.config').device.resolution.height}px;
+          @import "@/style/_variables.scss";
+          @import "@/style/_mixins.scss";`,
       },
     },
   },
@@ -44,9 +46,9 @@ module.exports = {
 
     // Set Ignore options
     // For using Restricted Workspace in development - add slide-path regex in ".env.development"
-    config
-      .plugin('ignore')
-      .use(webpack.IgnorePlugin, [ignoreRegex, /slides|data|assets/]);
+    // config
+    //   .plugin('ignore')
+    //   .use(webpack.IgnorePlugin, [ignoreRegex, /slides|data|assets/]);
 
     // config
     //   .plugin('copy')
@@ -55,9 +57,9 @@ module.exports = {
     //     return args
     //   });
 
-    config
-      .devServer
-      .watchOptions({ ignored: ignoreRegex });
+    // config
+    //   .devServer
+    //   .watchOptions({ ignored: ignoreRegex });
     //
     // config.module
     //   .noParse(/^(vue|vue-router|vuex|vuex-router-sync|jquery|jquery-ui|jquery-ui-bundle|veevalibrary|gsap|vue-clm-helper-mi-touch|vue2-touch-events)$/)

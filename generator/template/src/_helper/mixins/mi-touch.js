@@ -1,8 +1,8 @@
 import slideCommonMixin from './common/slide'
 import appCommonMixin from './common/app'
 
-import { getFullId } from '@/app/utils/sl-id-parser'
-import desktopNavigationBeyondRootDir from '@/app/utils/desktop-navigation-beyond-root-dir'
+import { getFullId } from '@/.helper/utils/sl-id-parser'
+import desktopNavigationBeyondRootDir from '@/.helper/utils/desktop-navigation-beyond-root-dir'
 
 /**
  * Mixin for all components

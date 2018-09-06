@@ -1,4 +1,4 @@
-import Store from '@/app/store'
+import Store from '@/.helper/store'
 
 /**
  * The file return necessary data file for current lang in a one-shot manner.

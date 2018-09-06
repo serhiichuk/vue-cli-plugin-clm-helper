@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from '@/App'
-import store from '@/app/store'
-import router from '@/app/router'
-import mixins from '@/app/mixins'
+import store from '@/.helper/store'
+import router from '@/.helper/router'
+import mixins from '@/.helper/mixins'
 
 /* Include Plugins */
 import Vue2TouchEvents from 'vue2-touch-events'
