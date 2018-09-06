@@ -1,5 +1,5 @@
 /**
- * The file enables `@/.helper/clm` to import necessary vue-instance with special clm methods
+ * The file enables `@/app-helper/clm` to import necessary vue-instance with special clm methods
  * in a one-shot manner. There should not be any reason to edit this file.
  */
 

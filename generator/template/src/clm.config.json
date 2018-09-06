@@ -11,14 +11,14 @@
   "languages": ["ua", "ru"],
   "device": {
     "resolution": {
-      "width": 2048,
-      "height": 1536
+      "width": 1280,
+      "height": 720
     }
   },
   "structure": [
     {
       "id": "slide-1_1",
-      "path": "slides/flow-1/slide-1_1",
+      "path": "flow-1/slide-1_1",
       "name": {
         "ua": "Назва 1",
         "ru": "Название 1"
@@ -33,7 +33,7 @@
     },
     {
       "id": "slide-1_2",
-      "path": "slides/flow-1/slide-1_2",
+      "path": "flow-1/slide-1_2",
       "name": {
         "ua": "Назва 2",
         "ru": "Название 2"
@@ -41,7 +41,7 @@
     },
     {
       "id": "slide-1_3",
-      "path": "slides/flow-1/slide-1_3",
+      "path": "flow-1/slide-1_3",
       "name": {
         "ua": "Назва 3",
         "ru": "Название 3"
@@ -53,7 +53,7 @@
     },
     {
       "id": "slide-1_4",
-      "path": "slides/flow-1/slide-1_4",
+      "path": "flow-1/slide-1_4",
       "name": {
         "ua": "Назва 4",
         "ru": "Название 4"
@@ -61,7 +61,7 @@
     },
     {
       "id": "slide-2_1",
-      "path": "slides/flow-2/slide-2_1",
+      "path": "flow-2/slide-2_1",
       "name": {
         "ua": "Назва 1",
         "ru": "Название 1"
@@ -73,7 +73,7 @@
     },
     {
       "id": "slide-2_2",
-      "path": "slides/flow-2/slide-2_2",
+      "path": "flow-2/slide-2_2",
       "name": {
         "ua": "Назва 2",
         "ru": "Название 2"
@@ -81,7 +81,7 @@
     },
     {
       "id": "slide-2_3",
-      "path": "slides/flow-2/slide-2_3",
+      "path": "flow-2/slide-2_3",
       "name": {
         "ua": "Назва 3",
         "ru": "Название 3"
@@ -89,7 +89,7 @@
     },
     {
       "id": "slide-2_4",
-      "path": "slides/flow-2/slide-2_4",
+      "path": "flow-2/slide-2_4",
       "name": {
         "ua": "Назва 4",
         "ru": "Название 4"
@@ -97,7 +97,7 @@
     },
     {
       "id": "slide-faq_1",
-      "path": "slides/flow-faq/slide-faq_1",
+      "path": "flow-faq/slide-faq_1",
       "name": {
         "ua": "Назва 1",
         "ru": "Название 1"
@@ -109,7 +109,7 @@
     },
     {
       "id": "slide-faq_2",
-      "path": "slides/flow-faq/slide-faq_2",
+      "path": "flow-faq/slide-faq_2",
       "name": {
         "ua": "Назва 2",
         "ru": "Название 2"
@@ -117,7 +117,7 @@
     },
     {
       "id": "slide-faq_3",
-      "path": "slides/flow-faq/slide-faq_3",
+      "path": "flow-faq/slide-faq_3",
       "name": {
         "ua": "Назва 3",
         "ru": "Название 3"
@@ -125,7 +125,7 @@
     },
     {
       "id": "slide-faq_4",
-      "path": "slides/flow-faq/slide-faq_4",
+      "path": "flow-faq/slide-faq_4",
       "name": {
         "ua": "Назва 4",
         "ru": "Название 4"

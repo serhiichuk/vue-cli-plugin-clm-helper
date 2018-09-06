@@ -18,21 +18,21 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
     process.env.VUE_APP_SL_ID = sl.id;
     process.env.VUE_APP_SL_PATH = sl.path;
     process.env.VUE_APP_SL_LANG = sl.lang;
-    process.env.VUE_APP_OUT_DIR_PATH = api.resolve(path.join('dist', clmName, sl.lang, outSlName));
+    process.env.VUE_APP_OUT_DIR_PATH = path.join(paths.dist, clmName, sl.lang, outSlName);
     process.env.VUE_APP_OUT_DIR_NAME = outSlName;
     process.env.VUE_APP_OUT_HTML_NAME = 'index';
 
     /** Clear slide dir **/
-    fse.emptyDirSync(process.env.VUE_APP_OUT_DIR_PATH);
+    // fse.emptyDirSync(process.env.VUE_APP_OUT_DIR_PATH);
 
     /** Webpack Build **/
-    await webpackSlideBuild(api, projectOptions);
+    // await webpackSlideBuild(api, projectOptions);
 
     /** Clean excess from assets directory **/
     if (!args.options['no-clear-assets']) assetsCleaner();
 
     /** Clean excess from assets directory **/
-    if (!args.options['no-clear-js']) jsCleaner();
+    // if (!args.options['no-clear-js']) jsCleaner();
 
     /** Create screens **/
     if (!args.options['no-screens']) await require('../../lib/screens-maker')(sl);

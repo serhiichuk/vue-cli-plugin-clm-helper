@@ -63,6 +63,16 @@
         </div>
       </section>
 
+      <section class="sidebar-restricted-workspace" v-if="ignoredSlides">
+        <div class="description">Restricted Workspace</div>
+        <div>
+          <div class="code-box" data-title="<js/> Ignored RegExp">
+            {{ignoredSlides.regexp.toString()}}
+          </div>
+          <div class="code-box" data-title="<js/> Ignored slide paths" v-html="ignoredSlides.paths.join('<br>')"></div>
+        </div>
+      </section>
+
     </aside>
 
 
@@ -101,12 +111,13 @@
 </template>
 
 <script>
-  import qrCodeGenerator from 'qrcode-generator'
   import { mapMutations, mapState } from 'vuex'
-  import { getLocalIP } from '@/.helper/utils/get-system-info'
+  import qrCodeGenerator from 'qrcode-generator'
+  import IgnoredSlides from 'vue-cli-plugin-clm-helper/lib/sharedUtils/IgnoredSlides'
+  import { getLocalIP } from '@/app-helper/utils/get-system-info'
   import { languages, structure } from '@/clm.config'
-  import Ignored from 'vue-cli-plugin-clm-helper/lib/util/IgnoredSlides'
 
+  console.log(process.env);
   export default {
     name: 'development-page',
     data() {
@@ -124,15 +135,17 @@
       ...mapState(['currentLang']),
       ...mapState('dev', ['isActiveDevHelpers', 'clmSystemElements']),
 
+      ignoredSlides() {
+        return process.env.VUE_APP_RESTRICTED_WORKSPACE_REGEX &&
+          new IgnoredSlides(new RegExp(process.env.VUE_APP_RESTRICTED_WORKSPACE_REGEX), structure);
+      },
+
       slides() {
-        const ignored = new Ignored(new RegExp(process.env.VUE_APP_RESTRICTED_WORKSPACE_REGEX), structure);
-        return structure.map(sl => {
-          return {
-            ...sl,
-            name: sl.name[this.currentLang] || sl.name,
-            isIgnored: ignored.regexp.test(sl.path),
-          }
-        })
+        return structure.map(sl => ({
+          ...sl,
+          name: sl.name[this.currentLang] || sl.name,
+          isIgnored: this.ignoredSlides && this.ignoredSlides.regexp.test(sl.path),
+        }))
       },
 
       isFullFunctional() {
@@ -180,7 +193,7 @@
         this.externalData.qr = qr.createSvgTag(20);
         this.externalData.link = externalHref;
       });
-    },
+    }
   }
 </script>
 
@@ -194,6 +207,7 @@
   $color-dev-accent-1: #259090;
   $color-dev-accent-2: #2c3e50;
   $color-dev-accent-3: #fafafa;
+  $color-dev-accent-js: #f6bf3c;
   $color-dev-red: #ff4242;
 
   * {
@@ -215,19 +229,24 @@
     left: 0;
     z-index: 10000;
 
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+
+    max-width: $width;
+    max-height: $height;
     background-color: #fff;
     color: $color-dev-accent-2;
 
-    font: 400 calc(100vw / 1920 * 40)/1.33 "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    font: 400 calc(100vh / 1920 * 50)/1.33 "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
 
     -webkit-text-size-adjust: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-overflow-scrolling: touch;
 
     &.tablet {
-      font: 400 calc(100vw / 1024 * 20)/1.33 "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+      width: 100%;
+      height: 100%;
     }
   }
 
@@ -297,6 +316,33 @@
 
     &:hover {
       box-shadow: inset 0 0 5em -1em lighten($color-dev-red, 10%);
+    }
+  }
+
+  .code-box {
+    position: relative;
+    padding: 1em;
+
+    font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+    font-size: .5em;
+    color: $color-dev-accent-3;
+
+    background-color: $color-dev-accent-2;
+    border-radius: .25em;
+    overflow: auto;
+
+    &:before {
+      content: attr(data-title);
+      display: block;
+      margin-top: -1em;
+      margin-left: -1em;
+      margin-bottom: 1em;
+
+      width: calc(100% + 2em);
+      padding: 0.5em 1em;
+
+      box-sizing: border-box;
+      background-color: darken($color-dev-accent-js, 20);
     }
   }
 
@@ -458,7 +504,7 @@
 
     width: 100 - $slide-list-width;
     padding: .75em;
-
+    overflow-y: auto;
     background-color: rgba($color-dev-accent-2, .1);
 
     &-tablet-alert {
@@ -477,6 +523,10 @@
 
       border-bottom: solid 1px $color-dev-accent-2;
 
+      &:last-child {
+        border-bottom: none;
+      }
+
       .description {
         width: 50%;
         font-size: .75em;
@@ -485,17 +535,17 @@
       }
     }
 
-    &-languages {
+    .sidebar-languages {
       .btn {
       }
     }
 
-    &-dev-help-el {
+    .sidebar-dev-help-el {
       .btn {
       }
     }
 
-    &-clm-system-el {
+    .sidebar-clm-system-el {
       flex-wrap: wrap;
 
       .description {
@@ -508,6 +558,18 @@
 
         font-size: .7em;
         line-height: 1em;
+      }
+    }
+
+    .sidebar-restricted-workspace {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .description {
+        width: 100%;
+      }
+      .code-box {
+        margin: .5em 0;
       }
     }
   }

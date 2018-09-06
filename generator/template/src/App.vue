@@ -13,7 +13,7 @@
 
 <script>
   import '@/style/main.scss';
-  import mixins from '@/.helper/mixins'
+  import mixins from '@/app-helper/mixins'
 
   export default {
     mixins: [ ...mixins.app ],

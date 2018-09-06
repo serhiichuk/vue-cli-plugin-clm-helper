@@ -92,10 +92,10 @@
             this.$router.push('/');
             break;
           case 'next':
-            this.navigateTo(this.adjacentSlides.next);
+            this.$navigateTo(this.adjacentSlides.next);
             break;
           case 'prev':
-            this.navigateTo(this.adjacentSlides.prev);
+            this.$navigateTo(this.adjacentSlides.prev);
             break;
         }
       },
@@ -118,7 +118,7 @@
   * {
     box-sizing: border-box;
     z-index: 10001;
-    font: 400 calc(100vw / 1920 * 40)/1.33 "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    font: 400 calc(100vh / 1920 * 50)/1.33 "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
   }
 
   /* Dev Elements */
