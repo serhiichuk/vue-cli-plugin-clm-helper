@@ -2,9 +2,10 @@
   <div id="app" :class="[currentSlide.id, clmName]" v-touch:swipe="swipeHandler">
     <router-view/>
 
-    <!-- MI Touch Components -->
-    <!--<mt-menu/>-->
-    <!--<mt-popup/>-->
+    <%_ if (options['frequently-packages-answers'].includes('mt-plugin')) { _%>
+    <mt-menu/>
+    <mt-popup/>
+    <%_ } _%>
 
     <!-- Components will rendered only in development -->
     <DevElements v-if="isDev"/>

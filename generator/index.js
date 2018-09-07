@@ -30,7 +30,6 @@ module.exports = (api, options, rootOptions) => {
 
   // add frequently used packages from prompt
   if (options['frequently-packages']) {
-    console.log(options);
 
     if (options['frequently-packages-answers'].includes('gsap')) {
       api.extendPackage({
@@ -45,7 +44,9 @@ module.exports = (api, options, rootOptions) => {
         dependencies: {
           'vue-json-to-html': '^0.1.12',
         },
-      })
+      });
+
+      api.injectImports(api.entryFile, `import JsonToVue from 'vue-json-to-html'`)
     }
 
     if (options['frequently-packages-answers'].includes('mt-plugin')) {
@@ -54,10 +55,10 @@ module.exports = (api, options, rootOptions) => {
           'vue-clm-helper-mi-touch': '^0.1.15',
         },
       })
+
+      api.injectImports(api.entryFile, `import MtPlugin from 'vue-clm-helper-mi-touch'`)
     }
   }
-
-  // process.exit(0);
 
   // copy and render all files in ./template with ejs
   api.render('./template');
