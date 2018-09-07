@@ -22,7 +22,6 @@ structure.forEach(sl => {
 // Don't delete!
 // read: https://github.com/webpack/webpack/issues/4807#issuecomment-354082841
 const path = process.env.VUE_APP_SL_PATH;
-console.log(path);
 const routesProd = [{
   path: '/',
   component: () => import(/* webpackChunkName: "[request]" */ '@/slides/' + path),

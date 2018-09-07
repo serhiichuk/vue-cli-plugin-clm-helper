@@ -66,10 +66,10 @@
       <section class="sidebar-restricted-workspace" v-if="ignoredSlides">
         <div class="description">Restricted Workspace</div>
         <div>
-          <div class="code-box" data-title="<js/> Restricted workspace RegExp">
+          <div class="code-box" data-title="<js/> Restricted workspace RegExp:">
             {{restrictedWorkspaceRegex.toString()}}
           </div>
-          <div class="code-box" data-title="<js/> Ignored slide paths" v-html="ignoredSlides.paths.join('<br>')"></div>
+          <div class="code-box" data-title="<js/> Ignored slide paths:" v-html="ignoredSlides.paths.join('<br>')"></div>
         </div>
       </section>
 
@@ -117,7 +117,6 @@
   import { getLocalIP } from '@/app-helper/utils/get-system-info'
   import { languages, structure } from '@/clm.config'
 
-  console.log(process.env);
   export default {
     name: 'development-page',
     data() {

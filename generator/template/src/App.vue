@@ -1,4 +1,4 @@
-<template xmlns:v-touch="http://www.w3.org/1999/xhtml">
+<template>
   <div id="app" :class="[currentSlide.id, clmName]" v-touch:swipe="swipeHandler">
     <router-view/>
 
