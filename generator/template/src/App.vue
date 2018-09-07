@@ -1,4 +1,4 @@
-<template xmlns:v-touch="http://www.w3.org/1999/xhtml">
+<template>
   <div id="app" :class="[currentSlide.id, clmName]" v-touch:swipe="swipeHandler">
     <router-view/>
 
@@ -13,7 +13,7 @@
 
 <script>
   import '@/style/main.scss';
-  import mixins from '@/app/mixins'
+  import mixins from '@/app-helper/mixins'
 
   export default {
     mixins: [ ...mixins.app ],

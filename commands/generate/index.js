@@ -46,17 +46,17 @@ module.exports = (api, projectOptions, args) => {
 function createData(sl, lang) {
   const slDataPath = path.resolve(__dirname, 'default-templates/slide-data.js');
 
-  fse.copySync(slDataPath, path.join(paths.src, 'data', sl.path.replace('slides', lang) + '.js'), { overwrite: false });
+  fse.copySync(slDataPath, path.join(paths.src, 'data', lang, sl.path + '.js'), { overwrite: false });
 }
 
 
 function createSlide(sl) {
-  const slDirPath = path.join(paths.src, sl.path);
+  const slDirPath = path.join(paths.src, 'slides', sl.path);
   const slTemplatePath = path.resolve(__dirname, 'default-templates/slide-template.vue');
 
   fse.copySync(slTemplatePath, slDirPath + '.vue', { overwrite: false });
 }
 
 function createAssetsDirs(sl) {
-  fse.ensureDirSync(path.join(paths.src, 'assets', 'media', 'images', sl.id));
+  fse.ensureDirSync(path.join(paths.src, 'assets', 'media', 'images', sl.path));
 }

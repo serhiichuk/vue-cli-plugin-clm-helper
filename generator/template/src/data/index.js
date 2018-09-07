@@ -1,4 +1,4 @@
-import Store from '@/app/store'
+import Store from '@/app-helper/store'
 
 /**
  * The file return necessary data file for current lang in a one-shot manner.
@@ -6,6 +6,6 @@ import Store from '@/app/store'
  */
 export default (path) => {
   const lang = Store.state.currentLang;
-  const data = require(`./${lang}${path}`);
+  const data = require(`./${lang}${path[0] === '/' ? path : '/' + path}`);
   return data.default || data
 }

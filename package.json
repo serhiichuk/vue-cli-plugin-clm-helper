@@ -13,6 +13,7 @@
     "archiver": "^2.1.1",
     "chalk": "^2.4.1",
     "cyrillic-to-translit-js": "^2.1.0",
+    "delete-empty": "^2.0.0",
     "excel-as-json": "^2.0.2",
     "fs-explorer-ui": "^1.0.8",
     "fs-extra": "^6.0.1",

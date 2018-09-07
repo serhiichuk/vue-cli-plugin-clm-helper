@@ -1,0 +1,9 @@
+/**
+  Do not include any files here which will have actual css output,
+  otherwise our bundle file size will grow rapidly as the output will be in every file!
+
+  Variables "$width" and "$height" will automatic include from "clm.config.js".
+*/
+
+$color-accent-1: #666;
+$color-accent-2: #999;
