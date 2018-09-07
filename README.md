@@ -23,6 +23,7 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
   - Opportunity for display CRM system elements
   - Included basic functionality
   - Understanding excel structure
+  - Restricted Workspace (for big projects)
 - Project config
 
 ## Table of contents
@@ -35,6 +36,7 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
   - [Build](#build)
 - [Configuration](#configuration)
   - [Vue Config](#vue-config)
+  - [Restricted Workspace](#restricted-workspace)
   - [CLM Config](#clm-config)
     - [clm](#clm)
       - [productId](#productid)
@@ -51,8 +53,9 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
   - [Slide Component](#slide-component)
   - [Basic Functionality](#basic-functionality)
     - [Global Functionality](#global-functionality)
-      - [navigateTo](#navigateto)
-      - [addData](#adddata)
+      - [$navigateTo](#$navigateto)
+      - [$addData](#$adddata)
+      - [$openPdfIos](#$openpdfios)
     - [Slide Functionality](#slide-functionality)
       - [Text data](#text-data)
       - [Slide info data](#slide-info-data)
@@ -71,33 +74,43 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
 
 :warning: Make sure you have [vue-cli 3.x.x](https://github.com/vuejs/vue-cli), [node 8.x.x](https://nodejs.org) and [yarn](https://yarnpkg.com).
 
-[**Create**](https://cli.vuejs.org/guide/creating-a-project.html) new project and add plugin to your project, or add plugin to existing project. 
+1. **Create**
+   
+   [**Create with preset**](https://cli.vuejs.org/guide/plugins-and-presets.html#remote-presets), it's very easy: 
+   
+   ```
+   vue create --preset serhiichuk/vue-preset-clm my-project
+   ```
+   
+   Or [**create**](https://cli.vuejs.org/guide/creating-a-project.html) manually new project and add plugin to your project, or add plugin to existing project.
+   
+   ```
+   vue add clm-helper
+   ```
 
-```
-vue add clm-helper
-```
+2. **Complete the configuration file `clm.config.json`.**
 
-**Put Exсel File** with [valid structure](./commands/generate/default-templates/Structure_Example.xlsx) in root-folder, and [convert structure](#excel) from excel-file to `clm.config.json`
+    **Put Exсel File** with [valid structure](./commands/generate/default-templates/Structure_Example.xlsx) in root-folder, and [convert structure](#excel) from the excel file to `clm.config.json`, and fill in the remaining fields where you need it.
+ 
+    ```
+    yarn excel
+    ```
 
-```
-yarn excel
-```
+    Or, **Fill the** [clm.config](#clm-config) file manually.
+    
+3.  **[Add the necessary files](#generate) to the project [structure](#structure)**
 
-Or, **Fill in** [config](#clm-config) file manually.
+     *:information_source: File structure depend of `structure` key in `src/clm.config.json`.*
 
-[**Generate**](#generate) the project [structure](#structure):
+    ```
+    yarn generate
+    ```
 
-*:information_source: File structure depend of `structure` key in `src/clm.config.json`.*
+4. **Start your app:**
 
-```
-yarn generate
-```
-
-**Start** your app:
-
-```
-yarn dev
-```
+    ```
+    yarn dev
+    ```
 
 ## Plugin CLI Commands
   
@@ -116,7 +129,20 @@ Convert [valid structure](./commands/generate/default-templates/Structure_Exampl
 
 ### Generate
 
-Generating [slide-components](#slide-component) to `src/slides`, assets folders for each slide to `src/assets` and all text data files to `src/data`.
+Generating [slide-components](#slide-component) to `src/slides`, assets folders for each slide to `src/assets` and all text data files to `src/data` by scheme bellow:
+
+```
++-- src
+|   +-- assets
+|   |   +-- images
+|   |   |   +-- <sl.path> // empty folders for unique images for a slide
+|   +-- data
+|   |   +-- <lang>
+|   |   |   +-- <sl.path>.js // templates for text
+|   +-- slides
+|   |   +-- <sl.path>.vue // all slide-componens
+```
+
   
 - **`yarn generate [lang]`**
 
@@ -170,10 +196,24 @@ Plugin generator create `vue.config.js` with necessary options.
 
 See [official documentation](https://cli.vuejs.org/config/#vue-config-js) for full details.
 
+### Restricted Workspace
+
+If you have a large project, you may have with the problem of too long compilation time.
+
+So you can restrict your workspace by adding necessary filter to `VUE_APP_RESTRICTED_WORKSPACE_REGEX` in  `.env.development`;
+
+For example: 
+
+```
+VUE_APP_RESTRICTED_WORKSPACE_REGEX = slide-1_1$ // workking only with slide-1_1
+```
 
 ### CLM Config
 
 **All project depend of `src/clm.config.json`**
+
+*:warning: All unique assets(public) for a particular slide must match the specified path in the `path` key for necessary `slide` in `structure` key in `clm.config`.*
+
 
 CLM platform options:
 
@@ -187,7 +227,7 @@ CLM platform options:
   
   - ##### productName
     
-    `String`, `Reauired`, Usually this is the same name as the root folder
+    `String`, `Required`, Usually this is the same name as the root folder (only for Veeva and Pharma Touch)
 
   - ##### disableSwipeBetweenFlows
   	
@@ -197,7 +237,7 @@ CLM platform options:
   
   - ##### csv
     
-    `Object`, `Optional`, contains information for creating a CSV file for Veeva
+    `Object`, `Optional`, contains information for creating a CSV file (only for Veeva)
   
     - ###### country
     
@@ -246,7 +286,7 @@ CLM platform options:
   name | `String/Object` | Required |  Slide name. Required for [creating "slides.json" in Pharma Touch build](./commands/build-clm/build-pharma-touch.js), usualy using in `navigation-components`. **If `object` - keys names must match with [languages](#languages) items.**
   flowName | `String/Object` | Optional | Flow name, have the same rules as `name` key.
   swipe | `Object` | Optional | Define swipe rules. Can have `next` and `prev` keys.
-  swipe.next, swipe.prev | `String` | Optional | Appropriate swipe will [navigate to](#navigateto) <slide-id> or prevented CLM swipe with "prevent" value.  
+  swipe.next, swipe.prev | `String` | Optional | Appropriate swipe will [navigate to](#$navigateto) <slide-id> or prevented CLM swipe with "prevent" value.  
   callDialog | `Array` | Optional | List of questions for call dialog definition. *(Only fo MI Touch).* 
   isHidden | `Boolean` | Optional | Set `true` to hide slide in menu list. *(Only fo MI Touch).*
   
@@ -255,13 +295,13 @@ CLM platform options:
     // required keys 
     {
       "id": "slide-main",
-      "path": "slides/slide-main",
+      "path": "slide-main",
       "name": {"ua": "Назва", "ru": "Название"}
     },
     ...
     {
       "id": "slide-1_3",
-      "path": "slides/slide-1_3",
+      "path": "flow-3/slide-1_3",
       "name": {"ua": "Назва", "ru": "Название"}
       "callDialog": "[
         "My Question 1", // this question will have automatic generated quiesion-id (Q1)
@@ -274,7 +314,7 @@ CLM platform options:
     ...
     {
       "id": "slide-4_20",
-      "path": "slides/slide-4_20",
+      "path": "flow-4/slide-4_20",
       "name": "Назва", // the same name for all languages
       "swipe": {
   	    "next": "slide-5_10", // custon next swipe
@@ -291,7 +331,7 @@ CLM platform options:
 
  Each `slide-component` have [global](#global-functionality) and [slide](#slide-functionality) functionality and must be named under rule: `slide-<flow-number/name>_<slide-number>`.
 
- All `slide-components` must contain in `src/slides`, and you can create difference folders structure here, just describe that in `clm.structure.js`.
+ All `slide-components` must contain in `src/slides`, and you can create difference folders structure here, just describe that in `clm.config.json`.
 
 ### Basic Functionality
 
@@ -303,12 +343,12 @@ Most of the basic functions defined in `src/app`.
 
 ```
 // main.js
-import mixins from "@/app/mixins"
+import mixins from "@/app-helper/mixins"
 ...
-Vue.mixin(...mixins.global);
+Vue.mixin(mixins.global);
 ```
 
-##### navigateTo
+##### $navigateTo
 
 A global method that performs the function of navigating to the desired slide.
 
@@ -316,12 +356,12 @@ Takes *required* parameter `id`.
 
 Have different functional for each CLM system or development.
 
-During development, `navigateTo` will check on existing parameter `id` in [structure](#structure).
+During development, `$navigateTo` will check on existing parameter `id` in [structure](#structure).
 
 *Using in template:*
 
 ```
-<button class="some-navigation-button" @touchend="navigateTo("slide-1_4")"></button>
+<button class="some-navigation-button" @touchend="$navigateTo("slide-1_4")"></button>
 ```
 
 *Using in vue instance:*
@@ -329,24 +369,37 @@ During development, `navigateTo` will check on existing parameter `id` in [struc
 methods: {
   someNavigateMethod() {
     ...
-    this.navigateTo("slide-1_4")
+    this.$navigateTo("slide-1_4")
   }
 }
 ```
 
-##### addData
+##### $addData
 
 A global method that sends a calldialog response to the required clm database.
 
-In development method `addData` will check on existing [`callDialog`](#structure) key in [current slide](#slide-info-data).
+In development method `$addData` will check on existing [`callDialog`](#structure) key in [current slide](#slide-info-data).
 
 *Using in vue instance:*
 ```
 methods: {
   sendSomeData() {
     ...
-    this.addData("Q1", "Response for quiesion with automatic generated quiesion-id");
-    this.addData("custon_id", "Response for quiesion with custon id");
+    this.$addData("Q1", "Response for quiesion with automatic generated quiesion-id");
+    this.$addData("custon_id", "Response for quiesion with custon id");
+  }
+}
+```
+
+##### $openPdfIos (only MI Touch)
+
+A global method for opening PDF-files in on iOS devises.
+
+*Using in vue instance:*
+```
+methods: {
+  showPdf() {
+    this.$openPdfIos("pdf/instructions.pdf");
   }
 }
 ```
@@ -354,7 +407,7 @@ methods: {
 #### Slide Functionality
 ```
 // each slide-component
-import mixins from "@/app/mixins"
+import mixins from "@/app-helper/mixins"
 ...
 export default {
   mixins: [ ...mixins.slide ],
@@ -365,7 +418,7 @@ export default {
 
 For import text data for current language just call: `getData` with relative (from **language** folder to file) path:
 
-```$xslt
+```
 import getData from '@/data'
 
 const myData = getData('/my-data.js')
@@ -382,7 +435,7 @@ const myData = getData('/my-data.js')
 
 Each [`slide-component`](#slide-component) already has appropriate imported text data in `data` key.
 
-The text data file must have the same path as slide-component, except for the name of the first folder (`data/` instead `slides/`).
+The text data file must have the same path as slide-component.
 
 **Also, for convenience, each slide-component have computed property `t`.**
 
@@ -390,23 +443,22 @@ The text data file must have the same path as slide-component, except for the na
 
 ```
 mounted() {
-    /* Text data for current slide, "content" and "popup" is required */
+  /* Text data for current slide, "content" and "popup" is required */
 	console.log(this.data); 
-    // => 
-    { 
-    	content: {
-        	title: "This is Awesome Documentations"
-        },
-        
-        popup: {..} 
-    }
+  // => 
+  { 
+  	content: {
+      	title: "This is Awesome Documentations"
+    },  
+    popup: {...} 
+  }
 
-    /* Easy way to get "data.content" */
-    console.log(this.t); 
-    // =>
-    {
-    	title: "This is Awesome Documentations"
-    }
+  /* Easy way to get "data.content" */
+  console.log(this.t); 
+  // =>
+  {
+  	title: "This is Awesome Documentations"
+  }
 }
 ```
 
@@ -426,7 +478,7 @@ Each [`slide-component`](#slide-component) already has "personal info" in `slide
 
 ```
 // App.vue
-import mixins from "@/app/mixins"
+import mixins from "@/app-helper/mixins"
 ...
 export default {
   mixins: [...mixins.app]
@@ -435,7 +487,7 @@ export default {
 
 In `App.vue` has functional for swipe control: `v-touch:swipe="swipeHandler"`.
 
-`swipeHandler` will get [`disableSwipeBetweenFlows`](#disableswipebetweenflows), and [`swipe`](#structure) keys from `clm.config`, and depending on their values will call [`navigateTo`](#navigateto) or `prevent` necessary swipe.
+`swipeHandler` will get [`disableSwipeBetweenFlows`](#disableswipebetweenflows), and [`swipe`](#structure) keys from `clm.config`, and depending on their values will call [`$navigateTo`](#$navigateto) or `prevent` necessary swipe.
 
 In addition, `App.vue` contains some development functionality, do not worry about it, all development functions will be deleted/disabled during the production build.
 
@@ -458,7 +510,7 @@ The `assets` directory contains your un-compiled assets such as Images, Videos, 
 
 [More documentation about Assets integration](https://cli.vuejs.org/guide/html-and-static-assets.html#static-assets-handling)
 
-*:warning: Each slide must have a subdirectory, whose name coincides with the name of the [slide-component](#slide-component), because during production build, each slide assets will cleaned with [`assetsCleaner`.](#./lib/assets-cleaner.js), also you can disable `assetsCleaner` with option `no-clear-assets` in [build](#build)*
+*:warning: Each slide must have a subdirectory, whose name coincides with the path of the [slide-component.path](#slide-component), because during production build, each slide assets will cleaned with [`assetsCleaner`.](#./lib/assets-cleaner.js), also you can disable `assetsCleaner` with option `no-clear-assets` in [build](#build)*
 
 
 ### The App Directory
