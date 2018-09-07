@@ -1,10 +1,9 @@
 const fs = require('fs');
 const fse = require('fs-extra');
 const chalk = require('chalk');
-const {hasYarn} = require('@vue/cli-shared-utils');
+const { hasYarn } = require('@vue/cli-shared-utils');
 
 module.exports = (api, options, rootOptions) => {
-
   // modify package.json fields
   api.extendPackage({
     scripts: {
@@ -13,21 +12,52 @@ module.exports = (api, options, rootOptions) => {
       // Increase JavaScript heap of memory
       dev: 'node --max_old_space_size=4096 node_modules/@vue/cli-service/bin/vue-cli-service serve',
       excel: 'vue-cli-service excel-to-config',
-      generate: 'vue-cli-service generate'
+      generate: 'vue-cli-service generate',
     },
     dependencies: {
-      'veevalibrary': "^4.0.8",
-      "vue2-touch-events": "^1.0.0",
-      "vue-router": "^3.0.1",
-      "vuex": "^3.0.1",
+      'veevalibrary': '^4.0.8',
+      'vue2-touch-events': '^1.0.0',
+      'vue-router': '^3.0.1',
+      'vuex': '^3.0.1',
     },
     devDependencies: {
-      "node-sass": "^4.9.0",
-      "sass-loader": "^7.0.1",
-      "vue-svg-loader": "^0.5.0",
-      'qrcode-generator': "^1.4.0"
-    }
+      'node-sass': '^4.9.0',
+      'sass-loader': '^7.0.1',
+      'vue-svg-loader': '^0.5.0',
+      'qrcode-generator': '^1.4.0',
+    },
   });
+
+  // add frequently used packages from prompt
+  if (options['frequently-packages']) {
+    console.log(options);
+
+    if (options['frequently-packages-answers'].includes('gsap')) {
+      api.extendPackage({
+        dependencies: {
+          'gsap': '^2.0.2',
+        },
+      })
+    }
+
+    if (options['frequently-packages-answers'].includes('json-to-html')) {
+      api.extendPackage({
+        dependencies: {
+          'vue-json-to-html': '^0.1.12',
+        },
+      })
+    }
+
+    if (options['frequently-packages-answers'].includes('mt-plugin')) {
+      api.extendPackage({
+        dependencies: {
+          'vue-clm-helper-mi-touch': '^0.1.15',
+        },
+      })
+    }
+  }
+
+  // process.exit(0);
 
   // copy and render all files in ./template with ejs
   api.render('./template');

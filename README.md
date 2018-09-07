@@ -60,13 +60,6 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
       - [Text data](#text-data)
       - [Slide info data](#slide-info-data)
     - [App Functionality](#app-functionality)
-  - [Directory Structure](#directory-structure)
-    - [The Public Directory](#the-public-directory)
-    - [The Assets Directory](#the-assets-directory)
-    - [The App Directory](#the-app-directory)
-    - [The Components Directory](#the-components-directory)
-    - [The Slides Directory](#the-slides-directory)
-    - [The Style Directory](#the-style-directory)
 - [Acknowledgments](#acknowledgments)   
 
 
@@ -76,13 +69,13 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
 
 1. **Create**
    
-   [**Create with preset**](https://cli.vuejs.org/guide/plugins-and-presets.html#remote-presets), it's very easy: 
+   [**Create with preset**](https://cli.vuejs.org/guide/plugins-and-presets.html#remote-presets): 
    
    ```
    vue create --preset serhiichuk/vue-preset-clm my-project
    ```
    
-   Or [**create**](https://cli.vuejs.org/guide/creating-a-project.html) manually new project and add plugin to your project, or add plugin to existing project.
+   Or [**create**](https://cli.vuejs.org/guide/creating-a-project.html) manually new project and add plugin to your project, or add plugin to existing project:
    
    ```
    vue add clm-helper
@@ -90,7 +83,7 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
 
 2. **Complete the configuration file `clm.config.json`.**
 
-    **Put Exсel File** with [valid structure](./commands/generate/default-templates/Structure_Example.xlsx) in root-folder, and [convert structure](#excel) from the excel file to `clm.config.json`, and fill in the remaining fields where you need it.
+    **Put Exсel File** with [valid structure](./commands/generate/default-templates/Structure_Example.xlsx) in root-folder, and [convert structure](#excel) from the excel file to `clm.config.json`, and fill in the remaining fields where you need it:
  
     ```
     yarn excel
@@ -98,9 +91,7 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
 
     Or, **Fill the** [clm.config](#clm-config) file manually.
     
-3.  **[Add the necessary files](#generate) to the project [structure](#structure)**
-
-     *:information_source: File structure depend of `structure` key in `src/clm.config.json`.*
+3.  **[Generate](#generate) the necessary files to the project [structure](#structure):**
 
     ```
     yarn generate
@@ -200,7 +191,7 @@ See [official documentation](https://cli.vuejs.org/config/#vue-config-js) for fu
 
 If you have a large project, you may have with the problem of too long compilation time.
 
-So you can restrict your workspace by adding necessary filter to `VUE_APP_RESTRICTED_WORKSPACE_REGEX` in  `.env.development`;
+So you can restrict your workspace by adding necessary filter to `VUE_APP_RESTRICTED_WORKSPACE_REGEX` in  `.env.development` file;
 
 For example: 
 
@@ -337,7 +328,7 @@ CLM platform options:
 
 This plugin adds basic functions for CLM presentations and useful utilities for development.
 
-Most of the basic functions defined in `src/app`.
+Most of the basic functions defined in `src/app-helper`.
 
 #### Global Functionality
 
@@ -491,47 +482,8 @@ In `App.vue` has functional for swipe control: `v-touch:swipe="swipeHandler"`.
 
 In addition, `App.vue` contains some development functionality, do not worry about it, all development functions will be deleted/disabled during the production build.
 
-
-## Directory Structure
-
-*The default plugin structure is intended to provide a great starting point for great working with CLM presentations. Of course, you are free to organize your application however you like.*
-
-### The Public Directory
-
-The `public` directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/public/media/pdf/instruction.pdf` is mapped as `/media/pdf/instruction.pdf`
-
-[More documentation about Static integration](https://cli.vuejs.org/guide/html-and-static-assets.html#the-public-folder)
-
-### The Assets Directory
-
-The `assets` directory contains your un-compiled assets such as Images, Videos, Fonts. 
-
-[More documentation about Assets integration](https://cli.vuejs.org/guide/html-and-static-assets.html#static-assets-handling)
-
-*:warning: Each slide must have a subdirectory, whose name coincides with the path of the [slide-component.path](#slide-component), because during production build, each slide assets will cleaned with [`assetsCleaner`.](#./lib/assets-cleaner.js), also you can disable `assetsCleaner` with option `no-clear-assets` in [build](#build)*
-
-
-### The App Directory
-
-The `app` directory contains [basic functionality](#basic-functionality) such as store, router and mixins.	
-### The Components Directory
-
-The `components` directory contains your Vue.js Components.
-
-### The Slides Directory
-
-The `slides` directory contains your all [slide-components](#slide-component).
-
-### The Style Directory
-
-The `style` directory contains your `scss` global styles, mixins and variables. All `*.scss` files from `style/shared` will imported to all vue-components and styles.
-
-*:warning: Do not include any files here which will have actual css output, otherwise our bundle file size will grow rapidly as the output will be in every file.*
-
 ## Acknowledgments
 
 Thank [Vue CLI Team](https://github.com/vuejs/vue-cli/graphs/contributors) for the excellent tool and documents.
 
-Thank [vue-cli-plugin-apollo](https://github.com/Akryum/vue-cli-plugin-apollo/blob/master/README.md) and [Nuxt](https://nuxtjs.org/guide) for great documentation example.
+Thank [vue-cli-plugin-apollo](https://github.com/Akryum/vue-cli-plugin-apollo/blob/master/README.md) and [Nuxt.org](https://nuxtjs.org/guide) for great documentation example.
