@@ -54,10 +54,13 @@ module.exports = (api, options, rootOptions) => {
         dependencies: {
           'vue-clm-helper-mi-touch': '^0.1.15',
         },
-      })
+      });
 
       api.injectImports(api.entryFile, `import MtPlugin from 'vue-clm-helper-mi-touch'`)
     }
+  } else {
+    // still using options['frequently-packages-answers'].includes() in templates
+    options['frequently-packages-answers'] = [];
   }
 
   // copy and render all files in ./template with ejs

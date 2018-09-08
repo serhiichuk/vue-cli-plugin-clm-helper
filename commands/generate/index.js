@@ -1,4 +1,5 @@
 const fse = require('fs-extra');
+const ejs = require('ejs');
 const path = require('path');
 const chalk = require('chalk');
 const parseArgs = require('../../lib/util/parse-args');
@@ -51,10 +52,17 @@ function createData(sl, lang) {
 
 
 function createSlide(sl) {
-  const slDirPath = path.join(paths.src, 'slides', sl.path);
   const slTemplatePath = path.resolve(__dirname, 'default-templates/slide-template.vue');
+  const slCompiledPath = path.join(paths.src, 'slides', sl.path + '.vue');
+  const data = {
+    slide: sl,
+    src: path.relative(path.resolve(slCompiledPath, '../'), paths.src),
+  };
 
-  fse.copySync(slTemplatePath, slDirPath + '.vue', { overwrite: false });
+  ejs.renderFile(slTemplatePath, data, (err, compiled) => {
+    if (err) throw new Error(err);
+    else fse.outputFileSync(slCompiledPath, compiled);
+  })
 }
 
 function createAssetsDirs(sl) {
