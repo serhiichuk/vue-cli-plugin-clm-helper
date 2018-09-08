@@ -31,10 +31,10 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
     await webpackSlideBuild(api, projectOptions);
 
     /** Clean excess from assets directory **/
-    if (!args.options[ 'no-clear-assets' ]) assetsCleaner();
+    if (!args.options['no-clear-assets']) assetsCleaner();
 
     /** Create screens **/
-    if (!args.options[ 'no-screens' ]) await require('../../lib/screens-maker')(sl);
+    if (!args.options['no-screens']) await require('../../lib/screens-maker')(sl);
 
     /** Create thumbnails **/
     await thumbMaker({ width: 849, height: 637, thumbName: `${outSlName}-full.jpg` });
@@ -50,7 +50,7 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
 function generateVeevaCsv(clmName) {
   const csv = {
     country: (clm.csv && clm.csv.country) || "Ukraine",
-    product: (clm.csv && clm.csv.product) || "INCH"
+    product: (clm.csv && clm.csv.product) || "INCH",
   };
 
   const shema = [
@@ -71,26 +71,26 @@ function generateVeevaCsv(clmName) {
     'slide.crm_disable_actions__v',
   ];
 
-  const addRow = ({type, lang, sl, productName}) => {
+  const addRow = ({ type, lang, sl, productName }) => {
     const isSlideType = type === 'slide';
     const id = isSlideType ? getFullId(sl.id, lang) : '';
 
     return [
-      isSlideType ? id                      : productName,         // name__v
-      isSlideType ? productName             : '',                  // Presentation Link
-      isSlideType ? 'Slide'                 : 'Presentation',      // Type
-      isSlideType ? id + '.zip'             : '',                  // slide.filename
-      isSlideType ? id                      : productName,         // external_id__v
+      isSlideType ? id : productName,         // name__v
+      isSlideType ? productName : '',                  // Presentation Link
+      isSlideType ? 'Slide' : 'Presentation',      // Type
+      isSlideType ? id + '.zip' : '',                  // slide.filename
+      isSlideType ? id : productName,         // external_id__v
       isSlideType ? 'CRM Content Lifecycle' : 'Binder Lifecycle',  // lifecycle__v
-      isSlideType ? ''                      : csv.product,         // pres.product__v.name__v
-      isSlideType ? csv.product             : '',                  // slide.product__v.name__v
-      isSlideType ? ''                      : csv.country,         // pres.country__v.name__v
-      isSlideType ? csv.country             : '',                  // slide.country__v.name__v
-      isSlideType ? ''                      : 'YES',               // pres.clm_content__v
-      isSlideType ? 'YES'                   : '',                  // slide.clm_content__v
-      isSlideType ? 'HTML'                  : '',                  // slide.crm_media_type__v
-      isSlideType ? ''                      : '',                  // pres.crm_presentation_id__v
-      isSlideType ? ''                      : '',                  // slide.crm_disable_actions__v
+      isSlideType ? '' : csv.product,         // pres.product__v.name__v
+      isSlideType ? csv.product : '',                  // slide.product__v.name__v
+      isSlideType ? '' : csv.country,         // pres.country__v.name__v
+      isSlideType ? csv.country : '',                  // slide.country__v.name__v
+      isSlideType ? '' : 'YES',               // pres.clm_content__v
+      isSlideType ? 'YES' : '',                  // slide.clm_content__v
+      isSlideType ? 'HTML' : '',                  // slide.crm_media_type__v
+      isSlideType ? '' : '',                  // pres.crm_presentation_id__v
+      isSlideType ? '' : '',                  // slide.crm_disable_actions__v
     ].join(',') + '\n'
   };
 
@@ -103,18 +103,18 @@ function generateVeevaCsv(clmName) {
     data += shema.join(',') + '\n';
 
     // Row #2 (Presentation)
-    data += addRow({lang, productName});
+    data += addRow({ lang, productName });
 
     // Row #3 (Slides)
     structure.forEach(sl => {
-      data += addRow({type: 'slide', lang, sl, productName})
+      data += addRow({ type: 'slide', lang, sl, productName })
     });
 
     // Save as file if not exist
     const csvPath = path.join(paths.dist, clmName, lang, productName + '.csv');
 
     if (!fs.existsSync(csvPath)) {
-      fs.writeFileSync(csvPath, data, {flag: 'a+'});
+      fs.writeFileSync(csvPath, data, { flag: 'a+' });
       done(`CSV Created: "${chalk.green(path.relative(paths.root, csvPath))}"`);
     }
   });

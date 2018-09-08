@@ -18,8 +18,8 @@ module.exports = {
   chainWebpack: config => {
     /** Replace SVG loader **/
     const svgRule = config.module.rule('svg');
-    svgRule
-      .uses.clear();
+
+    svgRule.uses.clear();
 
     svgRule
       .use('vue-svg-loader')

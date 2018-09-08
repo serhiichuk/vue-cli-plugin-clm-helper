@@ -1,19 +1,19 @@
 const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
-const { info } = require('@vue/cli-shared-utils');
+const { info, error } = require('@vue/cli-shared-utils');
 const fsExplorerUi = require('fs-explorer-ui');
 const ExcelParser = require('../lib/excel-parser');
 const { paths } = require('../lib/config');
 
-const excelExtensions = [ '.xlsx' ];
+const excelExtensions = ['.xlsx'];
 
 module.exports = async (api, options, rootOptions) => {
 
   const excelFiles = getExcelFiles();
 
   if (excelFiles.length === 1) {
-    new ExcelParser(excelFiles[ 0 ])
+    new ExcelParser(excelFiles[0])
 
   } else if (excelFiles.length >= 1) {
     let xlsxPath = await exploreFile(`Select your structure file ("${excelExtensions.join(', ')}")`);
@@ -26,8 +26,8 @@ module.exports = async (api, options, rootOptions) => {
     new ExcelParser(xlsxPath);
 
   } else {
-    info(`Files with "${chalk.yellow(excelExtensions.join(', '))}" extensions not found.`);
-    info(`Fill in "clm.config" manually.`);
+    error(`Files with "${excelExtensions.join(', ')}" extensions not found.`);
+    info(`Put Exсel File in root-folder: "${chalk.yellow(paths.root)}", or fill in "clm.config" manually.`);
   }
 };
 

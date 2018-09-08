@@ -75,7 +75,7 @@ This is a vue-cli 3.x plugin to help developing with MI Touch, Pharma Touch and 
    vue create --preset serhiichuk/vue-preset-clm my-project
    ```
    
-   Or [**create**](https://cli.vuejs.org/guide/creating-a-project.html) manually new project and add plugin to your project, or add plugin to existing project:
+   Or [**create**](https://cli.vuejs.org/guide/creating-a-project.html) manually new project with following **features**: `router`, `vuex`, `babel`, `scss`, and add plugin to your project. 
    
    ```
    vue add clm-helper

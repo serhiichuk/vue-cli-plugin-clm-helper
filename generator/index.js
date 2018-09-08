@@ -21,9 +21,10 @@ module.exports = (api, options, rootOptions) => {
       'vuex': '^3.0.1',
     },
     devDependencies: {
+      '@vue/cli-plugin-babel': '^3.0.1',
       'node-sass': '^4.9.0',
       'sass-loader': '^7.0.1',
-      'vue-svg-loader': '^0.5.0',
+      'vue-svg-loader': '^0.9.0',
       'qrcode-generator': '^1.4.0',
     },
   });

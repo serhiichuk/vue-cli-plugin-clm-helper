@@ -2,6 +2,12 @@
   "name": "vue-cli-plugin-clm-helper",
   "version": "1.0.0-rc-10",
   "author": "serhiichuk",
+  "description": "vue-cli 3 plugin to help developing with MI Touch, Pharma Touch and Veeva CRM systems",
+  "repository": {
+    "type": "git",
+    "url": "git+https://https://github.com/serhiichuk/vue-cli-plugin-clm-helper.git"
+  },
+  "homepage": "https://https://github.com/serhiichuk/vue-cli-plugin-clm-helper#readme",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
