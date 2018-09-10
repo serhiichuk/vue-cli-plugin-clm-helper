@@ -5,11 +5,11 @@ module.exports = package => {
       value: 'gsap',
     },
     {
-      name: 'MT Plugin',
+      name: 'MI Touch Plugin',
       value: 'mt-plugin',
     },
     {
-      name: 'Json To HTML',
+      name: 'Json To HTML Component',
       value: 'json-to-html',
     }
   ];
