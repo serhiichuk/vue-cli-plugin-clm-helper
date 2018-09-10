@@ -1,7 +1,9 @@
 const fs = require('fs');
+const path = require('path');
 const fse = require('fs-extra');
 const chalk = require('chalk');
 const { hasYarn } = require('@vue/cli-shared-utils');
+const {paths} = require('../lib/config');
 
 module.exports = (api, options, rootOptions) => {
   // modify package.json fields
@@ -89,6 +91,14 @@ module.exports = (api, options, rootOptions) => {
         deleted.push('\t' + relativePath);
       }
     });
+
+    // delete default router and store imports from "main.js"
+    const mainPath = api.resolve(api.entryFile);
+    const mainData = fs.readFileSync(mainPath, 'utf8')
+      .replace("import store from './store'", '')
+      .replace("import router from './router'", '');
+
+    fs.writeFileSync(mainPath, mainData);
 
     if (!!deleted.length) {
       console.log(`\n\n    The following files have been deleted:\n ${chalk.red(deleted.join('\n'))}\n`);

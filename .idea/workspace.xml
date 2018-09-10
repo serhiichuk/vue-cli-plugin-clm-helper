@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc77e2b5-5ea4-40c2-9169-50d6bf77588c" name="Default" comment="add $url var to slide-template">
+    <list default="true" id="fc77e2b5-5ea4-40c2-9169-50d6bf77588c" name="Default" comment="format">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/build-clm/build-veeva.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/build-clm/build-veeva.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/generate/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/generate/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/generator/template/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/generator/template/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/assets-cleaner.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/assets-cleaner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prompts.js" beforeDir="false" afterPath="$PROJECT_DIR$/prompts.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -76,95 +77,21 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generator/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1768">
-              <caret line="104" selection-start-line="104" selection-end-line="104" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/generator/template/src/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="731">
+              <caret line="94" column="3" selection-start-line="94" selection-start-column="3" selection-end-line="94" selection-end-column="3" />
               <folding>
-                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#248#954#0" />
+                <element signature="e#1042#1785#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="374">
-                <caret line="453" column="3" selection-start-line="453" selection-start-column="3" selection-end-line="453" selection-end-column="3" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="prompts.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prompts.js">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/commands/generate/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="js-cleaner.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/js-cleaner.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="assets-cleaner.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/assets-cleaner.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build-mi-touch.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/commands/build-clm/build-mi-touch.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" selection-start-line="7" selection-end-line="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="thumb-maker.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/thumb-maker.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build-pharma-touch.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/commands/build-clm/build-pharma-touch.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build-veeva.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/commands/build-clm/build-veeva.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="50" column="28" lean-forward="true" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="28" />
+            <state relative-caret-position="723">
+              <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -238,14 +165,11 @@
         <option value="$PROJECT_DIR$/generator/template/src/app-helper/components/development-page.vue" />
         <option value="$PROJECT_DIR$/generator/template/src/slides/slide-component-template.vue" />
         <option value="$PROJECT_DIR$/generator/template/src/App.vue" />
-        <option value="$PROJECT_DIR$/commands/generate/index.js" />
         <option value="$PROJECT_DIR$/commands/generate/default-templates/slide-template.vue" />
         <option value="$PROJECT_DIR$/commands/generate/_index.js" />
         <option value="$PROJECT_DIR$/lib/excel-parser.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/generator/template/vue.config.js" />
-        <option value="$PROJECT_DIR$/generator/index.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/lib/webpack-slide-builder.js" />
         <option value="$PROJECT_DIR$/lib/thumb-maker.js" />
         <option value="$PROJECT_DIR$/lib/screens-maker.js" />
@@ -256,11 +180,14 @@
         <option value="$PROJECT_DIR$/lib/util/sl-id-parser.js" />
         <option value="$PROJECT_DIR$/lib/config/index.js" />
         <option value="$PROJECT_DIR$/commands/excel-to-config.js" />
-        <option value="$PROJECT_DIR$/prompts.js" />
-        <option value="$PROJECT_DIR$/generator/template/src/main.js" />
         <option value="$PROJECT_DIR$/commands/build-clm/build-mi-touch.js" />
         <option value="$PROJECT_DIR$/lib/assets-cleaner.js" />
         <option value="$PROJECT_DIR$/commands/build-clm/build-veeva.js" />
+        <option value="$PROJECT_DIR$/prompts.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/generator/template/src/main.js" />
+        <option value="$PROJECT_DIR$/generator/index.js" />
+        <option value="$PROJECT_DIR$/commands/generate/index.js" />
       </list>
     </option>
   </component>
@@ -299,6 +226,17 @@
               <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
               <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-cli-plugin-clm-helper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-cli-plugin-clm-helper" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+              <item name="generate" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -331,26 +269,26 @@
     <property name="editorconfig.notification" value="null" />
     <property name="javascript.nodejs.core.library.configured.version" value="9.11.1" />
     <property name="jsx.switch.disabled" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Development/my-project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Development/test-release" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\t.serhiytschuk\Documents\GitHub\vue-cli-plugin-clm-helper\generator\template" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/generator/template/src/data/ua" />
-      <recent name="D:\vue-cli-plugin-clm-helper\commands\generate\templates" />
-      <recent name="D:\vue-cli-plugin-clm-helper\commands\generate" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/generator/template" />
       <recent name="$PROJECT_DIR$/commands/generate" />
       <recent name="$PROJECT_DIR$/generator/template/src/data/ru" />
       <recent name="$PROJECT_DIR$/generator/template/src/data" />
       <recent name="$PROJECT_DIR$/generator/template/src/slides" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\t.serhiytschuk\Documents\GitHub\vue-cli-plugin-clm-helper\generator\template" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/generator/template/src/data/ua" />
+      <recent name="D:\vue-cli-plugin-clm-helper\commands\generate\templates" />
+      <recent name="D:\vue-cli-plugin-clm-helper\commands\generate" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -502,20 +440,20 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207475000" />
+    <option name="totallyTimeSpent" value="211200000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2552" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20042644" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20042644" />
       <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.32984293" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.3278867" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Terminal" order="3" visible="true" weight="0.3283582" />
+      <window_info active="true" anchor="right" id="Terminal" order="3" visible="true" weight="0.3283582" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -529,7 +467,6 @@
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="3" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="0" weight="0.32984293" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32793522" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
@@ -689,13 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/webpack-slide-builder.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -754,13 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commands/generate/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/commands/build-clm/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="451">
@@ -785,30 +708,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/logo.jpg">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prompts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1768">
-          <caret line="104" selection-start-line="104" selection-end-line="104" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/template/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/thumb-maker.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -840,8 +739,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/commands/build-clm/build-veeva.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="50" column="28" lean-forward="true" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="28" />
+        <state relative-caret-position="479">
+          <caret line="78" column="41" selection-start-line="78" selection-start-column="41" selection-end-line="78" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prompts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/template/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="38" lean-forward="true" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="94" column="3" selection-start-line="94" selection-start-column="3" selection-end-line="94" selection-end-column="3" />
+          <folding>
+            <element signature="e#248#954#0" />
+            <element signature="e#1042#1785#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commands/generate/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="723">
+          <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
         </state>
       </provider>
     </entry>
