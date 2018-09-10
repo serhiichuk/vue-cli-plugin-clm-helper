@@ -10,6 +10,7 @@ const { clm, structure, languages } = require(paths.clm.config);
 
 const webpackSlideBuild = require('../../lib/webpack-slide-builder');
 const assetsCleaner = require('../../lib/assets-cleaner');
+const jsCleaner = require('../../lib/js-cleaner');
 const thumbMaker = require('../../lib/thumb-maker');
 const archiveMaker = require('../../lib/archive-maker');
 
@@ -30,15 +31,18 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
     /** Webpack Build **/
     await webpackSlideBuild(api, projectOptions);
 
-    /** Clean excess from assets directory **/
-    if (!args.options['no-clear-assets']) assetsCleaner();
-
     /** Create screens **/
     if (!args.options['no-screens']) await require('../../lib/screens-maker')(sl);
 
     /** Create thumbnails **/
     await thumbMaker({ width: 849, height: 637, thumbName: `${outSlName}-full.jpg` });
     await thumbMaker({ width: 200, height: 150, thumbName: `${outSlName}-thumb.jpg` });
+
+    /** Clean excess from assets directory **/
+    if (!args.options['no-clear-assets']) assetsCleaner();
+
+    /** Clean excess from js directory **/
+    if (!args.options['no-clear-js']) jsCleaner();
 
     /** Create Archive **/
     await archiveMaker({ archiveSubDir: outSlName });
@@ -76,26 +80,26 @@ function generateVeevaCsv(clmName) {
     const id = isSlideType ? getFullId(sl.id, lang) : '';
 
     return [
-      isSlideType ? id : productName,         // name__v
-      isSlideType ? productName : '',                  // Presentation Link
-      isSlideType ? 'Slide' : 'Presentation',      // Type
-      isSlideType ? id + '.zip' : '',                  // slide.filename
-      isSlideType ? id : productName,         // external_id__v
-      isSlideType ? 'CRM Content Lifecycle' : 'Binder Lifecycle',  // lifecycle__v
-      isSlideType ? '' : csv.product,         // pres.product__v.name__v
-      isSlideType ? csv.product : '',                  // slide.product__v.name__v
-      isSlideType ? '' : csv.country,         // pres.country__v.name__v
-      isSlideType ? csv.country : '',                  // slide.country__v.name__v
-      isSlideType ? '' : 'YES',               // pres.clm_content__v
-      isSlideType ? 'YES' : '',                  // slide.clm_content__v
-      isSlideType ? 'HTML' : '',                  // slide.crm_media_type__v
-      isSlideType ? '' : '',                  // pres.crm_presentation_id__v
-      isSlideType ? '' : '',                  // slide.crm_disable_actions__v
+      isSlideType ? id : productName, // name__v
+      isSlideType ? productName : '', // Presentation Link
+      isSlideType ? 'Slide' : 'Presentation', // Type
+      isSlideType ? id + '.zip' : '', // slide.filename
+      isSlideType ? id : productName, // external_id__v
+      isSlideType ? 'CRM Content Lifecycle' : 'Binder Lifecycle', // lifecycle__v
+      isSlideType ? '' : csv.product, // pres.product__v.name__v
+      isSlideType ? csv.product : '', // slide.product__v.name__v
+      isSlideType ? '' : csv.country, // pres.country__v.name__v
+      isSlideType ? csv.country : '', // slide.country__v.name__v
+      isSlideType ? '' : 'YES', // pres.clm_content__v
+      isSlideType ? 'YES' : '', // slide.clm_content__v
+      isSlideType ? 'HTML' : '', // slide.crm_media_type__v
+      isSlideType ? '' : '', // pres.crm_presentation_id__v
+      isSlideType ? '' : '', // slide.crm_disable_actions__v
     ].join(',') + '\n'
   };
 
   // Generate CSV for each lang
-  languages.forEach(lang => {
+  fs.readdirSync(path.join(paths.dist, clmName)).forEach(lang => {
     let data = '';
     const productName = `${clm.productName}_${lang.toUpperCase()}`;
 

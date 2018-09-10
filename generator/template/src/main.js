@@ -10,10 +10,11 @@ Vue.use(Vue2TouchEvents, { swipeTolerance: 80 });
 Vue.use(MtPlugin, store);
 <%_ } _%>
 <%_ if (options['frequently-packages-answers'].includes('json-to-html')) { _%>
-Vue.component('json-to-vue', JsonToVue);
+Vue.component('json-to-html', JsonToVue);
 <%_ } _%>
-Vue.config.productionTip = process.env.NODE_ENV === 'production';
+
 Vue.mixin(mixins.global);
+Vue.config.productionTip = process.env.NODE_ENV === 'production';
 
 new Vue({
   el: '#app',
