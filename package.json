@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-clm-helper",
-  "version": "1.0.0-test-4",
+  "version": "1.0.0-test-5",
   "author": "serhiichuk",
   "description": "vue-cli 3 plugin to help developing with MI Touch, Pharma Touch and Veeva CRM systems",
   "repository": {
@@ -11,7 +11,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "push": "yarn unlink && yarn publish"
+    "push": "yarn unlink || yarn publish"
   },
   "dependencies": {
     "@vue/cli-service": "^3.0.0-rc.3",
