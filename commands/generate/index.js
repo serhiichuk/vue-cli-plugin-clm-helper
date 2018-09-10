@@ -56,7 +56,7 @@ function createSlide(sl) {
   const slCompiledPath = path.join(paths.src, 'slides', sl.path + '.vue');
   const data = {
     slide: sl,
-    src: path.relative(path.resolve(slCompiledPath, '../'), paths.src),
+    src: path.relative(path.resolve(slCompiledPath, '../'), paths.src).replace(/\\/g, '/'),
   };
 
   ejs.renderFile(slTemplatePath, data, (err, compiled) => {
