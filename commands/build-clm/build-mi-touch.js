@@ -28,12 +28,6 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
     /** Webpack Build **/
     await webpackSlideBuild(api, projectOptions);
 
-    /** Clean excess from assets directory **/
-    if (!args.options['no-clear-assets']) assetsCleaner();
-
-    /** Clean excess from assets directory **/
-    if (!args.options['no-clear-js']) jsCleaner();
-
     /** Create screens **/
     if (!args.options['no-screens']) await require('../../lib/screens-maker')(sl);
 
@@ -45,13 +39,17 @@ module.exports = async (api, projectOptions, args, slidesToBuild, clmName) => {
       thumbPath: path.join(process.env.VUE_APP_OUT_DIR_PATH, 'media', 'images', 'thumbnails'),
     });
 
+    /** Clean excess from assets directory **/
+    if (!args.options['no-clear-assets']) assetsCleaner();
+
+    /** Clean excess from js directory **/
+    if (!args.options['no-clear-js']) jsCleaner();
+
     /** MI Touch special **/
     createSpecialMiTouchElements();
 
     /** Create Archive **/
-    await archiveMaker({
-      archiveName: process.env.VUE_APP_OUT_DIR_NAME,
-    });
+    await archiveMaker({ archiveName: process.env.VUE_APP_OUT_DIR_NAME });
   }
 };
 
